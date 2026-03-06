@@ -1,0 +1,416 @@
+ /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+ @media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+body {
+    font-family: 'Times New Roman';
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    margin-top: 40%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 1px 1px 10px 10px;
+    background-color: #E4EBF7;
+    box-shadow: 5px 20px 20px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+.dropdown-icon-default{
+    background-image: url('/images/dropdown.png');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 90%;
+    margin-top: 6%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+/*DEFAULT*/
+.img{
+    margin-top: 13%;
+    margin-left: 15%;
+}
+
+.text-head1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 60%;
+    margin-top: -40%;
+    width: 100%;
+}
+
+
+.text-secondline1{
+    font-size: 10px;
+    margin-left: 60%;
+    margin-top: -13%;
+    width: 100%;
+}
+
+.text-thirdline1{
+    font-size: 10px;
+    margin-left: 60%;
+    margin-top: -13%;
+    margin-bottom: 0%;
+    width: 100%;
+}
+
+/*OPTIONS*/
+.dropdown-text {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 1%;
+}
+
+.text-head {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.text-secondline{
+    font-size: 10px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.text-thirdline{
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}  
+
+td.box-status-green{
+    background-color: #C9DBBA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-green{
+    width: 20%;
+    border: none;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-red{
+    background-color: #EECCCA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-red{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-yellow{
+    background-color: #f1e6c1;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-yellow{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+/*UNG GRID CONTAINER KATABI NG SELECT FACULTY*/
+.grid-con-colleges-second{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    border: 2px #395583;
+    grid-gap: 20px; 
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-align-it{
+    text-align: right;
+    margin-right: auto;
+    margin-right: -10px;
+}
+
+.deptevaldatareport{
+    color: black;
+}
+
+.deptevaldatareport:hover{
+    text-decoration: none;
+    color:#395583;
+}
+
+.text-align-dept-eval-report{
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.img-it-logo{
+    margin-right: auto;
+    margin-right: 5%;
+    margin-top: -15px;
+}
+
+/*BUTTON PRINT EVAL*/
+.btn-print-eval{
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    width: 300px;
+    margin-left: 73.5%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.btn-print-eval:hover{
+    background-color:#ffff;
+    border-color: #395583;
+    border-radius: 5px;
+    color: #395583;
+}
+
+/*EVALUATION RESULTS AND DROPDOWN*/
+.grid-con-eval-sec{
+    margin-left: 39px; 
+    margin-right: 39px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #F8F8F8;
+    height: fit-content;
+    width: 94.5%;
+}
+
+.grid-con-eval-results{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    border: 2px #395583;
+    grid-gap: 20px; 
+    width: 96%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
+    position: relative;
+}
+
+.text-align-eval-dept{ 
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-ay-dept{
+    margin-top: 15px;
+    margin-left: 280px;
+}
+
+/*OVERALL RESULTS INDICATION*/
+.searchevaldatareport-table-status{
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 40%;
+    border: none;
+    white-space: nowrap;
+}
+
+td.box-status-green{
+    background-color: #C9DBBA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-green{
+    width: 20%;
+    border: none;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-red{
+    background-color: #EECCCA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-red{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-yellow{
+    background-color: #f1e6c1;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-yellow{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+/*EVALUATION RESULTS TABLE*/
+.thead-eval-sec{
+    background-color: #E4EBF7;
+    width: 98.5%;
+    text-align: center;
+    color: #000000;
+}
+
+.thead-eval-sec th {
+    border-bottom: 1px solid black;
+  }
+  
+
+.table{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 20px;
+    width:96%;
+}
+
+table , td, th {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    text-align:center;
+    padding: 0%;
+}
+
+td.evalpage-empstatus{
+    width:13%;
+}
+
+.text-size{
+    font-size: 15px;
+}
+
+.depevalprint{
+    width: auto;
+    height: 40px;
+    margin-left: 30px;
+    margin-top: 2%;
+}
+
+.h3-dept { /*Prof details*/
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.h6-dept { /*Prof details*/
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.h4-dept{
+    font-family: 'Times New Roman';
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 12px;
+    margin-top: 3.5%;
+    margin-right: 30px;
+    margin-left: auto;
+    color: #395583!important;
+}
+
+.btn-searchaybutton{
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    border-radius: 0%;
+    width: 80px;
+    height: 25px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.btn-searchaybutton:hover{
+    background-color:#ffff;
+    border-color: #395583;
+    border-radius: 0%;
+    color: #395583;
+}
+
+.status-red {
+    background-color: #EECCCA !important;
+    color: black;
+}
+
+.status-green {
+    background-color: #C9DBBA !important;
+    color: black;
+}
+
+.status-yellow {
+    background-color: #f1e6c1 !important;
+    color: black;
+}
+@media print {
+    #printButton,
+    #back,
+    #save,
+    #searchAyButton
+     {
+        display: none;
+    }
+}

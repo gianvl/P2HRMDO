@@ -1,0 +1,787 @@
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+body {
+    font-family: 'Times New Roman';
+}
+
+.dropdownbox-num_id{
+    float:right;
+    margin-right: 35px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    opacity: 0;
+}
+
+/*TITLE RECRUITMENT AND PLACEMENT*/
+.mforecastform-grid-container { 
+    width: 96%; 
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 25px;
+    border-radius: 10px;
+} 
+
+.mforecastform-grid-con-title {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    width: 100%; 
+    background-color: #395583;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.mforecastform-text-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 7.5px;
+    margin-left: 15px;
+}
+
+.mforecastform-text-title-approved {
+    color: #fff;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 7.5px;
+    margin-left: 83%;
+}
+
+.mforecastform-grid-text-nxtpage {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.mforecastform-text-nxtpage {
+    color: #FFFFFF;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+.mforecastform-text-nxtpage:hover {
+    color: black;
+}
+
+.mforecastform-img-nxt {
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+.dark-grey-background{
+    margin-left: 30px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    height: fit-content;
+    width: 96%;
+    padding-bottom: 30px;
+}
+
+h1 { /*Manpower Forecast Form*/
+    font-family: 'Times New Roman';
+    font-size: 28px;
+    line-height: 15px;
+    text-align: center;
+    /** margin-right: 755px;**/
+    margin-left: 250px;
+}
+
+h2 { /*For title inside divs*/
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    line-height: 20px;
+    text-align: left;
+    margin-left: 15px;
+}
+
+
+form {
+    margin: 0;
+}
+
+
+.table-fmanpower-form{
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: none;
+    padding: 0%;
+    border-collapse: collapse;
+}
+
+.table-fmanpower-form td, .table-fmanpower-form th {
+    height: 20px;
+    margin:0%;
+    border: none;
+    padding:0%;
+}
+
+.dropsec-title{
+    width: 20px;
+    text-align: left;
+    
+}
+.dropsec-title1{
+    width: 70px;
+    text-align: left;
+    
+}
+.dropsec-title2{
+    width: 60px;
+}
+.dropsec-title3{
+    width: 190px;
+    text-align: left;
+}
+.dropsec-title4{
+    width: 60px;
+}
+
+.dropsec-contents-ay, .dropwdown-select{
+    width: 50px;
+    text-align: right;
+    margin-left: 0%;
+
+}
+
+.dropwdown-select-colleges, .dropsec-contents-colleges{
+    width: 140px;
+    padding: 0%;
+    text-align: left;
+}
+
+.optiondisabled{
+    color: #595959;
+    opacity: 0.6;
+}
+
+.dropwdown-select-department, .dropsec-contents-dep{
+    width: 200px;
+    text-align: left;
+}
+
+.dropdownbox-teach, .dropsec-contents-numteacreq{
+    width:80px;
+    text-align: left;
+
+}
+
+.dropwdown-select-sem, .dropsec-contents-sem {
+    width: 50px;
+    height:25px;
+}
+
+.dropsec-contents-sem {
+        text-align: right;
+}  
+
+
+/*EXISTING MANPOWER COMPLEMENT*/
+
+.light-grey-existingmanpower{
+    margin-left: 20px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.grid-con-existingmanpower{
+    border-radius: 10px;
+}
+
+.forecasting-EMC{
+    border: none;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 17px;
+    padding: 0%;
+}
+
+.forecasting-EMC td, .forecasting-EMC th {
+    border: none;
+    border-collapse: collapse;
+    padding: 0%;
+    font-size: 15px;
+}
+
+.forecasting-EMC td, .forecasting-EMC th {
+    padding: 3px;
+    width: 30px;
+    height: 25px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.totalbtn{
+    border-width: 0.5px;
+    border-color: #395583;
+    background-color: #f8f8f8;
+    color: #395583;   
+    width: 100px;
+    font-weight: 700;
+}
+
+.totalbtnmajorsubj{
+    border: none;
+    background-color: #f8f8f8;
+    color: #395583;   
+    width: 100%;
+    font-weight: 700;
+}
+
+.totalbtnservsubj{
+    border: none;
+    background-color: #f8f8f8;
+    color: #395583;   
+    width: 100%;
+    font-weight: 700;
+}
+
+.totalrow{
+    background-color: #f8f8f8;
+}
+
+.addbtn {
+    border: 0.5px solid #395583;
+    background-color: #f8f8f8;
+    color: #395583;   
+    width: 100%;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.forecasting-EMC .emc-titlecol{
+    width: 20%;
+}
+
+.forecasting-EMC .emc-total{
+    width: 5%;
+    text-align: right;
+}
+
+.forecasting-EMC .emc-inputtxt {
+    width: 20%;
+    text-align: left;
+    margin-left: 10px;
+
+}
+
+.txtboxemc{
+    width:70px; /*originally 200 */
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+/*NAME OF FACULTY MEMBERS TO BE REPLACED*/
+
+.light-grey-facultymembers{
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.tablefr-overall-status{
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-left: 20px;
+    padding: 0%;
+    
+}
+
+.tablefr-overall-status th, .tablefr-overall-status td {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    font-size: 15px;
+    padding: 3px;
+    height: 25px;
+    position: relative;
+    }
+
+.text-con-fr-first-section{
+    width: 25%;
+    background-color: #E4EBF7;
+    font-weight: 700;
+
+}
+
+.text-con-fr-second-section{
+    width: 20%;
+    font-weight: 700;
+    background-color: #E4EBF7;
+}
+
+.text-con-fr-third-section{
+    width: 30%;
+    font-weight: 700;
+    background-color: #E4EBF7;
+}
+
+.action-buttons{
+    width: 9%;
+}
+
+.reasonforhiring, .namefacreplace, .reasonreplace{
+    height: 100%;
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+
+.addmem{
+    border: none;
+    background-color: #395583;
+    color: #ffffff;   
+    width: 95%;
+    padding: 0%;
+    font-weight: 550;
+    text-align: center;
+    display: inline-block;
+}
+
+.addsubj {
+    border: none;
+    background-color: #395583;
+    color: #ffffff;   
+    width: 95%;
+    padding: 0%;
+    font-weight: 550;
+    text-align: center;
+    display: inline-block;
+    height: 40px;
+}
+
+.addmem:Hover, .addsubj:hover{
+    background-color: #E4EBF7;
+    color: #395583;
+}
+
+.remove-subj:hover, .remove_namefacreplacebtn:hover{
+    background-color: #f3d9de;
+    color: #bb3030;
+}
+
+.remove-subj, .remove_namefacreplacebtn {
+    border: none;
+    background-color: #bb3030;
+    color: #ffffff;
+    width: 95%;
+    padding: 0%;
+    font-weight: 550;
+    text-align: center;
+    display: inline-block;
+
+}
+
+/*NUMBER OF ADDITIONAL FACULTY MEMBERS*/ /*JOB SPECIFICATION*/
+.light-grey-jobspecification{
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.table-num-add-fac{
+    border: none;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 17px;
+    padding: 0%;
+}
+
+.table-num-add-fac td{
+    border: none;
+    padding: 2px;
+}
+
+/*A.*/
+.light-grey-majorsubjects{
+    margin-left: 20px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.major-subjects{
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0%;
+}
+
+.major-subjects,  .major-subjects td, .major-subjects th {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    padding: 0%;
+    font-size: 15px;
+}
+.major-subjects td, .major-subjects th {
+    padding: 0%;
+    width: 30px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.mforecast-A{
+    width: 95%;
+
+}
+
+/*B.*/
+.emc-inputtext::placeholder{
+    width: 100%;
+    border: none;
+    text-align: center;
+    opacity: 0.5;
+}
+
+
+.emc-inputtext{
+    width: 100%;
+    border: none;
+    text-align: center;
+
+}
+.light-grey-servicesubjects{
+    margin-left: 20px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.service-subjects {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0%;
+}
+.service-subjects td, .service-subjects th {
+    padding: 3px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.service-subjects th {
+    background-color: #E4EBF7 ;
+}
+
+.servicesubjsrow{
+    width:40%;
+}
+.semsrow{
+    width: 30%;
+}
+.numbervariable{
+    width: 13%;
+}
+
+/*GRAND TOTAL*/
+.light-grey-grandtotal{
+    margin-left: 20px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+}
+
+.grand-total {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0%;
+}
+
+.grand-total , .grand-total td, .grand-total th {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+}
+.grand-total td, .grand-total th {
+    padding: 3px;
+    width: 30px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.btn-eval-save{
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    border-radius: 5px;
+    width: 300px;
+    margin-left: 73.5%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-eval-save:hover{
+    background-color:#ffff;
+    border-color: #395583;
+    border-radius: 5px;
+    color: #395583;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/*EMPLOYMENT STATUS*/
+.grid-con-employment-stat{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    width: 100%; 
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+
+.grid-con-text-jobspecif{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table-jobspecification {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    margin-top: 10px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    border: none;
+}
+
+.table-jobspecification td:nth-child(1) {
+    text-align: right;
+    width: 50%;
+    padding-left: 60px;
+    border: none;
+}
+
+.table-jobspecification td:nth-child(2) {
+    padding-left: 40px;
+    border: none;
+}
+
+/*ATTACH SIGNATURE*/
+.light-grey-signature{
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: fit-content;
+    width: 97%;
+    padding-bottom: 20px;
+}
+
+.grid-con-chairperson-dean{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+
+.dean-signature{
+    margin-left: -20px;
+}
+
+.grid-con-approval{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+
+.vpa-signature{
+    margin-left: -20px;
+}
+
+.blue-header{
+    background-color: #E4EBF7;
+}
+
+.btn-deleteforecast{
+    color: #fff;
+    background-color: #f03535;
+    border-color: #f03535;
+    height: 30px;
+    border-radius: 0%;
+    width: 80%;
+    
+}
+
+.btn-deleteforecast:hover{
+    background-color:#ffffff;
+    border-color: #f03535;
+    color: #f03535;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px; /* Set the width to make the radio buttons larger */
+    height: 15px; /* Set the height to make the radio buttons larger */
+    border: 1px solid #000; /* Add a border to create a custom appearance */
+    border-radius: 50%; /* Make it circular */
+    vertical-align: middle;
+}
+
+/* Style for the selected (checked) radio buttons */
+input[type="radio"]:checked {
+    background-color: black; /* Set the background color to black */
+}
+
+/* Center the options in the dropdown */
+.dropwdown-select {
+    text-align: center;
+}
+
+/* Center the selected option when displayed */
+.dropwdown-select option {
+    text-align: center;
+}
+
+.dropwdown-select-sem{
+    text-align: center;
+}
+
+.dropwdown-select-sem option{
+    text-align: center;
+}
+
+/*Approval - Forecast Form Attach Signature*/
+
+.mforecastform-grid-container { 
+    display: grid; 
+    grid-template-columns: 1fr;
+    width: 96%; 
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+} 
+
+.mforecastform-grid-con-title{
+    background-color: #395583;
+    height: 50px;
+    border-radius: 10px;
+}
+
+/* Disapproved */
+.status-red { 
+    background-color: #EECCCA !important;
+    color: black;
+}
+
+/* Completed */
+.status-green {
+    background-color: #C9DBBA !important;
+    color: black;
+}
+
+/* Pending */
+.status-yellow {
+    background-color: #f1e6c1 !important;
+    color: black;
+}
+
+/* Waiting for Approval */
+.status-orange { 
+    background-color: #eed7ca !important;
+    color: black;
+}
+
+/* To be sent for Approval */
+.status-blue {
+    background-color: #f9dca5 !important;
+    color: black;
+}
+
+/* Approved */
+.status-violet {
+    background-color: #b7f9b7b0 !important;
+    color: #000000;
+}
+
+.search-container {
+	display: flex;
+	align-items: center;
+    float: right;
+	margin-bottom: 1%;
+    font-size: 18px;
+    margin-right: 55px;
+    width: 200px;
+}
+
+.search-container .search-icon {
+	margin-left: -30px;
+	align-items: center;
+
+}
+
+@media print {
+    #printButton,
+    #back,
+    #save
+     {
+        display: none;
+    }
+}

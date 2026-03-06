@@ -1,0 +1,234 @@
+
+     /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+     @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    body {
+        font-family: 'Times New Roman';
+    }
+
+    .navbar-header{
+    background-color: #395583;
+    height: 50px;
+    position: relative;
+    }
+
+    .adulogo{
+        width: 150px;
+        height: 150px;
+        margin-top: -3px;
+        margin-left: 0px;
+    }
+
+    .navbar-profile{
+        margin-top: -115px;
+    }
+
+    .navbar-profile .dropdown-menu{
+        position: absolute;
+        top: 100%;
+        right: auto;
+        z-index: 1000;
+        font-family: 'Times New Roman';
+    }
+
+    .navbar-text{
+        color: white;
+        font-size: 15px;
+        font-family: 'Times New Roman';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 70%;
+    }
+    /*College of Science - select professors */
+    .req-saveevalpage-grid-container { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        border: 2px #395583;
+        grid-gap: 20px; 
+        width: 96%; 
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 25px;
+        position: relative;
+    } 
+
+    .req-saveevalpage-grid-con-colleges { 
+        margin: 10px; 
+        border-radius: 10px;
+        background-color: #E4EBF7;
+        height: 80px;
+        align-items: left;
+        justify-content: left;
+        
+    }
+    
+    .img-college-logo{
+        margin-top: 7px;
+        margin-bottom: 5px;
+        float:left;
+        margin-left: 10px;
+        /* clip-path: circle(50%);
+        object-fit: cover; */
+    }
+
+    .req-saveevalpage-text-align-colleges{
+        padding-left: 15px;
+        padding-top: 25px;
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    .grid-con-dropdown-select { 
+        display: grid; 
+        grid-template-columns: 1fr 0.2fr; 
+        border: 2px #395583;
+        grid-gap: 10px; 
+        width: 100%; 
+        margin-top: 25px;
+        position: relative;
+        margin-left: -3%;
+    }
+    
+    .grid-con-save-eval-sec{
+        margin-left: 39px; 
+        margin-right: 39px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: #F8F8F8;
+        height: fit-content;
+        width: 94.5%;
+    }
+
+    .grid-con-saveevalpage-sec{
+        margin-left: 39px; 
+        margin-right: 39px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: #F8F8F8;
+        height: 430px;
+        width: 94.5%;
+    }
+
+    .text-align-eval-sec{
+        margin-left: 15px;
+        margin-top: 26px;
+        float: left;
+    }
+
+    .img-prof-eval-sec{
+        margin-top: 20px;
+        margin-left: 15px;
+        float:left;
+        margin-bottom: 10px;
+        /* clip-path: circle(50%);
+        object-fit: cover; */
+    }
+
+    .thead-saveevalpage-sec{
+        background-color: #395583;
+        width: 98.5%;
+        text-align: center;
+        color: #F8F8F8;
+    }
+
+    .table{
+        margin-top: 10%;
+        margin-left: 13px;
+        width:97.5%;
+    }
+
+    table , td, th {
+        border: 1px solid #595959;
+        border-collapse: collapse;
+        text-align:center;
+        padding: 0%;
+    }
+
+    td.evalpage-empstatus{
+        width:13%;
+    }
+
+    .text-size{
+        font-size: 15px;
+    }
+
+    .btn-req-saveevalpage{
+        color: #ffffff;
+        background-color: #395583;
+        border-color: #395583;
+        width: 300px;
+        margin-left: 73%;
+        text-align: center;
+    }
+
+    .btn-req-saveevalpage:hover{
+        background-color:#ffff;
+        border-color: #395583;
+        border-radius: 5px;
+        color: #395583;
+    }
+
+    h1 {  /* College Name Font*/
+        font-family: 'Times New Roman';
+        font-size: 25px;
+        line-height: 13px;
+    }
+
+    h2 { /*Department Name Font*/
+        font-family: 'Times New Roman';
+        font-size: 18px;
+        line-height: 13px;
+    }
+    h3 { /*Prof details*/
+        font-family: 'Times New Roman';
+        font-size: 14px;
+        line-height: 13px;
+    }
+
+    h4{
+        font-family: 'Times New Roman';
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .grid-container-print-backtodashboard-saveevalpage { 
+        display: flex; 
+        width: 40%; 
+        margin-top: 10px;
+        margin-left: 182%;
+    }
+
+    .btn-backDashboard{
+        color: #ffffff;
+        background-color: #395583;
+        border-color: #395583;
+        border-radius: 5px;
+        width: 300px;
+        margin-left: 78.3%;
+        text-align: center;
+    }
+
+    .btn-backDashboard:hover{
+        background-color:#ffff;
+        border-color: #395583;
+        border-radius: 5px;
+        color: #395583;
+    }
+    @media print {
+        #printButton,
+        #back,
+        #save
+         {
+            display: none;
+        }
+    }
+    

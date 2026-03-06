@@ -1,0 +1,216 @@
+ /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+ @media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+body {
+    font-family: 'Times New Roman';
+}
+
+ /*GRID FOR COLUMN*/  /*GRID FOR GOBACK AND DROPDOWN*/
+.grid-con-eval-data-report-column{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    border: 2px #395583;
+    grid-gap: 20px; 
+    width: 96%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dropdown-ay{
+    margin-left: auto;
+}
+
+ /*GRID FOR BACKGROUND*/
+.grid-con-eval-data-report{
+    margin-left: 39px; 
+    margin-right: 39px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #F8F8F8;
+    height: 1000px;
+    width: 94.5%;
+}
+
+ /*BASTA UNG CONTENT BAGO MAG TABLE*/
+.img-logo-eval-data{
+    margin-top: 20px;
+    float:left;
+}
+
+.text-align-emp-data-report{
+    color: #395583;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-left: 20%;
+    text-align: right;
+}
+
+.text-align-emp-data-display-left{
+    float: left;
+    text-align: left;
+}
+
+td.box-status-green{
+    background-color: #C9DBBA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-green{
+    width: 20%;
+    border: none;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-red{
+    background-color: #EECCCA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-red{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-yellow{
+    background-color: #f1e6c1;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-yellow{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+.text-align-emp-data-display-right{ 
+    font-size: 15px;
+    text-align: right;
+}
+
+.text-goback{
+    color: #395583;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.text-goback:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.img-goback{
+    margin-left: 20px;
+    height: 15px;
+}
+
+ /*OVERALL RESULTS INDICATION*/
+ .printevaldatareport-table-status{
+    width: 40%;
+    border: none;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 45%;
+}
+
+td.box-status-green{
+    background-color: #C9DBBA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-green{
+    width: 20%;
+    border: none;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-red{
+    background-color: #EECCCA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-red{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+ /*GRID FOR SIGNATURE*/
+.grid-con-signature-column{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    border: 2px #395583;
+    grid-gap: 20px; 
+    width: 96%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 200px;
+    position: relative;
+    text-align: center;
+}
+
+.chairperson-signature{
+    text-decoration: underline;
+}
+
+.dean-signature{
+    text-decoration: underline;
+}
+
+.chairperson-approvedby{
+    margin-top: -15px;
+}
+
+.dean-approvedby{
+    margin-top: -15px;
+}
+
+h1 {  /* College Name Font*/
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    line-height: 13px;
+}
+
+h2 { /*Department Name Font*/
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    line-height: 13px;
+}
+h3 { /*Prof details*/
+    font-family: 'Times New Roman';
+    font-size: 14px;
+    line-height: 13px;
+}
+
+@media print {
+    #printButton,
+    #back,
+    #save
+     {
+        display: none;
+    }
+}

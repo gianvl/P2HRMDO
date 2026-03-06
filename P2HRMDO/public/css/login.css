@@ -1,0 +1,97 @@
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+body {
+    font-family: 'Times New Roman';
+}
+
+.loginpage{
+    background-image: url('/images/adu-skyview.jpg'); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 774px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.loginpage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+  }
+
+.login-adulogo, .adulogoimg{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    margin-left: -15px;
+    margin-top: -5px;
+    box-sizing: border-box;
+    max-width: 240%;
+    height: auto;
+}
+
+.form-control {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    padding: 5px;
+    border-width: 1px;
+    border-color: #315EA0;
+    border-radius: 5px;
+  }
+  
+  .form-control::placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #999;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-control:focus::placeholder {
+    color: transparent;
+  }
+  
+  .btn{
+    background-color: #325E9F;
+  }
+
+  .password-container{
+    position: relative;
+    margin-bottom: 20px;;
+  }
+
+  .password-container input[type="password"],
+  .password-container input[type="text"]{
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    box-sizing: border-box;
+  }
+  .fa-eye{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: lightgray;
+    border: none;
+
+    background-color: transparent;
+  }
+  

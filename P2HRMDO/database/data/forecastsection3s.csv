@@ -1,0 +1,360 @@
+freplacement_id,forecast_num_id,namefacreplace,reasonreplace,reasonforhiring,created_at,updated_at
+1,1,Harold Canatras,Transfer,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2018-01-12 14:37:00,2018-01-12 14:49:00
+2,1,Emily Carlos,Transfer,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2019-01-17 19:46:00,2019-01-18 20:46:00
+3,2,Jessica Corazon,Promotion,To cater incoming Freshmen Courses & to provide fac. Members to handle new Service Department General Elective Course ,2019-01-18 19:46:00,2019-01-19 20:46:00
+4,3,Daniel Corpuz,Resigned,Additional Subjects (after effect of K-12) ,2019-01-25 17:10:00,2019-01-26 21:10:00
+5,3,Jennelyn De Leon,Others,The courses offered this First Semester AY 2019-2020 is double the number compared to last semester,2019-01-26 17:10:00,2019-01-27 21:10:00
+6,4,Christopher Gabriel,Transfer,To replace Transfer personnel,2019-01-27 17:10:00,2019-01-28 21:10:00
+7,5,Samuel Morugay,Promotion,Current number of teachers are not enough,2020-01-26 15:18:00,2020-01-28 16:38:00
+8,6,Therese Panatos,Promotion,Current number of teachers are not enough,2020-02-05 20:33:00,2020-02-06 21:24:00
+9,6,Jonathan Parungay,Resigned,To replace resigned personnel,2021-02-16 22:10:00,2021-02-17 12:09:00
+10,7,Michelle Andrea Rivera,Others,Contract of the employee expired ,2021-02-23 13:16:00,2021-02-24 14:29:00
+11,8,Patrick Rodriguez,Others,Contract of the employee expired ,2022-03-02 15:01:00,2022-03-05 14:49:00
+12,9,Sophia Sepuntos,Others,Contract of the employee expired ,2022-03-08 15:28:00,2022-03-09 12:04:00
+13,10,Michael Valdez,Resigned,To replace resigned personnel,2023-03-13 16:49:00,2023-03-14 15:52:00
+14,11,Elise Caddrao,Promotion,Contract of the employee expired ,2018-04-10 19:46:00,2018-04-12 08:46:00
+15,11,Amiya Carinas,Transfer,Contract of the employee expired ,2018-04-11 19:46:00,2018-04-13 08:46:00
+16,12,Mayumi Fernandez,Transfer,Department is in need of more teachers for specific subject ,2019-04-17 17:26:00,2019-04-19 11:26:00
+17,13,Isabella Garcia,Promotion,Current number of teachers are not enough,2019-04-19 18:58:00,2019-04-20 10:56:00
+18,14,Jose Gonzales,Resigned,Additional Subjects (after effect of K-12) ,2020-04-19 16:34:00,2020-04-22 15:23:00
+19,14,Ana Gonzales,Promotion,To replace position of promoted personnel ,2020-04-23 13:08:00,2020-04-24 12:29:00
+20,15,Carlo Matinez,Others,To accommodate the No. of Sections to be opened in current SY,2021-04-24 16:37:00,2021-04-25 15:14:00
+21,16,Miguel Paredes,Transfer,The courses offered this First Semester are double the number compared to last semester,2021-05-02 16:45:00,2021-05-04 12:38:00
+22,17,Isabella Reyes,Promotion,Contract of the employee expired ,2021-05-03 16:45:00,2021-05-05 12:38:00
+23,18,Julia Reyes,Resigned,To replace resigned personnel,2022-05-10 14:15:00,2022-05-10 15:16:00
+24,18,Mateo Torres,Resigned,To replace resigned personnel,2022-05-11 17:26:00,2022-05-13 08:26:00
+25,19,Bianca Velasquez,Others,The courses offered this First Semester are double the number compared to last semester,2023-05-14 14:37:00,2023-05-17 13:37:00
+26,20,Isabella Garcia,Transfer,To accommodate the No. of Sections to be opened in current SY,2023-05-15 14:37:00,2023-05-18 13:37:00
+27,21,Christopher Duncan,Promotion,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2018-05-18 12:16:00,2018-05-19 14:27:00
+28,21,Jennifer Harris,Resigned,Additional Subjects (after effect of K-12) ,2019-05-21 15:47:00,2019-05-25 12:47:00
+29,22,Matthew King,Promotion,To replace position of promoted personnel ,2019-05-31 23:23:00,2019-06-01 08:39:00
+30,22,Amanda Lewis,Promotion,To replace position of promoted personnel ,2020-06-05 22:32:00,2020-06-08 09:54:00
+31,23,Andrew Moore,Resigned,The courses offered this First Semester are double the number compared to last semester,2020-06-18 20:26:00,2020-06-19 13:32:00
+32,23,Jessica Murphy,Others,Contract of the employee expired ,2020-06-19 20:26:00,2020-06-20 13:32:00
+33,24,Justine Scott,Transfer,To replace Transfer personnel,2021-06-21 23:12:00,2021-06-23 12:45:00
+34,25,Melissa Turner,Promotion,Number of students requires more professors,2021-07-02 15:16:00,2021-07-04 16:37:00
+35,26,Olivia Walker,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-07-10 14:26:00,2022-07-11 12:36:00
+36,27,Michael Young,Resigned,To accommodate the No. of Sections to be opened in current SY,2022-07-11 14:26:00,2022-07-12 12:36:00
+37,28,Kyle Larroza,Others,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2022-07-17 16:18:00,2022-07-18 13:18:00
+38,29,Dominic Castro,Transfer,The courses offered this First Semester are double the number compared to last semester,2023-07-17 18:37:00,2023-07-19 09:37:00
+39,30,Leah Sarte,Promotion,To replace Transfer personnel,2018-07-17 08:19:00,2018-07-21 10:39:00
+40,31,Zhester Bonifacio,Resigned,Number of students requires more professors,2018-07-18 08:19:00,2018-07-22 10:39:00
+41,32,Enrico Dalisay,Promotion,The courses offered this First Semester are double the number compared to last semester,2019-07-18 08:26:00,2019-07-19 15:56:00
+42,33,Agustin Delaganar,Others,To replace position of promoted personnel ,2019-07-18 13:57:00,2019-07-28 16:27:00
+43,34,Elenna Garcia,Transfer,Additional Subjects (after effect of K-12) ,2020-07-18 17:47:00,2020-07-21 08:47:00
+44,35,Lucas Isidro,Others,To accommodate the No. of Sections to be opened in current SY,2020-07-25 16:53:00,2020-07-27 12:13:00
+45,35,Nestor Ligaya,Others,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2021-07-26 09:31:00,2021-07-26 14:12:00
+46,36,Madeline Purification,Promotion,The courses offered this First Semester are double the number compared to last semester,2021-07-27 09:31:00,2021-07-27 14:12:00
+47,37,Adrian Raymundo,Resigned,To replace Transfer personnel,2021-07-30 14:23:00,2021-07-30 14:23:00
+48,38,Julius Reyes,Others,The courses offered this First Semester are double the number compared to last semester,2022-08-23 10:38:00,2022-08-23 11:49:00
+49,38,Rodeldo Salburo,Others,The courses offered this First Semester are double the number compared to last semester,2022-08-27 12:11:00,2022-08-27 16:25:00
+50,38,Josefina Madrgial,Others,To replace position of promoted personnel ,2023-09-05 17:22:00,2023-09-06 10:24:00
+51,39,Melody Sicam,Promotion,Additional Subjects (after effect of K-12) ,2018-09-07 09:00:00,2018-09-07 15:58:00
+52,40,Maria Victoria Sto. Tomas,Resigned,To accommodate the No. of Sections to be opened in current SY,2019-09-17 18:51:00,2019-09-18 08:51:00
+53,41,John Anderson,Transfer,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2019-09-18 13:12:00,2019-09-18 16:26:00
+54,42,Emily Brown,Others,The courses offered this First Semester are double the number compared to last semester,2020-09-24 11:08:00,2020-09-24 13:38:00
+55,42,Sarah Davis,Others,To replace Transfer personnel,2020-09-26 16:55:00,2020-09-27 12:55:00
+56,43,Michael Valdez,Promotion,Number of students requires more professors,2021-09-27 12:52:00,2021-09-28 08:59:00
+57,44,Jessica Johnson,Resigned,The courses offered this First Semester are double the number compared to last semester,2021-09-27 17:18:00,2021-09-29 14:31:00
+58,45,David Johnson,Promotion,To replace position of promoted personnel ,2022-11-09 19:21:00,2022-11-10 15:11:00
+59,45,Lisa Martinez,Promotion,To replace position of promoted personnel ,2022-11-13 17:20:00,2022-11-14 09:20:00
+60,46,Kevin Miller,Others,To accommodate the No. of Sections to be opened in current SY,2023-12-14 15:28:00,2023-12-14 16:57:00
+61,47,Laura Smith,Transfer,Number of students requires more professors,2018-01-10 08:49:00,2018-01-10 18:56:00
+62,48,Brian Taylor,Resigned,The courses offered this First Semester are double the number compared to last semester,2019-01-14 10:13:00,2019-01-14 12:16:00
+63,49,Ashley Williams,Promotion,To replace position of promoted personnel ,2019-01-24 09:36:00,2019-01-24 19:43:00
+64,50,Gregory Veterano,Resigned,Additional Subjects (after effect of K-12) ,2020-02-05 15:30:00,2020-02-05 17:20:00
+65,51,Carlo Andres,Others,Number of students requires more professors,2020-02-06 13:56:00,2020-02-06 15:26:00
+66,51,Edison Phillip Apilo,Transfer,To accommodate the No. of Sections to be opened in current SY,2021-04-03 13:22:00,2021-04-03 16:31:00
+67,51,Mariah Issabella Grace Barba,Resigned,Number of students requires more professors,2021-04-19 09:33:00,2021-04-19 14:12:00
+68,52,Keith Limuel Bejasa,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-04-23 14:17:00,2022-04-24 17:17:00
+69,53,Maria Katrina De Paz,Resigned,To replace position of promoted personnel ,2022-04-24 15:50:00,2022-04-26 14:50:00
+70,54,Arturo Gaitano Iii,Others,Additional Subjects (after effect of K-12) ,2023-04-26 15:03:00,2023-04-27 11:14:00
+71,55,Jonyl Garcia,Transfer,To accommodate the No. of Sections to be opened in current SY,2018-05-01 11:58:00,2018-05-01 18:14:00
+72,56,Adrian Go,Transfer,To accommodate the No. of Sections to be opened in current SY,2019-05-06 16:44:00,2019-05-08 13:35:00
+73,56,Mervin Hinampas,Transfer,To accommodate the No. of Sections to be opened in current SY,2019-05-10 14:27:00,2019-05-13 15:57:00
+74,56,Kristoffer Lanze Andrew Molina,Others,To replace position of promoted personnel ,2020-05-10 13:42:00,2020-05-10 15:26:00
+75,57,Ken Scymon Montalba,Transfer,Additional Subjects (after effect of K-12) ,2020-05-13 15:33:00,2020-05-13 18:49:00
+76,58,Frederique Moralejo,Promotion,Number of students requires more professors,2021-05-13 16:32:00,2021-05-14 10:11:00
+77,59,Ronald Jefferson Narceda,Transfer,To accommodate the No. of Sections to be opened in current SY,2021-05-14 12:06:00,2021-05-14 18:39:00
+78,60,Vanesa Segan-Serafines,Promotion,Number of students requires more professors,2022-06-06 22:42:00,2022-06-07 10:23:00
+79,60,Runir Antonio Timones,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-06-20 19:58:00,2022-06-23 16:38:00
+80,61, Jay Abaleta,Resigned,To replace position of promoted personnel ,2023-06-28 11:19:00,2023-06-28 18:23:00
+81,62,Jessie Alamil,Others,Additional Subjects (after effect of K-12) ,2018-07-11 11:31:00,2018-07-11 15:46:00
+82,63,Jerome Alvez,Transfer,To accommodate the No. of Sections to be opened in current SY,2019-07-16 08:14:00,2019-07-16 15:37:00
+83,63,Billy Jay Angeles,Promotion,Number of students requires more professors,2019-07-25 15:04:00,2019-07-26 12:17:00
+84,64,Renato Baisa,Promotion,The courses offered this First Semester are double the number compared to last semester,2020-07-26 18:30:00,2020-07-27 15:26:00
+85,65,Carmelita Benito,Resigned,To replace position of promoted personnel ,2020-07-31 15:11:00,2020-07-31 16:51:00
+86,66,Joel Hernandez,Others,Additional Subjects (after effect of K-12) ,2021-08-07 10:36:00,2021-08-11 18:20:00
+87,67,Joey Miller Minguillan,Others,Number of students requires more professors,2021-08-08 15:15:00,2021-08-08 18:37:00
+88,67,Alexis Moralles,Others,Number of students requires more professors,2022-08-09 12:03:00,2022-08-09 19:21:00
+89,68,Ma.Christina Navarro,Resigned,Number of students requires more professors,2022-08-15 15:59:00,2022-08-16 12:01:00
+90,69,Jesus Paguigan,Promotion,The courses offered this First Semester are double the number compared to last semester,2023-08-15 19:24:00,2023-08-16 09:32:00
+91,69,Carlo Felipe Poblete,Transfer,To replace position of promoted personnel ,2018-09-03 09:58:00,2018-09-03 17:32:00
+92,70,Davood Pour Youseffian Barfeh,Transfer,Additional Subjects (after effect of K-12) ,2019-09-05 19:43:00,2019-09-07 12:36:00
+93,71,Leonardo Luis Alejandro,Promotion,To accommodate the No. of Sections to be opened in current SY,2019-09-19 08:39:00,2019-09-19 17:47:00
+94,72,Marvi Bayrante,Resigned,Number of students requires more professors,2020-09-19 11:59:00,2020-09-19 13:39:00
+95,73,Anette Daligcon,Promotion,The courses offered this First Semester are double the number compared to last semester,2020-09-26 18:38:00,2020-09-27 16:38:00
+96,73,Gloria Dela Cruz,Others,To replace position of promoted personnel ,2021-10-14 08:01:00,2021-10-14 18:37:00
+97,74,Gene Justin Rosales,Transfer,Additional Subjects (after effect of K-12) ,2021-11-04 17:39:00,2021-11-05 12:29:00
+98,75,Niña Ana Marie Jocelyn Sales,Promotion,Number of students requires more professors,2022-11-26 16:51:00,2022-11-27 16:51:00
+99,75,Felnita Tan,Resigned,To accommodate the No. of Sections to be opened in current SY,2022-11-28 14:35:00,2022-11-28 16:29:00
+100,76,Rizalina Valencia,Promotion,To replace resigned personnel,2023-12-19 14:41:00,2023-12-20 08:41:00
+101,77,Quintina Verceles,Others,Contract of the employee expired ,2018-12-25 08:31:00,2018-12-25 15:14:00
+102,78,Maria Jasmin Villanueva,Transfer,Number of students requires more professors,2019-12-27 15:01:00,2019-12-28 12:10:00
+103,79,Charlene Vergara,Promotion,Department is in need of more teachers for specific subject ,2019-12-30 13:50:00,2019-12-30 16:12:00
+104,80,Archie Santiago,Resigned,Current number of teachers are not enough,2020-12-31 15:42:00,2020-12-31 17:32:00
+105,81,Joshua Toledo,Resigned,Current number of teachers are not enough,2018-05-01 11:58:00,2018-05-01 18:14:00
+106,82,Mark Anthony Belen,Resigned,Current number of teachers are not enough,2019-05-06 16:44:00,2019-05-08 13:35:00
+107,83,Bernhard Cordova,Resigned,Current number of teachers are not enough,2018-05-01 11:58:00,2018-05-01 18:14:00
+108,84,Harvey Corpuz,Resigned,Current number of teachers are not enough,2019-05-06 16:44:00,2019-05-08 13:35:00
+109,85,Galeno Umali,Resigned,Current number of teachers are not enough,2018-05-01 11:58:00,2018-05-01 18:14:00
+110,86,Jovy Alfonso,Promotion,Additional Subjects (after effect of K-12) ,2020-12-31 10:49:00,2020-12-31 17:49:00
+111,87,Dustin Beunaventura,Others,To replace position of promoted personnel ,2021-01-01 19:48:00,2021-01-01 12:14:00
+112,88,Jinky Cabrela,Resigned,To accommodate the No. of Sections to be opened in current SY,2021-01-08 15:18:00,2021-01-09 12:09:00
+113,89,Cristine Joi Cabrera,Others,The courses offered this First Semester are double the number compared to last semester,2022-01-08 08:16:00,2022-01-08 19:32:00
+114,89,Alan Cañares,Transfer,Contract of the employee expired ,2022-01-13 16:55:00,2022-01-14 14:17:00
+115,90,Elisa Casquejo,Promotion,To replace resigned personnel,2023-01-14 09:02:00,2023-01-15 16:47:00
+116,90,Marlon Castillo,Promotion,Contract of the employee expired ,2018-01-21 11:14:00,2018-01-21 12:00:00
+117,91,Mary Christine Ching,Resigned,Number of students requires more professors,2019-01-23 08:57:00,2019-01-23 14:37:00
+118,92,Russel Archival Escasenas,Others,Department is in need of more teachers for specific subject ,2019-02-10 10:52:00,2019-02-10 13:31:00
+119,93,Rodil Fadri,Transfer,Current number of teachers are not enough,2020-02-11 18:19:00,2020-02-12 09:36:00
+120,94,Aurora Fernando,Promotion,Additional Subjects (after effect of K-12) ,2020-02-14 14:35:00,2020-02-14 17:15:00
+121,95,Ireneo Ignacio,Resigned,To replace position of promoted personnel ,2021-02-20 08:46:00,2021-02-20 18:14:00
+122,96,Jonathan Joaquin,Promotion,To accommodate the No. of Sections to be opened in current SY,2021-02-25 08:37:00,2021-02-25 19:07:00
+123,97,Robertson Laban,Others,The courses offered this First Semester are double the number compared to last semester,2022-02-27 10:54:00,2022-02-27 18:28:00
+124,98,Joan Awingan,Transfer,Contract of the employee expired ,2022-03-04 16:08:00,2022-03-04 18:18:00
+125,99,Zorablel Maria Delos Reyes,Others,To replace resigned personnel,2023-03-24 18:16:00,2023-03-25 09:16:00
+126,100,Renz Marion Gamido,Others,Contract of the employee expired ,2018-03-30 10:20:00,2018-03-30 15:20:00
+127,100,Jellie Anne Hagunoy,Others,Contract of the employee expired ,2019-04-03 08:06:00,2019-04-04 11:28:00
+128,101,Maria Brenda Hernandez,Resigned,Department is in need of more teachers for specific subject ,2019-04-03 10:28:00,2019-04-07 16:19:00
+129,101,Wilhelm Javier,Transfer,Current number of teachers are not enough,2020-04-08 18:51:00,2020-04-09 09:21:00
+130,102,Richard Lagrimas,Others,Additional Subjects (after effect of K-12) ,2020-04-17 12:02:00,2020-04-17 18:17:00
+131,103,Jorshua Mark Nombre,Others,To replace position of promoted personnel ,2021-04-21 17:18:00,2021-04-22 10:20:00
+132,103,Lyn Paraguison,Promotion,To accommodate the No. of Sections to be opened in current SY,2021-04-24 16:12:00,2021-04-24 18:40:00
+133,104,Mikhail Sai,Resigned,The courses offered this First Semester are double the number compared to last semester,2022-04-29 14:18:00,2022-04-29 14:18:00
+134,104,Julius John Salamanes,Transfer,Contract of the employee expired ,2022-05-05 12:51:00,2022-05-05 14:19:00
+135,105,Sigfredo Solano,Transfer,Contract of the employee expired ,2023-05-15 19:27:00,2023-05-15 19:27:00
+136,105,Hannah Shane Soriano,Others,Contract of the employee expired ,2018-06-04 15:24:00,2018-06-04 18:38:00
+137,105,Liezel Moises Abrea,Promotion,Number of students requires more professors,2019-06-16 15:28:00,2019-06-17 12:09:00
+138,106,Liam Santos,Resigned,Additional Subjects (after effect of K-12) ,2020-07-26 18:30:00,2020-07-27 15:26:00
+139,107,Emma Reyes,Transfer,To replace position of promoted personnel ,2020-09-26 18:38:00,2020-09-27 16:38:00
+140,108,Olivia Garcia,Transfer,To accommodate the No. of Sections to be opened in current SY,2020-07-26 18:30:00,2020-07-27 15:26:00
+141,109,Noah Cruz,Others,The courses offered this First Semester are double the number compared to last semester,2020-09-26 18:38:00,2020-09-27 16:38:00
+142,110,Ava Fernandez,Promotion,Contract of the employee expired ,2020-07-26 18:30:00,2020-07-27 15:26:00
+143,111,Michelle Mavel Lea Delos Santos,Resigned,Department is in need of more teachers for specific subject ,2019-06-22 10:56:00,2019-06-22 18:46:00
+144,111,Roxanne Erica Ejoc,Promotion,Current number of teachers are not enough,2020-06-30 13:03:00,2020-06-30 16:38:00
+145,112,Joseph Terell Malabuyo,Resigned,Additional Subjects (after effect of K-12) ,2020-07-02 08:50:00,2020-07-02 12:38:00
+146,113,Hazel Joy Mendoza,Others,To replace position of promoted personnel ,2021-07-14 12:53:00,2021-07-14 18:31:00
+147,114,Mary Louise Miranda,Transfer,Current number of teachers are not enough,2021-07-24 18:56:00,2021-07-25 09:42:00
+148,115,Iris Zoe Oreta,Transfer,Current number of teachers are not enough,2022-08-04 13:07:00,2022-08-04 16:21:00
+149,116,Charles Vince Saniel,Promotion,To replace position of promoted personnel ,2022-08-04 17:55:00,2022-08-05 09:45:00
+150,117,Donna Sombrea,Resigned,To replace resigned personnel,2023-08-07 21:56:00,2023-08-07 21:56:00
+151,118,Keno Alvir Suni,Others,Number of students requires more professors,2018-08-13 17:45:00,2018-08-14 09:53:00
+152,118,Reynold Varela,Others,Number of students requires more professors,2019-08-18 22:08:00,2019-08-18 16:00:00
+153,119,Ivy Marie Zarraga,Resigned,Department is in need of more teachers for specific subject ,2019-08-21 22:35:00,2019-08-22 07:59:00
+154,120,Geraldine Pancho,Promotion,Current number of teachers are not enough,2020-08-24 20:31:00,2020-08-24 21:59:00
+155,121,Blanco Leo Balgos,Resigned,Additional Subjects (after effect of K-12) ,2020-08-26 21:43:00,2020-08-27 11:32:00
+156,122,Clodoveo Aurelius Cabungcal,Others,To replace position of promoted personnel ,2021-08-28 21:49:00,2021-08-29 13:20:00
+157,123,Terrance Noe Dungog,Transfer,To accommodate the No. of Sections to be opened in current SY,2021-09-04 23:31:00,2021-09-05 11:59:00
+158,123,Rohan Juliano Legazpí,Others,The courses offered this First Semester are double the number compared to last semester,2022-09-18 19:36:00,2022-09-18 21:01:00
+159,124,Turi Mitchell Martínez,Transfer,Contract of the employee expired ,2022-09-24 21:12:00,2022-09-25 07:09:00
+160,125,Tylor Santo Parrilla,Resigned,To replace resigned personnel,2023-09-29 21:26:00,2023-09-30 10:22:00
+161,125,Ian Terciero Quezada,Resigned,To replace resigned personnel,2018-09-29 12:34:00,2018-09-29 16:17:00
+162,126,Gaspar Orlin Roque,Promotion,Number of students requires more professors,2019-10-01 20:44:00,2019-10-02 09:21:00
+163,127,Juana Benita Samonte,Transfer,Department is in need of more teachers for specific subject ,2019-10-12 23:14:00,2019-10-13 09:11:00
+164,128,Jarrod Che Umali,Promotion,To replace position of promoted personnel ,2020-10-13 13:46:00,2020-10-13 19:31:00
+165,128,Angelina Reya Villaécija,Promotion,To replace position of promoted personnel ,2020-10-20 15:39:00,2020-10-20 17:15:00
+166,129,Annabel Miranda Villamor,Resigned,To replace position of promoted personnel ,2021-11-04 14:58:00,2021-11-04 18:01:00
+167,130,Harley Teagan Villaruz,Others,To accommodate the No. of Sections to be opened in current SY,2021-11-12 21:00:00,2021-11-13 14:00:00
+168,131,Grace Arcenio,Transfer,The courses offered this First Semester are double the number compared to last semester,2022-11-18 22:02:00,2022-11-19 15:04:00
+169,132,Ailene Ayson,Promotion,To replace position of promoted personnel ,2022-11-19 22:14:00,2022-11-20 13:20:00
+170,132,Ariel Blancaflor,Promotion,To replace position of promoted personnel ,2023-11-20 18:51:00,2023-11-20 20:28:00
+171,133,Estrella Consolidad,Resigned,Contract of the employee expired ,2018-12-10 22:11:00,2018-12-11 11:11:00
+172,134,Angelica Marie Jacinto,Others,Number of students requires more professors,2019-12-16 16:52:00,2019-12-16 19:32:00
+173,135,Richard Andree Leonardo,Others,Department is in need of more teachers for specific subject ,2019-12-22 15:45:00,2019-12-22 17:12:00
+174,136,Bernard Mayuga,Others,Current number of teachers are not enough,2020-12-22 20:07:00,2020-12-23 12:07:00
+175,137,Lorenzo Pascual,Resigned,Additional Subjects (after effect of K-12) ,2020-12-23 18:10:00,2020-12-23 21:54:00
+176,137,Gabriel Puringan,Promotion,To replace position of promoted personnel ,2021-12-25 16:45:00,2021-12-25 20:23:00
+177,138,Brandon San Andres,Transfer,To accommodate the No. of Sections to be opened in current SY,2021-12-28 15:10:00,2021-12-28 18:36:00
+178,139,Margarette Yumang,Transfer,The courses offered this First Semester are double the number compared to last semester,2022-01-01 17:07:00,2022-01-01 20:21:00
+179,140,Kayla Darang,Promotion,Contract of the employee expired ,2022-01-04 20:58:00,2022-01-05 09:21:00
+180,141,Jaimie Decepida,Resigned,To replace resigned personnel,2023-01-19 21:38:00,2023-01-20 10:38:00
+181,142,Roberto Dela Cruz,Promotion,Contract of the employee expired ,2018-01-27 18:14:00,2018-01-27 20:21:00
+182,143,Greg Espinoza,Others,Number of students requires more professors,2019-01-28 22:20:00,2019-01-29 08:30:00
+183,144,Jan Felix Legarda,Transfer,Department is in need of more teachers for specific subject ,2019-01-29 16:12:00,2019-01-29 19:24:00
+184,144,Manuel  Lovendino,Transfer,Department is in need of more teachers for specific subject ,2020-02-01 16:35:00,2020-02-01 20:41:00
+185,145,Gloria Marquez,Resigned,Additional Subjects (after effect of K-12) ,2020-02-23 21:13:00,2020-02-24 12:02:00
+186,146,Rafael Medrano,Promotion,To replace position of promoted personnel ,2021-03-02 23:04:00,2021-03-03 09:14:00
+187,147,Roaslie Meriales,Others,To accommodate the No. of Sections to be opened in current SY,2021-03-09 19:33:00,2021-03-10 10:21:00
+188,148,Amalia Luisa Navallasca,Transfer,The courses offered this First Semester are double the number compared to last semester,2022-03-09 19:47:00,2022-03-09 21:03:00
+189,149,Kyla Lynnea Piojo,Promotion,Contract of the employee expired ,2022-03-16 18:57:00,2022-03-16 21:22:00
+190,149,Emmanuel Ronquillo,Resigned,To replace resigned personnel,2023-03-26 19:19:00,2023-03-26 20:59:00
+191,150,Allan Logan Tabios,Promotion,Contract of the employee expired ,2018-04-08 12:00:00,2018-04-08 17:02:00
+192,151,Rosalinda Abdon,Others,Number of students requires more professors,2019-04-19 13:49:00,2019-04-19 16:31:00
+193,152,Karlos Castillo,Resigned,Department is in need of more teachers for specific subject ,2019-04-26 19:59:00,2019-04-26 21:00:00
+194,153,Rizal Dapat,Others,Current number of teachers are not enough,2020-05-04 21:56:00,2020-05-05 12:15:00
+195,154,Augustus Diestro,Transfer,Additional Subjects (after effect of K-12) ,2020-05-10 13:15:00,2020-05-10 16:41:00
+196,154,Armetheus Felipe,Transfer,Additional Subjects (after effect of K-12) ,2021-05-11 14:00:00,2021-05-11 17:31:00
+197,154,Gerald Fernando,Transfer,Additional Subjects (after effect of K-12) ,2021-05-19 15:31:00,2021-05-19 18:35:00
+198,155,Brian Dale Flores,Resigned,The courses offered this First Semester are double the number compared to last semester,2022-05-20 21:08:00,2022-05-21 09:44:00
+199,156,Richard Andree Labajo,Others,Contract of the employee expired ,2022-06-07 22:18:00,2022-06-07 09:07:00
+200,157,Ailene Mae Pador,Transfer,To replace resigned personnel,2023-06-09 17:42:00,2023-06-09 20:01:00
+201,158,Warren Perez,Promotion,Contract of the employee expired ,2018-06-09 21:59:00,2018-06-10 08:43:00
+202,159,Terrence Riego De Dios,Resigned,Number of students requires more professors,2019-06-17 22:02:00,2019-06-18 08:22:00
+203,160,Darren Sanchez,Promotion,Department is in need of more teachers for specific subject ,2019-06-21 22:17:00,2019-06-22 10:41:00
+204,161,Mark Christian Siwa,Others,Current number of teachers are not enough,2020-06-24 14:40:00,2020-06-24 18:28:00
+205,161,Rodel Teofilo,Others,Current number of teachers are not enough,2020-06-25 18:52:00,2020-06-25 20:59:00
+206,162,Rose Anne Gesmundo,Others,To replace position of promoted personnel ,2021-06-25 23:49:00,2021-06-26 09:00:00
+207,163,Carmina Balonia,Others,To accommodate the No. of Sections to be opened in current SY,2021-06-29 22:14:00,2021-06-30 11:08:00
+208,164,Blessie Lee Trinidad,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-07-01 18:19:00,2022-07-01 20:48:00
+209,165,Marcel Natividad,Resigned,Contract of the employee expired ,2022-07-02 16:58:00,2022-07-02 20:59:00
+210,166,Justine Esguerra,Transfer,To replace resigned personnel,2023-07-14 23:35:00,2023-07-15 07:27:00
+211,167,Carter Casihan,Others,Contract of the employee expired ,2018-07-22 18:57:00,2018-07-22 20:21:00
+212,168,Luis Canlas,Others,Number of students requires more professors,2019-07-23 21:13:00,2019-07-23 23:01:00
+213,168,Marcus Herrera,Others,Number of students requires more professors,2019-07-26 22:09:00,2019-07-27 11:47:00
+214,169,Richard Ramirez,Resigned,Current number of teachers are not enough,2020-07-27 22:36:00,2020-07-28 05:06:00
+215,169,Neoh Ortiz,Resigned,Current number of teachers are not enough,2020-08-04 18:54:00,2020-08-04 21:29:00
+216,170,Princess Rubio,Others,To replace position of promoted personnel ,2021-08-10 21:50:00,2021-08-11 07:24:00
+217,171,Gladys Avicii,Others,To accommodate the No. of Sections to be opened in current SY,2021-08-12 21:21:00,2021-08-13 14:11:00
+218,172,Amelia Barabas,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-08-12 21:41:00,2022-08-13 12:41:00
+219,173,Louisa Delos Reyes,Resigned,Contract of the employee expired ,2022-09-03 18:48:00,2022-09-04 08:59:00
+220,174,Rosalie Dumandan,Promotion,To replace resigned personnel,2023-09-09 18:22:00,2023-09-09 19:09:00
+221,174,Tracie Figuera,Promotion,To replace resigned personnel,2018-09-16 20:27:00,2018-09-16 22:35:00
+222,174,Gliceria Lunag,Promotion,To replace resigned personnel,2019-09-17 19:58:00,2019-09-17 21:09:00
+223,175,Edward Don Padrilanan,Transfer,Department is in need of more teachers for specific subject ,2019-09-17 16:01:00,2019-09-17 19:21:00
+224,176,Patrick Patiño,Resigned,Current number of teachers are not enough,2020-09-21 23:14:00,2020-09-22 05:04:00
+225,177,Jack Caballera,Promotion,Additional Subjects (after effect of K-12) ,2020-10-26 22:20:00,2020-10-27 12:20:00
+226,177,Jhonelle Velasco,Promotion,Additional Subjects (after effect of K-12) ,2021-10-26 18:51:00,2021-10-26 20:14:00
+227,178,Hector Nieto,Others,To accommodate the No. of Sections to be opened in current SY,2021-11-08 22:19:00,2021-11-09 23:08:00
+228,179,Miranda Serapino,Transfer,The courses offered this First Semester are double the number compared to last semester,2022-11-11 16:09:00,2022-11-11 18:12:00
+229,180,Andrew Moore,Resigned,Contract of the employee expired ,2022-11-18 20:06:00,2022-11-18 23:29:00
+230,181,Andres Alicos,Promotion,To replace resigned personnel,2023-11-18 21:34:00,2023-11-19 07:15:00
+231,182,Angelica Castro,Resigned,Contract of the employee expired ,2018-11-24 16:15:00,2018-11-24 19:21:00
+232,183,Diego Domingo,Others,Number of students requires more professors,2019-12-08 12:18:00,2019-12-08 16:04:00
+233,183,Isabella Garcia,Others,Number of students requires more professors,2019-12-29 16:16:00,2019-12-29 18:29:00
+234,184,Rafael Graciano,Transfer,Current number of teachers are not enough,2020-01-05 19:35:00,2020-01-05 19:35:00
+235,185,Tyrese Mercado,Resigned,Additional Subjects (after effect of K-12) ,2020-01-06 17:22:00,2020-01-06 19:51:00
+236,186,Erison Roque,Others,To replace position of promoted personnel ,2021-01-06 19:56:00,2021-01-06 21:20:00
+237,187,Julian Quejada,Transfer,To accommodate the No. of Sections to be opened in current SY,2021-01-07 20:01:00,2021-01-07 22:33:00
+238,188,Ezekiel Quinsaat,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-01-10 16:57:00,2022-01-10 18:00:00
+239,189,Janine Soledaridad,Promotion,The courses offered this First Semester are double the number compared to last semester,2022-01-12 19:36:00,2022-01-12 22:23:00
+240,189,Valerie Torralba,Promotion,To replace resigned personnel,2023-01-19 21:00:00,2023-01-19 23:42:00
+241,190,Clifford Jacoby Vicente,Promotion,Contract of the employee expired ,2018-01-20 13:18:00,2018-01-20 16:21:00
+242,191,Gavyn Astillo,Resigned,Number of students requires more professors,2019-01-26 21:30:00,2019-01-27 08:38:00
+243,192,Natal Roman Carandang,Others,Department is in need of more teachers for specific subject ,2019-02-07 12:12:00,2019-02-07 13:45:00
+244,193,William Celiz,Transfer,Current number of teachers are not enough,2020-02-08 13:06:00,2020-02-08 17:21:00
+245,194,Damon Glenn Esquivias,Promotion,Additional Subjects (after effect of K-12) ,2020-02-15 17:44:00,2020-02-15 18:59:00
+246,194,Jerome Jordan Famadico,Promotion,Additional Subjects (after effect of K-12) ,2021-02-28 17:45:00,2021-02-28 19:27:00
+247,195,Bartolo Jayson Galindez,Resigned,To accommodate the No. of Sections to be opened in current SY,2021-03-14 16:09:00,2021-03-14 18:20:00
+248,196,Sullivan Manjon,Others,The courses offered this First Semester are double the number compared to last semester,2022-03-22 20:26:00,2022-03-22 22:23:00
+249,197,Amado Jamel Mipa,Others,Contract of the employee expired ,2022-03-24 22:08:00,2022-03-25 10:19:00
+250,198,Tristin Puno,Others,To replace resigned personnel,2023-03-25 12:34:00,2023-03-25 15:36:00
+251,199,Gina Javiera Umali,Resigned,Contract of the employee expired ,2018-03-28 20:53:00,2018-03-28 22:49:00
+252,199,Alyson Valencia,Resigned,Contract of the employee expired ,2019-04-08 22:22:00,2019-04-09 09:08:00
+253,200,Karlee Soto,Transfer,Department is in need of more teachers for specific subject ,2019-04-19 18:51:00,2019-04-19 20:27:00
+254,201,Yolanda Austria,Transfer,Current number of teachers are not enough,2020-04-21 15:16:00,2020-04-21 19:58:00
+255,202,Dion Teo Cayabyab,Promotion,Additional Subjects (after effect of K-12) ,2020-04-22 21:53:00,2020-04-23 05:00:00
+256,203,Arturo Hernandez,Resigned,To replace position of promoted personnel ,2021-05-05 13:33:00,2021-05-05 14:10:00
+257,204,Ileanna Magbanua,Promotion,To accommodate the No. of Sections to be opened in current SY,2021-05-12 12:21:00,2021-05-12 17:37:00
+258,205,Elvis Malano,Others,The courses offered this First Semester are double the number compared to last semester,2022-05-18 15:22:00,2022-05-18 19:31:00
+259,206,Derick Manaloto,Transfer,Contract of the employee expired ,2022-05-18 21:37:00,2022-05-19 11:17:00
+260,206,Deven Ocampo,Transfer,Contract of the employee expired ,2023-06-14 21:19:00,2023-06-15 12:45:00
+261,206,Brayden Pelayo,Transfer,Contract of the employee expired ,2018-07-07 20:09:00,2018-07-07 23:59:00
+262,207,Guido Vicente,Promotion,Number of students requires more professors,2019-07-11 15:30:00,2019-07-11 21:59:00
+263,208,Renaldo Honor Villosillo,Others,Department is in need of more teachers for specific subject ,2019-08-08 13:52:00,2019-08-08 20:24:00
+264,209,Victor Magtanggol,Transfer,Current number of teachers are not enough,2020-08-12 18:50:00,2020-08-12 21:12:00
+265,210,Vander Rojas,Promotion,Additional Subjects (after effect of K-12) ,2020-08-19 23:05:00,2020-08-20 09:09:00
+266,211,Edward Joseph Castro,Resigned,To replace position of promoted personnel ,2021-08-29 21:14:00,2021-08-30 19:10:00
+267,212,Hailey Andrea Cereza,Promotion,To accommodate the No. of Sections to be opened in current SY,2021-09-13 12:37:00,2021-09-13 15:44:00
+268,212,Sally Gutierrez,Promotion,To accommodate the No. of Sections to be opened in current SY,2022-09-22 22:17:00,2022-09-23 12:01:00
+269,212,Cali Masancay,Promotion,To accommodate the No. of Sections to be opened in current SY,2022-09-22 13:41:00,2022-09-22 17:21:00
+270,213,Anasatasia Ramirez,Others,To replace resigned personnel,2023-10-04 15:32:00,2023-10-05 08:00:00
+271,214,Amaya Rana,Transfer,Contract of the employee expired ,2018-10-05 14:36:00,2018-10-05 19:51:00
+272,214,Greyson Rojas,Transfer,Contract of the employee expired ,2019-10-12 13:16:00,2019-10-12 18:31:00
+273,215,Leah Sarte,Promotion,Department is in need of more teachers for specific subject ,2019-10-13 15:54:00,2019-10-13 18:21:00
+274,216,Catalina Mariah Tanyag,Resigned,Current number of teachers are not enough,2020-10-17 18:09:00,2020-10-18 08:12:00
+275,217,Nick  Velasco,Others,Additional Subjects (after effect of K-12) ,2020-10-17 19:33:00,2020-10-18 09:30:00
+276,218,Gregory Veterano,Transfer,To replace position of promoted personnel ,2021-11-02 14:16:00,2021-11-02 16:01:00
+277,219,Cade Vilela,Promotion,To accommodate the No. of Sections to be opened in current SY,2021-11-17 16:07:00,2021-11-17 19:57:00
+278,220,Pascual Yilana,Resigned,The courses offered this First Semester are double the number compared to last semester,2022-11-29 13:15:00,2022-11-29 14:59:00
+279,221,Jasper Meynard Araña,Promotion,Contract of the employee expired ,2022-12-08 20:38:00,2022-12-09 08:01:00
+280,222,Dennis Brendedn Azegre,Others,To replace resigned personnel,2023-12-28 14:12:00,2023-12-28 17:14:00
+281,222,Kenyon Domingo,Others,To replace resigned personnel,2018-01-23 21:22:00,2018-01-24 07:45:00
+282,223,Quinten Estolas,Others,Number of students requires more professors,2019-01-25 18:10:00,2019-01-25 20:02:00
+283,223,Lane Goyena,Others,Number of students requires more professors,2019-01-26 17:17:00,2019-01-26 22:07:00
+284,224,Luis Herbert Katigbak,Promotion,Current number of teachers are not enough,2020-02-02 19:38:00,2020-02-02 21:11:00
+285,225,Graham Jerold Liwag,Resigned,Additional Subjects (after effect of K-12) ,2020-02-03 14:54:00,2020-02-03 17:16:00
+286,226,Rolando Malaluan,Transfer,To replace position of promoted personnel ,2021-02-08 20:26:00,2021-02-09 10:26:00
+287,227,Xavier Felippe Manlangit,Others,To accommodate the No. of Sections to be opened in current SY,2021-02-09 13:48:00,2021-02-09 18:22:00
+288,228,Payton Forrest Mendez,Others,The courses offered this First Semester are double the number compared to last semester,2022-02-10 12:45:00,2022-02-10 17:45:00
+289,229,Alvin Jaxson Veluz,Promotion,Contract of the employee expired ,2022-02-10 21:44:00,2022-02-11 03:20:00
+290,230,Noel Ventura,Resigned,To replace resigned personnel,2023-02-13 14:32:00,2023-02-13 20:33:00
+291,231,Luis Collin Dungog,Transfer,Contract of the employee expired ,2022-11-29 13:15:00,2022-11-29 14:59:00
+292,232,Neron Escribano,Others,Number of students requires more professors,2022-12-08 20:38:00,2022-12-09 08:01:00
+293,233,Lucila Elefante,Others,Department is in need of more teachers for specific subject ,2023-12-28 14:12:00,2023-12-28 17:14:00
+294,234,Fidle Antoine Guitereez,Promotion,Current number of teachers are not enough,2018-01-23 21:22:00,2018-01-24 07:45:00
+295,235,Nash Infanta,Resigned,Additional Subjects (after effect of K-12) ,2019-01-25 18:10:00,2019-01-25 20:02:00
+296,236,Ramon Estefan Manabat,Promotion,To replace position of promoted personnel ,2019-01-26 17:17:00,2019-01-26 22:07:00
+297,237,Giancarlo Eric Manalastas,Resigned,To accommodate the No. of Sections to be opened in current SY,2020-02-02 19:38:00,2020-02-02 21:11:00
+298,237,Caiden Manalili,Resigned,To accommodate the No. of Sections to be opened in current SY,2020-02-03 14:54:00,2020-02-03 17:16:00
+299,237,Lester Alfred Olasiman,Resigned,To accommodate the No. of Sections to be opened in current SY,2021-02-08 20:26:00,2021-02-09 10:26:00
+300,238,Graciano Morales,Resigned,To replace resigned personnel,2021-02-09 13:48:00,2021-02-09 18:22:00
+301,239,Luden Dominguez,Promotion,Contract of the employee expired ,2022-02-10 12:45:00,2022-02-10 17:45:00
+302,240,Liandry Lorenzo,Resigned,Number of students requires more professors,2022-02-10 21:44:00,2022-02-11 03:20:00
+303,241,Tyrone Alba,Others,Department is in need of more teachers for specific subject ,2023-02-13 14:32:00,2023-02-13 20:33:00
+304,242,Larry Ancheta,Transfer,Current number of teachers are not enough,2022-11-29 13:15:00,2022-11-29 14:59:00
+305,243,Adelio Jadyn Buendia,Resigned,Additional Subjects (after effect of K-12) ,2022-12-08 20:38:00,2022-12-09 08:01:00
+306,244,Pangco Cabungcal,Promotion,To replace position of promoted personnel ,2023-12-28 14:12:00,2023-12-28 17:14:00
+307,244,Mary Christine Ching,Promotion,To replace position of promoted personnel ,2018-01-23 21:22:00,2018-01-24 07:45:00
+308,245,Sebastian Bartolome Custodio,Others,The courses offered this First Semester are double the number compared to last semester,2019-01-25 18:10:00,2019-01-25 20:02:00
+309,245,Patricio Fermin,Others,The courses offered this First Semester are double the number compared to last semester,2019-01-26 17:17:00,2019-01-26 22:07:00
+310,246,Jonas Chico Galura,Transfer,To replace resigned personnel,2020-02-02 19:38:00,2020-02-02 21:11:00
+311,247,Tyrese Salvadore Mindoro,Resigned,Contract of the employee expired ,2020-02-03 14:54:00,2020-02-03 17:16:00
+312,248,Bibiana Rioja,Others,Number of students requires more professors,2021-02-08 20:26:00,2021-02-09 10:26:00
+313,249,Alexa Aniyah Tañag,Transfer,Department is in need of more teachers for specific subject ,2021-02-09 13:48:00,2021-02-09 18:22:00
+314,249,Dante Erik Valle,Transfer,Department is in need of more teachers for specific subject ,2022-02-10 12:45:00,2022-02-10 17:45:00
+315,250,Iago Aquila Zarate,Resigned,Additional Subjects (after effect of K-12) ,2022-02-10 21:44:00,2022-02-11 03:20:00
+316,251,Rita Nalda Mercado,Promotion,To replace position of promoted personnel ,2023-02-13 14:32:00,2023-02-13 20:33:00
+317,252,Jesenia Kaliyah Arancel,Resigned,To accommodate the No. of Sections to be opened in current SY,2022-11-29 13:15:00,2022-11-29 14:59:00
+318,253,Gianina Belisario,Others,The courses offered this First Semester are double the number compared to last semester,2022-12-08 20:38:00,2022-12-09 08:01:00
+319,254,Noime Fernandez,Transfer,Contract of the employee expired ,2023-12-28 14:12:00,2023-12-28 17:14:00
+320,254,Maegan Astrid Hinojosa,Transfer,Contract of the employee expired ,2018-01-23 21:22:00,2018-01-24 07:45:00
+321,255,Ariela Carmita Jimenez,Promotion,Contract of the employee expired ,2019-01-25 18:10:00,2019-01-25 20:02:00
+322,256,Daunte Roxas,Resigned,Number of students requires more professors,2019-01-26 17:17:00,2019-01-26 22:07:00
+323,257,Jude Philip Tayag,Others,Department is in need of more teachers for specific subject ,2020-02-02 19:38:00,2020-02-02 21:11:00
+324,258,Layne Collin Tibayan,Transfer,Current number of teachers are not enough,2020-02-03 14:54:00,2020-02-03 17:16:00
+325,259,Arnaldo Micah Ylagan,Resigned,Additional Subjects (after effect of K-12) ,2021-02-08 20:26:00,2021-02-09 10:26:00
+326,260,Yamper Campos,Promotion,To replace position of promoted personnel ,2021-02-09 13:48:00,2021-02-09 18:22:00
+327,261,Vincente Blanco,Resigned,To accommodate the No. of Sections to be opened in current SY,2022-02-10 12:45:00,2022-02-10 17:45:00
+328,262,Lukas Cadiz,Others,The courses offered this First Semester are double the number compared to last semester,2022-02-10 21:44:00,2022-02-11 03:20:00
+329,263,Shea Fabian Escalante,Transfer,Contract of the employee expired ,2023-02-13 14:32:00,2023-02-13 20:33:00
+330,263,Franklin Estrada,Transfer,Contract of the employee expired ,2022-11-29 13:15:00,2022-11-29 14:59:00
+331,263,Stefan Isidro,Transfer,Contract of the employee expired ,2022-12-08 20:38:00,2022-12-09 08:01:00
+332,264,Barto Conrado Medina,Others,Number of students requires more professors,2023-12-28 14:12:00,2023-12-28 17:14:00
+333,265,Troy Guden,Transfer,Department is in need of more teachers for specific subject ,2018-01-23 21:22:00,2018-01-24 07:45:00
+334,266,Gabrielle Munoz,Promotion,Current number of teachers are not enough,2019-01-25 18:10:00,2019-01-25 20:02:00
+335,267,Colton De Guzman,Resigned,Additional Subjects (after effect of K-12) ,2019-01-26 17:17:00,2019-01-26 22:07:00
+336,267,Sharpay Yumul,Resigned,Additional Subjects (after effect of K-12) ,2020-02-02 19:38:00,2020-02-02 21:11:00
+337,268,Monique Condecion,Resigned,To accommodate the No. of Sections to be opened in current SY,2020-02-03 14:54:00,2020-02-03 17:16:00
+338,269,Alexander Balajadia,Others,The courses offered this First Semester are double the number compared to last semester,2021-02-08 20:26:00,2021-02-09 10:26:00
+339,270,Fausto Torres,Transfer,Contract of the employee expired ,2021-02-09 13:48:00,2021-02-09 18:22:00
+340,271,Barto Conrado Medina,Resigned,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2022-02-10 12:45:00,2022-02-10 17:45:00
+341,272,Georgia Alia Abaya,Promotion,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2022-02-10 21:44:00,2022-02-11 03:20:00
+342,273,Elyse Verdad Abayan,Resigned,To cater incoming Freshmen Courses & to provide fac. Members to handle new Service Department General Elective Course ,2023-02-13 14:32:00,2023-02-13 20:33:00
+343,274,Rocio Maritza Alicante,Others,Additional Subjects (after effect of K-12) ,2022-11-29 13:15:00,2022-11-29 14:59:00
+344,275,Alina Miranda Guerra,Transfer,The courses offered this First Semester AY 2019-2020 is double the number compared to last semester,2022-12-08 20:38:00,2022-12-09 08:01:00
+345,275,Mikayla Gonzales,Transfer,The courses offered this First Semester AY 2019-2020 is double the number compared to last semester,2023-12-28 14:12:00,2023-12-28 17:14:00
+346,275,Ashton Carli Magpantay,Transfer,The courses offered this First Semester AY 2019-2020 is double the number compared to last semester,2018-01-23 21:22:00,2018-01-24 07:45:00
+347,276,Maribel Ella Malabanan,Resigned,Current number of teachers are not enough,2019-01-25 18:10:00,2019-01-25 20:02:00
+348,277,Eva Yolanda Pizarro,Others,To replace resigned personnel,2019-01-26 17:17:00,2019-01-26 22:07:00
+349,278,Leilani Mikaela Silva,Transfer,Contract of the employee expired ,2020-02-02 19:38:00,2020-02-02 21:11:00
+350,279,Braden Lim,Transfer,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2020-02-03 14:54:00,2020-02-03 17:16:00
+351,279,Laurence Bascuguin,Transfer,"Increase in Enrollment Pop, OIC Load is Part-Time, Replacement of non-reappointees",2021-02-08 20:26:00,2021-02-09 10:26:00
+352,280,Almira Tenorio,Others,To cater incoming Freshmen Courses & to provide fac. Members to handle new Service Department General Elective Course ,2021-02-09 13:48:00,2021-02-09 18:22:00
+353,281,Mike Bello Alcaraz,Transfer,Additional Subjects (after effect of K-12) ,2022-02-10 12:45:00,2022-02-10 17:45:00
+354,281,Aryan Finn Buendia,Transfer,Additional Subjects (after effect of K-12) ,2022-02-10 21:44:00,2022-02-11 03:20:00
+355,282,Perlita Crucis,Resigned,To replace Transfer personnel,2023-02-13 14:32:00,2023-02-13 20:33:00
+356,283,Oscar Despujol,Promotion,Current number of teachers are not enough,2022-11-29 13:15:00,2022-11-29 14:59:00
+357,284,Chica Bailey Dimalanta,Resigned,Current number of teachers are not enough,2022-12-08 20:38:00,2022-12-09 08:01:00
+358,285,Marlina Elizalde,Others,To replace resigned personnel,2023-12-28 14:12:00,2023-12-28 17:14:00
+359,285,Nevada Rian Manalili,Others,To replace resigned personnel,2018-01-23 21:22:00,2018-01-24 07:45:00

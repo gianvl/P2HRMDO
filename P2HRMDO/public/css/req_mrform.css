@@ -1,0 +1,593 @@
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+body {
+    font-family: 'Times New Roman';
+}
+
+/*PRINT BUTTON*/
+.grid-container-print-backtodashboard { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    width: 96%; 
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+  
+.mrform-print {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    float: right;
+    margin-right: 10px;
+}
+
+.mrform-print:hover{
+    text-decoration: none;
+}
+
+.mrform-print i {
+    margin-right: 5px; /* Adjust the spacing between the icon and text */
+}
+
+.mrform-export {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    float: right;
+    margin-right: 10px;
+}
+
+.mrform-export:hover{
+    text-decoration: none;
+}
+
+.mrform-export i {
+    margin-right: 5px; /* Adjust the spacing between the icon and text */
+}
+
+/*GO BACK TO DASHBOARD*/
+.text-showmrform-backtodashboard {
+    display: inline-block; /* Change display to inline-block */
+    color: #395583;
+    font-size: 15px;
+    padding: 0 5px; /* Add padding to create a clickable area around the text */
+    text-decoration: none; /* Remove underline by default */
+}
+
+.text-showmrform-backtodashboard:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.text-inputmrform-dashboard{
+    display: flex;
+    color: #395583;
+    font-size: 18px;
+    margin-top: 1%;
+    text-align: center;
+    justify-content: center;
+}
+
+.text-inputmrform-dashboard:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.text-editmrform-dashboard{
+    display: flex;
+    color: #395583;
+    font-size: 18px;
+    margin-top: 1%;
+    text-align: center;
+    justify-content: center;
+}
+
+.text-editmrform-dashboard:hover{
+    color: black;
+    text-decoration: none;
+}
+
+/*TITLE RECRUITMENT AND PLACEMENT*/
+.grid-container-element-content { 
+    display: grid; 
+    grid-template-columns: 1fr;
+    width: 96%; 
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+} 
+
+.grid-con-title{
+    background-color: #395583;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.text-title{
+    color: #fff;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 7.5px;
+    margin-left: 15px;
+}
+
+/*FACULTY PERFORMANCE EVALUATION STATUS*/
+.grid-con-faculty-perf-eval-stat{
+    margin-left: 30px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    /* min-height: 220px; */
+    height: fit-content;
+    padding-bottom: 25px;
+    /* padding-top: -1px; */
+    width: 96%;
+}
+
+.text-faculty-perf-eval-stat{
+    font-weight: bold;
+    color: #000000;
+    font-size: 20px;
+    margin-left: -10px;
+    margin-top: 10px;
+}
+
+.table-faculty-members{
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    width: 97%;
+    height: fit-content;
+}
+
+.headerempstatus{
+    width: 10%;
+    white-space: nowrap;
+}
+
+.blue-header{
+    width: 15%;
+}
+
+/*OVERALL STATUS INDICATION*/
+.req-mrform-table-status{
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 50%;
+    border: none;
+    white-space: nowrap;
+    font-size: 25px;
+}
+
+td.box-status-green{
+    background-color: #C9DBBA;
+    border: none;
+    width: 2%;
+    height: 2px;
+
+}
+
+td.text-status-green{
+    width: 20%;
+    border: none;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-red{
+    background-color: #EECCCA;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-red{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+.box-status-yellow{
+    background-color: #f1e6c1;
+    border: none;
+    width: 2%;
+    height: 2px;
+}
+
+td.text-status-yellow{
+    border: none;
+    width: 20%;
+    height: 2px;
+    font-size: small;
+}
+
+/*OVERALL STATUS TABLE*/
+.table-overall-status, td, th {
+	border: 1px solid #595959;
+	border-collapse: collapse;
+    text-align: center;
+    width: 97%;
+}
+.table-overall-status{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+td, th {
+	padding: 3px;
+	width: 175px;
+	height: 25px;
+}
+
+
+
+.spacebetween{
+    width: 3%;
+    border:#ffffff;
+}
+
+/*REQUISITION FORM*/
+.grid-con-req-form{
+    margin-left: 30px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    height: fit-content;
+    width: 96%;
+    padding-bottom: 20px;
+}
+
+.grid-con-req-form-1s{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;;
+}
+
+.grid-con-req-form-2s{
+    display: grid; 
+    grid-template-columns: 1.5fr 0.62fr; 
+    margin-left: 15px;;
+    padding: 10px;
+    gap: 50px;
+    justify-content: center;
+}
+
+/*FIRST SECTION*/
+.grid-con-first-section{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 97%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+
+.text-mr-form{
+    margin-top: 20px;
+    font-weight: bold;
+    color: #292828;
+    font-size: 20px;
+}
+
+.table-mr-form{
+    border: none;
+    width: 80%;
+    margin-top: 15px;
+}
+
+.text-mr-form-number{
+    border: none;
+    width: 100%;
+    color: #6D6868;
+}
+
+.data-mr-form-number{
+    border: none;
+    width: 100%;
+    color: #6D6868;
+}
+
+/*LINE*/
+.line-mrform{
+    height: 2px;
+    background: #707070;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+/*DROPDOWN COLLEGES*/
+.grid-con-second-section{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 97%; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.text-req-dept{
+    color: #707070;
+    font-size: 16px;
+}
+
+.table-num-emp-req{
+    border: none;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.text-num-emp-req{
+    border: none;
+    width: 100%;
+    text-align: right;
+    font-size: 15px;
+    color: #6D6868;
+}
+
+.data-num-emp-req{
+    border: none;
+}
+
+.dropwdown-req-dept{
+    margin-left: 20px;
+}
+
+/*TEXT POSITION REQUIRED*/
+.text-position-req{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #707070;
+    font-size: 15px;
+}
+
+/*DROPDOWN TEACHING/NON-TEACHING*/
+.grid-con-fourth-section{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    margin-bottom: -20px;;
+    width: 100%; 
+    color: #6D6868;
+}
+
+/*DROPDOWN REPLACEMENT*/
+.grid-con-fifth-section{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 97%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #6D6868;
+}
+
+/*DROPDOWN BUDGETED/NOT BUDGETED*/
+.grid-con-sixth-section{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 97%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #6D6868;
+}
+
+/*LINE*/
+.line-second-mrform{
+    height: 2px;
+    background: #707070;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+/*SECOND SECTION*/
+.text-exist-manpower{
+    color: #707070;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.grid-con-exist-manpower{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    width: 100%; 
+    color: #6D6868;
+    font-size: 10px;
+}
+/*LINE*/
+.line-third-mrform{
+    height: 2px;
+    background: #707070;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/*THIRD SECTION*/
+.text-requestedby{
+    margin-left: 20px;
+    margin-top: -10px;
+    color: #707070;
+    font-size: 15px;
+}
+
+.grid-con-chairperson-dean{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    color: #6D6868;
+}
+
+.dean-signature{
+    margin-left: -20px;
+}
+
+/*LINE*/
+.line-fourth-mrform{
+    height: 2px;
+    background: #707070;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+/*FOURTH SECTION*/
+.text-recommending-approval{
+    margin-left: 20px;
+    margin-top: -10px;
+    color: #707070;
+    font-size: 15px;
+}
+  
+.grid-con-approval{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    width: 100%; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    color: #6D6868;
+}
+
+.vpa-signature{
+    margin-left: -20px;
+}
+
+/*SEND AND UPDATE REQ*/
+.btn-send-req{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    width: 20%;
+    font-size: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-send-req:hover{
+    background-color:#ffffff;
+    border-color: #395583;
+    color: #395583;
+}
+
+.btn-update-req{
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    width: 15%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn-update-req:hover{
+    background-color:#ffffff;
+    border-color: #395583;
+    color: #395583;
+}
+
+/*TO BE FILLED UP BY HR*/
+.grid-con-hr{
+    margin-left: 30px; 
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    height: fit-content;
+    width: 96%;
+}
+
+
+.grid-con-tobefilledup{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    width: 100%;
+}
+
+.text-tobefilledup{
+    margin-left: 20px;
+    margin-top:  20px;
+    color: #707070;
+    font-size: 15px;
+}
+
+.table-tobefilledup, .td-tobefilledup {
+    text-align: left;
+    color: #707070;
+    border: none;
+}
+
+.table-tobefilledup{
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+.btn-printfr{
+    color: #ffffff;
+    background-color: #395583;
+    border-color: #395583;
+    border-radius: 5px;
+    width: 300px;
+    margin-left: 77.8%;
+    text-align: center;
+}
+
+.no-hover:hover, .no-hover:active, .no-hover:focus, .no-hover:active:focus {
+    color: #212529;
+}
+
+.text-tobefilledup{
+    margin-top: 30px;
+    font-weight: bold;
+    color: #707070;
+    font-size: 16px;
+}
+.table-tobefilledup{
+    margin-left: 80px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.grid-container-submit { 
+    display: flex;
+    width: 96%; 
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+} 
+
+@media print {
+    #printButton,
+    #back,
+    #save
+     {
+        display: none;
+    }
+}
+

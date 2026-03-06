@@ -1,0 +1,286 @@
+jobspec_id,forecast_num_id,jsbachelor,jsmasters,jsalliedprog,yrsofteachxp,technicalskills,interpersonalskills,created_at,updated_at
+1,1,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Financial Managment,1 to 2,W/ Industry Experience,N/A,2018-01-12 14:37:00,2018-01-12 14:49:00
+2,2,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Financial Managment,1 to 2,W/ Industry Experience,N/A,2019-01-17 19:46:00,2019-01-18 20:46:00
+3,3,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Financial Managment,1 to 2,W/ Industry Experience,N/A,2019-01-18 19:46:00,2019-01-19 20:46:00
+4,4,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Financial Managment,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2019-01-25 17:10:00,2019-01-26 21:10:00
+5,5,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Customs Administration Department,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2019-01-26 17:10:00,2019-01-27 21:10:00
+6,6,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Customs Administration Department,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2019-01-27 17:10:00,2019-01-28 21:10:00
+7,7,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Customs Administration Department,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2020-01-26 15:18:00,2020-01-28 16:38:00
+8,8,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Customs Administration Department,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2020-02-05 20:33:00,2020-02-06 21:24:00
+9,9,BSBA Customs Administration Department,Master in Customs Administration Department,BSBA Customs Administration Department,1 to 2,W/ Industry Experience,Communication Skills,2021-02-16 22:10:00,2021-02-17 12:09:00
+10,10,BSBA Customs Administration Department,Master in Customs Administration Department,BS Accountancy,1 to 2,W/ Industry Experience,Communication Skills,2021-02-23 13:16:00,2021-02-24 14:29:00
+11,11,BSBA Financial Management,Master in Financial Management,BS Accountancy,1 to 2,W/ Industry Experience,Communication Skills,2022-03-02 15:01:00,2022-03-05 14:49:00
+12,12,BSBA Financial Management,Master in Financial Management,BS Accountancy,1 to 2,W/ Industry Experience,Communication Skills,2022-03-08 15:28:00,2022-03-09 12:04:00
+13,13,BSBA Financial Management,Master in Financial Management,BS Accountancy,1 to 2,W/ Industry Experience,Communication Skills,2023-03-13 16:49:00,2023-03-14 15:52:00
+14,14,BSBA Financial Management,Master in Financial Management,BSBA Customs Administration Department,1 to 2,N/A,Communication Skills,2018-04-10 19:46:00,2018-04-12 08:46:00
+15,15,BSBA Financial Management,Master in Financial Management,BSBA Customs Administration Department,1 to 2,N/A,Communication Skills,2018-04-11 19:46:00,2018-04-13 08:46:00
+16,16,BSBA Financial Management,Master in Financial Management,BSBA Customs Administration Department,1 to 2,N/A,Communication Skills,2019-04-17 17:26:00,2019-04-19 11:26:00
+17,17,BSBA Financial Management,Master in Financial Management,BSBA Customs Administration Department,1 to 2,N/A,Feedback Handling,2019-04-19 18:58:00,2019-04-20 10:56:00
+18,18,BSBA Financial Management,Master in Financial Management,BSBA Customs Administration Department,1 to 2,N/A,Feedback Handling,2020-04-19 16:34:00,2020-04-22 15:23:00
+19,19,BSBA Financial Management,Master in Financial Management,BS Accountancy,1 to 2,N/A,Feedback Handling,2020-04-23 13:08:00,2020-04-24 12:29:00
+20,20,BSBA Financial Management,Master in Financial Management,BSBA Marketing Management,1 to 2,Has good time management,Feedback Handling,2021-04-24 16:37:00,2021-04-25 15:14:00
+21,21,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Feedback Handling,2021-05-02 16:45:00,2021-05-04 12:38:00
+22,22,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Feedback Handling,2021-05-03 16:45:00,2021-05-05 12:38:00
+23,23,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Feedback Handling,2022-05-10 14:15:00,2022-05-10 15:16:00
+24,24,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Time Management and Leadership,2022-05-11 17:26:00,2022-05-13 08:26:00
+25,25,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Time Management and Leadership,2023-05-14 14:37:00,2023-05-17 13:37:00
+26,26,BS Accountancy,Master in Accountancy,BSBA Marketing Management,1 to 2,Has good time management,Time Management and Leadership,2023-05-15 14:37:00,2023-05-18 13:37:00
+27,27,BS Accountancy,Master in Accountancy,BSBA Financial Managment,1 to 2,Can Coordinate Easily with people,Time Management and Leadership,2018-05-18 12:16:00,2018-05-19 14:27:00
+28,28,BS Accountancy,Master in Accountancy,BSBA Financial Managment,1 to 2,Can Coordinate Easily with people,Time Management and Leadership,2019-05-21 15:47:00,2019-05-25 12:47:00
+29,29,BS Accountancy,Master in Accountancy,BSBA Customs Administration Department,1 to 2,Can Coordinate Easily with people,Time Management and Leadership,2019-05-31 23:23:00,2019-06-01 08:39:00
+30,30,BS Accountancy,Master in Accountancy,BSBA Customs Administration Department,1 to 2,Can Coordinate Easily with people,N/A,2020-06-05 22:32:00,2020-06-08 09:54:00
+31,31,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,W/ Industry Experience,N/A,2020-06-18 20:26:00,2020-06-19 13:32:00
+32,32,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,W/ Industry Experience,N/A,2020-06-19 20:26:00,2020-06-20 13:32:00
+33,33,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,W/ Industry Experience,N/A,2021-06-21 23:12:00,2021-06-23 12:45:00
+34,34,BS Hospitality Management Department,Master in Hospility Management,BS Hospitality Management Department,1 to 2,W/ Industry Experience,Student Engagement,2021-07-02 15:16:00,2021-07-04 16:37:00
+35,35,BS Hospitality Management Department,Master in Hospility Management,BS Hospitality Management Department,1 to 2,W/ Industry Experience,Student Engagement,2022-07-10 14:26:00,2022-07-11 12:36:00
+36,36,BS Hospitality Management Department,Master in Hospility Management,BS Hospitality Management Department,1 to 2,W/ Industry Experience,Student Engagement,2022-07-11 14:26:00,2022-07-12 12:36:00
+37,37,BS Hospitality Management Department,Master in Hospility Management,BS Hospitality Management Department,1 to 2,W/ Industry Experience,Student Engagement,2022-07-17 16:18:00,2022-07-18 13:18:00
+38,38,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,W/ Industry Experience,Student Engagement,2023-07-17 18:37:00,2023-07-19 09:37:00
+39,39,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,Writer/Speaker,Student Engagement,2018-07-17 08:19:00,2018-07-21 10:39:00
+40,40,BS Hospitality Management Department,Master in Hospility Management,BS Tourism Management ,1 to 2,Writer/Speaker,Student Engagement,2018-07-18 08:19:00,2018-07-22 10:39:00
+41,41,BSBA Marketing Management ,Master in Marketing Management,BS Accountancy,1 to 2,Writer/Speaker,"Empathy, Mentoring, and Advising",2019-07-18 08:26:00,2019-07-19 15:56:00
+42,42,BSBA Marketing Management ,Master in Marketing Management,BS Accountancy,1 to 2,Writer/Speaker,"Empathy, Mentoring, and Advising",2019-07-18 13:57:00,2019-07-28 16:27:00
+43,43,BSBA Marketing Management ,Master in Marketing Management,BS Accountancy,1 to 2,Writer/Speaker,"Empathy, Mentoring, and Advising",2020-07-18 17:47:00,2020-07-21 08:47:00
+44,44,BSBA Marketing Management ,Master in Marketing Management,BSBA Financial Managment,1 to 2,Writer/Speaker,"Empathy, Mentoring, and Advising",2020-07-25 16:53:00,2020-07-27 12:13:00
+45,45,BSBA Marketing Management ,Master in Marketing Management,BSBA Financial Managment,1 to 2,Researcher,"Empathy, Mentoring, and Advising",2021-07-26 09:31:00,2021-07-26 14:12:00
+46,46,BSBA Marketing Management ,Master in Marketing Management,BSBA Financial Managment,1 to 2,Researcher,Public Speaking and Student Engagement,2021-07-27 09:31:00,2021-07-27 14:12:00
+47,47,BSBA Marketing Management ,Master in Marketing Management,BSBA Customs Administration Department,1 to 2,Researcher,Public Speaking and Student Engagement,2021-07-30 14:23:00,2021-07-30 14:23:00
+48,48,BSBA Marketing Management ,Master in Marketing Management,BSBA Customs Administration Department,1 to 2,Researcher,Public Speaking and Student Engagement,2022-08-23 10:38:00,2022-08-23 11:49:00
+49,49,BSBA Marketing Management ,Master in Marketing Management,BSBA Customs Administration Department,1 to 2,Researcher,Public Speaking and Student Engagement,2022-08-27 12:11:00,2022-08-27 16:25:00
+50,50,BSBA Marketing Management ,Master in Marketing Management,BSBA Customs Administration Department,1 to 2,Researcher,Public Speaking and Student Engagement,2023-09-05 17:22:00,2023-09-06 10:24:00
+51,51,BS Chemistry,Master of Science in Chemistry,BS Math,1 to 2,Researcher,Public Speaking and Student Engagement,2018-09-07 09:00:00,2018-09-07 15:58:00
+52,52,BS Chemistry,Master of Science in Chemistry,BS Math,1 to 2,W/ Industry Experience,N/A,2019-09-17 18:51:00,2019-09-18 08:51:00
+53,53,BS Chemistry,Master of Science in Chemistry,BS Math,1 to 2,W/ Industry Experience,N/A,2019-09-18 13:12:00,2019-09-18 16:26:00
+54,54,BS Chemistry,Master of Science in Chemistry,BS Math,1 to 2,W/ Industry Experience,N/A,2020-09-24 11:08:00,2020-09-24 13:38:00
+55,55,BS Chemistry,Master of Science in Chemistry,BS Information Technology/ Information Systems,1 to 2,W/ Industry Experience,N/A,2020-09-26 16:55:00,2020-09-27 12:55:00
+56,56,BS Chemistry,Master of Science in Chemistry,BS Information Technology/ Information Systems,1 to 2,W/ Industry Experience,N/A,2021-09-27 12:52:00,2021-09-28 08:59:00
+57,57,BS Chemistry,Master of Science in Chemistry,BS Information Technology/ Information Systems,1 to 2,W/ Industry Experience,N/A,2021-09-27 17:18:00,2021-09-29 14:31:00
+58,58,BS Chemistry,Master of Science in Chemistry,BS Biology,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2022-11-09 19:21:00,2022-11-10 15:11:00
+59,59,BS Chemistry,Master of Science in Chemistry,BS Biology,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2022-11-13 17:20:00,2022-11-14 09:20:00
+60,60,BS Chemistry,Master of Science in Chemistry,BS Biology,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2023-12-14 15:28:00,2023-12-14 16:57:00
+61,61,BS Computer Science,Master in Computer Science,BS Biology,1 to 2,Can use complex software,Leadership and Cultural Competency,2018-01-10 08:49:00,2018-01-10 18:56:00
+62,62,BS Computer Science,Master in Computer Science,BS Biology,1 to 2,Can use complex software,Leadership and Cultural Competency,2019-01-14 10:13:00,2019-01-14 12:16:00
+63,63,BS Computer Science,Master in Computer Science,BS Biology,1 to 2,Can use complex software,Leadership and Cultural Competency,2019-01-24 09:36:00,2019-01-24 19:43:00
+64,64,BS Computer Science,Master in Computer Science,BS Biology,1 to 2,Can use complex software,Leadership and Cultural Competency,2020-02-05 15:30:00,2020-02-05 17:20:00
+65,65,BS Computer Science,Master in Computer Science,BS Chemistry,1 to 2,Can Create and Edit simple and complex codes,Leadership and Cultural Competency,2020-02-06 13:56:00,2020-02-06 15:26:00
+66,66,BS Computer Science,Master in Computer Science,BS Chemistry,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2021-04-03 13:22:00,2021-04-03 16:31:00
+67,67,BS Computer Science,Master in Computer Science,BS Chemistry,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2021-04-19 09:33:00,2021-04-19 14:12:00
+68,68,BS Computer Science,Master in Computer Science,BS Chemistry,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2022-04-23 14:17:00,2022-04-24 17:17:00
+69,69,BS Computer Science,Master in Computer Science,BS Computer Science,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2022-04-24 15:50:00,2022-04-26 14:50:00
+70,70,BS Computer Science,Master in Computer Science,BS Computer Science,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2023-04-26 15:03:00,2023-04-27 11:14:00
+71,71,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,Can Create and Edit simple and complex codes,Conflict Avoidance and Public Speaking,2018-05-01 11:58:00,2018-05-01 18:14:00
+72,72,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2019-05-06 16:44:00,2019-05-08 13:35:00
+73,73,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2019-05-10 14:27:00,2019-05-13 15:57:00
+74,74,BS Information Technology/ Information Systems,Master in Information Technology,BS Psychology,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2020-05-10 13:42:00,2020-05-10 15:26:00
+75,75,BS Information Technology/ Information Systems,Master in Information Technology,BS Psychology,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2020-05-13 15:33:00,2020-05-13 18:49:00
+76,76,BS Information Technology/ Information Systems,Master in Information Technology,BS Psychology,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2021-05-13 16:32:00,2021-05-14 10:11:00
+77,77,BS Information Technology/ Information Systems,Master in Information Technology,BS Psychology,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2021-05-14 12:06:00,2021-05-14 18:39:00
+78,78,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,"Active Listening, Empathy, and Communication Skills",2022-06-06 22:42:00,2022-06-07 10:23:00
+79,79,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2022-06-20 19:58:00,2022-06-23 16:38:00
+80,80,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2023-06-28 11:19:00,2023-06-28 18:23:00
+81,81,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2018-05-01 11:58:00,2018-05-01 18:14:00
+82,82,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2019-05-06 16:44:00,2019-05-08 13:35:00
+83,83,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2018-05-01 11:58:00,2018-05-01 18:14:00
+84,84,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2019-05-06 16:44:00,2019-05-08 13:35:00
+85,85,BS Information Technology/ Information Systems,Master in Information Technology,BS Computer Science,1 to 2,W/ Industry Experience,N/A,2018-05-01 11:58:00,2018-05-01 18:14:00
+86,86,BS Math,Master of Science in Mathematics,BS Biology,1 to 2,Ability to perform calculations,N/A,2018-07-11 11:31:00,2018-07-11 15:46:00
+87,87,BS Math,Master of Science in Mathematics,BS Biology,1 to 2,Ability to perform calculations,N/A,2019-07-16 08:14:00,2019-07-16 15:37:00
+88,88,BS Math,Master of Science in Mathematics,BS Biology,1 to 2,Ability to perform calculations,N/A,2019-07-25 15:04:00,2019-07-26 12:17:00
+89,89,BS Math,Master of Science in Mathematics,BS Biology,1 to 2,Ability to perform calculations,"Collaboration, Teamwork, and Time Management",2020-07-26 18:30:00,2020-07-27 15:26:00
+90,90,BS Math,Master of Science in Mathematics,BS Biology,1 to 2,Ability to perform calculations,"Collaboration, Teamwork, and Time Management",2020-07-31 15:11:00,2020-07-31 16:51:00
+91,91,BS Math,Master of Science in Mathematics,BS Math,1 to 2,Ability to perform calculations,"Collaboration, Teamwork, and Time Management",2021-08-07 10:36:00,2021-08-11 18:20:00
+92,92,BS Math,Master of Science in Mathematics,BS Math,1 to 2,Ability to perform calculations,"Collaboration, Teamwork, and Time Management",2021-08-08 15:15:00,2021-08-08 18:37:00
+93,93,BS Math,Master of Science in Mathematics,BS Math,1 to 2,Knowledge to mathematical Modeling,"Collaboration, Teamwork, and Time Management",2022-08-09 12:03:00,2022-08-09 19:21:00
+94,94,BS Math,Master of Science in Mathematics,BS Math,1 to 2,Knowledge to mathematical Modeling,"Collaboration, Teamwork, and Time Management",2022-08-15 15:59:00,2022-08-16 12:01:00
+95,95,BS Math,Master of Science in Mathematics,BS Math,1 to 2,Knowledge to mathematical Modeling,Feedback handling and Communication Skills,2023-08-15 19:24:00,2023-08-16 09:32:00
+96,96,BS Biology,Master of Science in Biology,BS Math,1 to 2,Ability to research and gather information,Feedback handling and Communication Skills,2018-09-03 09:58:00,2018-09-03 17:32:00
+97,97,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to research and gather information,Feedback handling and Communication Skills,2019-09-05 19:43:00,2019-09-07 12:36:00
+98,98,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to research and gather information,Feedback handling and Communication Skills,2019-09-19 08:39:00,2019-09-19 17:47:00
+99,99,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to research and gather information,Feedback handling and Communication Skills,2020-09-19 11:59:00,2020-09-19 13:39:00
+100,100,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to research and gather information,Feedback handling and Communication Skills,2020-09-26 18:38:00,2020-09-27 16:38:00
+101,101,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to research and gather information,"Communication, Teaching and Presentation Skills",2021-10-14 08:01:00,2021-10-14 18:37:00
+102,102,BS Biology,Master of Science in Biology,BS Information Technology/ Information Systems,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2021-11-04 17:39:00,2021-11-05 12:29:00
+103,103,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2022-11-26 16:51:00,2022-11-27 16:51:00
+104,104,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2022-11-28 14:35:00,2022-11-28 16:29:00
+105,105,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2023-12-19 14:41:00,2023-12-20 08:41:00
+106,106,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2020-07-26 18:30:00,2020-07-27 15:26:00
+107,107,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2020-09-26 18:38:00,2020-09-27 16:38:00
+108,108,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2020-07-26 18:30:00,2020-07-27 15:26:00
+109,109,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2020-09-26 18:38:00,2020-09-27 16:38:00
+110,110,BS Biology,Master of Science in Biology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2020-07-26 18:30:00,2020-07-27 15:26:00
+111,111,BS Psychology,Master of Science in Psychology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Communication, Teaching and Presentation Skills",2018-12-25 08:31:00,2018-12-25 15:14:00
+112,112,BS Psychology,Master of Science in Psychology,BS Chemistry,1 to 2,Ability to analyze and organize data,"Active Listening, Ethical Conduct and Leadership",2019-12-27 15:01:00,2019-12-28 12:10:00
+113,113,BS Psychology,Master of Science in Psychology,BS Computer Science,1 to 2,Ability to analyze and organize data,"Active Listening, Ethical Conduct and Leadership",2019-12-30 13:50:00,2019-12-30 16:12:00
+114,114,BS Psychology,Master of Science in Psychology,BS Computer Science,1 to 2,Ability to analyze and organize data,"Active Listening, Ethical Conduct and Leadership",2020-12-31 15:42:00,2020-12-31 17:32:00
+115,115,BS Psychology,Master of Science in Psychology,BS Computer Science,1 to 2,Ability to analyze and organize data,"Active Listening, Ethical Conduct and Leadership",2020-12-31 10:49:00,2020-12-31 17:49:00
+116,116,BS Psychology,Master of Science in Psychology,BS Computer Science,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2021-01-01 19:48:00,2021-01-01 12:14:00
+117,117,BS Psychology,Master of Science in Psychology,BS Math,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2021-01-08 15:18:00,2021-01-09 12:09:00
+118,118,BS Psychology,Master of Science in Psychology,BS Math,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2022-01-08 08:16:00,2022-01-08 19:32:00
+119,119,BS Psychology,Master of Science in Psychology,BS Math,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2022-01-13 16:55:00,2022-01-14 14:17:00
+120,120,BS Psychology,Master of Science in Psychology,BS Math,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2023-01-14 09:02:00,2023-01-15 16:47:00
+121,121,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Technical Design Skills,"Communication, Active Listening, and Student Engagement",2018-01-21 11:14:00,2018-01-21 12:00:00
+122,122,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Technical Design Skills,"Communication, Active Listening, and Student Engagement",2019-01-23 08:57:00,2019-01-23 14:37:00
+123,123,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Technical Design Skills,"Communication, Active Listening, and Student Engagement",2019-02-10 10:52:00,2019-02-10 13:31:00
+124,124,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Is knowledgeable about the different softwares used in the course,"Communication, Active Listening, and Student Engagement",2020-02-11 18:19:00,2020-02-12 09:36:00
+125,125,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Is knowledgeable about the different softwares used in the course,"Communication, Active Listening, and Student Engagement",2020-02-14 14:35:00,2020-02-14 17:15:00
+126,126,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Is knowledgeable about the different softwares used in the course,"Communication, Active Listening, and Student Engagement",2021-02-20 08:46:00,2021-02-20 18:14:00
+127,127,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Is knowledgeable about the different softwares used in the course,"Communication, Active Listening, and Student Engagement",2021-02-25 08:37:00,2021-02-25 19:07:00
+128,128,BS Architecture,Master in Architecture,BS Architecture,1 to 2,Is knowledgeable about the different softwares used in the course,Conflict Avoidance and Public Speaking,2022-02-27 10:54:00,2022-02-27 18:28:00
+129,129,BS Architecture,Master in Architecture,BS Architecture,1 to 2,N/A,Conflict Avoidance and Public Speaking,2022-03-04 16:08:00,2022-03-04 18:18:00
+130,130,BS Architecture,Master in Architecture,BS Architecture,1 to 2,N/A,Conflict Avoidance and Public Speaking,2023-03-24 18:16:00,2023-03-25 09:16:00
+131,131,BA Communication,Master of Arts in Communication,BA English,1 to 2,Research skills,Conflict Avoidance and Public Speaking,2018-03-30 10:20:00,2018-03-30 15:20:00
+132,132,BA Communication,Master of Arts in Communication,BA English,1 to 2,Research skills,Conflict Avoidance and Public Speaking,2019-04-03 08:06:00,2019-04-04 11:28:00
+133,133,BA Communication,Master of Arts in Communication,BA English,1 to 2,Research skills,Conflict Avoidance and Public Speaking,2019-04-03 10:28:00,2019-04-07 16:19:00
+134,134,BA Communication,Master of Arts in Communication,BA English,1 to 2,Research skills,Conflict Avoidance and Public Speaking,2020-04-08 18:51:00,2020-04-09 09:21:00
+135,135,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Research skills,Conflict Avoidance and Public Speaking,2020-04-17 12:02:00,2020-04-17 18:17:00
+136,136,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Has strong writing skills,Conflict Avoidance and Public Speaking,2021-04-21 17:18:00,2021-04-22 10:20:00
+137,137,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Has strong writing skills,Feedback handling and Communication Skills,2021-04-24 16:12:00,2021-04-24 18:40:00
+138,138,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Has strong writing skills,Feedback handling and Communication Skills,2022-04-29 14:18:00,2022-04-29 14:18:00
+139,139,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Has strong writing skills,Feedback handling and Communication Skills,2022-05-05 12:51:00,2022-05-05 14:19:00
+140,140,BA Communication,Master of Arts in Communication,BA Special Needs Education,1 to 2,Has strong writing skills,Feedback handling and Communication Skills,2023-05-15 19:27:00,2023-05-15 19:27:00
+141,141,BA Secondary Education,Master of Arts in Education,BA Communication,1 to 2,Has strong writing skills,Feedback handling and Communication Skills,2018-06-04 15:24:00,2018-06-04 18:38:00
+142,142,BA Secondary Education,Master of Arts in Education,BA Communication,1 to 2,Research skills,Teaching and Presentation Skills,2019-06-16 15:28:00,2019-06-17 12:09:00
+143,143,BA Secondary Education,Master of Arts in Education,BA Communication,1 to 2,Research skills,Teaching and Presentation Skills,2019-06-22 10:56:00,2019-06-22 18:46:00
+144,144,BA Secondary Education,Master of Arts in Education,BA Communication,1 to 2,Research skills,Teaching and Presentation Skills,2020-06-30 13:03:00,2020-06-30 16:38:00
+145,145,BA Secondary Education,Master of Arts in Education,BA Communication,1 to 2,Research skills,Teaching and Presentation Skills,2020-07-02 08:50:00,2020-07-02 12:38:00
+146,146,BA Special Needs Education,Master of Arts in Education,BA Foreign Languages,1 to 2,Research skills,Teaching and Presentation Skills,2021-07-14 12:53:00,2021-07-14 18:31:00
+147,147,BA Special Needs Education,Master of Arts in Education,BA Foreign Languages,1 to 2,Classroom management & teaching skills,Teaching and Presentation Skills,2021-07-24 18:56:00,2021-07-25 09:42:00
+148,148,BA Special Needs Education,Master of Arts in Education,BA Foreign Languages,1 to 2,Classroom management & teaching skills,Teaching and Presentation Skills,2022-08-04 13:07:00,2022-08-04 16:21:00
+149,149,BA Special Needs Education,Master of Arts in Education,BA Foreign Languages,1 to 2,Classroom management & teaching skills,Teaching and Presentation Skills,2022-08-04 17:55:00,2022-08-05 09:45:00
+150,150,BA Special Needs Education,Master of Arts in Education,BA Foreign Languages,1 to 2,Classroom management & teaching skills,Teaching and Presentation Skills,2023-08-07 21:56:00,2023-08-07 21:56:00
+151,151,BA Foreign Languages,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2018-08-13 17:45:00,2018-08-14 09:53:00
+152,152,BA Foreign Languages,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2019-08-18 22:08:00,2019-08-18 16:00:00
+153,153,BA Foreign Languages,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2019-08-21 22:35:00,2019-08-22 07:59:00
+154,154,BA Foreign Languages,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Teaching and Presentation Skills,2020-08-24 20:31:00,2020-08-24 21:59:00
+155,155,BA Foreign Languages,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2020-08-26 21:43:00,2020-08-27 11:32:00
+156,156,BA English,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2021-08-28 21:49:00,2021-08-29 13:20:00
+157,157,BA English,Master of Arts in Foreign Languages,BA Communication,1 to 2,W/ Industry Experience,Leadership and Cultural Competency,2021-09-04 23:31:00,2021-09-05 11:59:00
+158,158,BA English,Master of Arts in Foreign Languages,BA Communication,1 to 2,Analytical Reading and effective writing,Leadership and Cultural Competency,2022-09-18 19:36:00,2022-09-18 21:01:00
+159,159,BA English,Master of Arts in Foreign Languages,BA Communication,1 to 2,Analytical Reading and effective writing,Leadership and Cultural Competency,2022-09-24 21:12:00,2022-09-25 07:09:00
+160,160,BA English,Master of Arts in Foreign Languages,BA Communication,1 to 2,Analytical Reading and effective writing,Leadership and Cultural Competency,2023-09-29 21:26:00,2023-09-30 10:22:00
+161,161,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,Classroom management & teaching skills,Leadership and Cultural Competency,2018-09-29 12:34:00,2018-09-29 16:17:00
+162,162,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,Classroom management & teaching skills,"Communication, Active Listening, and Student Engagement",2019-10-01 20:44:00,2019-10-02 09:21:00
+163,163,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,Classroom management & teaching skills,"Communication, Active Listening, and Student Engagement",2019-10-12 23:14:00,2019-10-13 09:11:00
+164,164,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,Classroom management & teaching skills,"Communication, Active Listening, and Student Engagement",2020-10-13 13:46:00,2020-10-13 19:31:00
+165,165,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,Classroom management & teaching skills,"Communication, Active Listening, and Student Engagement",2020-10-20 15:39:00,2020-10-20 17:15:00
+166,166,BA Physical Education,Master in Physical Education and Sports,BA Secondary Education,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2021-11-04 14:58:00,2021-11-04 18:01:00
+167,167,BA Physical Education,Master in Physical Education and Sports,BA Special Needs Education,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2021-11-12 21:00:00,2021-11-13 14:00:00
+168,168,BA Physical Education,Master in Physical Education and Sports,BA Special Needs Education,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2022-11-18 22:02:00,2022-11-19 15:04:00
+169,169,BA Physical Education,Master in Physical Education and Sports,BA Special Needs Education,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2022-11-19 22:14:00,2022-11-20 13:20:00
+170,170,BA Physical Education,Master in Physical Education and Sports,BA Special Needs Education,1 to 2,W/ Industry Experience,"Communication, Active Listening, and Student Engagement",2023-11-20 18:51:00,2023-11-20 20:28:00
+171,171,BA Sociology,Master in Sociology,BA Political Science,1 to 2,Research & Project skills,"Communication, Active Listening, and Student Engagement",2018-12-10 22:11:00,2018-12-11 11:11:00
+172,172,BA Sociology,Master in Sociology,BA Political Science,1 to 2,Research & Project skills,N/A,2019-12-16 16:52:00,2019-12-16 19:32:00
+173,173,BA Sociology,Master in Sociology,BA Political Science,1 to 2,Research & Project skills,N/A,2019-12-22 15:45:00,2019-12-22 17:12:00
+174,174,BA Sociology,Master in Sociology,BA Political Science,1 to 2,Communication Skills,N/A,2020-12-22 20:07:00,2020-12-23 12:07:00
+175,175,BA Sociology,Master in Sociology,BA Political Science,1 to 2,Communication Skills,N/A,2020-12-23 18:10:00,2020-12-23 21:54:00
+176,176,BA Political Science ,Master in Political Science,BA Sociology,1 to 2,Communication Skills,N/A,2021-12-25 16:45:00,2021-12-25 20:23:00
+177,177,BA Political Science ,Master in Political Science,BA Sociology,1 to 2,Communication Skills,N/A,2021-12-28 15:10:00,2021-12-28 18:36:00
+178,178,BA Political Science ,Master in Political Science,BA Sociology,1 to 2,Communication Skills,N/A,2022-01-01 17:07:00,2022-01-01 20:21:00
+179,179,BA Political Science ,Master in Political Science,BA Sociology,1 to 2,Communication Skills,N/A,2022-01-04 20:58:00,2022-01-05 09:21:00
+180,180,BA Political Science ,Master in Political Science,BA Sociology,1 to 2,Communication Skills,N/A,2023-01-19 21:38:00,2023-01-20 10:38:00
+181,181,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Civil Engineering,1 to 2,"Knowledgeable about physics, programming, and CAD softwares","Communication, Teaching and Presentation Skills",2018-01-27 18:14:00,2018-01-27 20:21:00
+182,182,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Civil Engineering,1 to 2,"Knowledgeable about physics, programming, and CAD softwares","Communication, Teaching and Presentation Skills",2019-01-28 22:20:00,2019-01-29 08:30:00
+183,183,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Civil Engineering,1 to 2,"Knowledgeable about physics, programming, and CAD softwares","Communication, Teaching and Presentation Skills",2019-01-29 16:12:00,2019-01-29 19:24:00
+184,184,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Civil Engineering,1 to 2,"Knowledgeable about physics, programming, and CAD softwares","Communication, Teaching and Presentation Skills",2020-02-01 16:35:00,2020-02-01 20:41:00
+185,185,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Civil Engineering,1 to 2,"Knowledgeable about physics, programming, and CAD softwares","Communication, Teaching and Presentation Skills",2020-02-23 21:13:00,2020-02-24 12:02:00
+186,186,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Industrial Engineering,1 to 2,N/A,"Communication, Teaching and Presentation Skills",2021-03-02 23:04:00,2021-03-03 09:14:00
+187,187,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Industrial Engineering,1 to 2,N/A,"Communication, Teaching and Presentation Skills",2021-03-09 19:33:00,2021-03-10 10:21:00
+188,188,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Industrial Engineering,1 to 2,N/A,"Communication, Teaching and Presentation Skills",2022-03-09 19:47:00,2022-03-09 21:03:00
+189,189,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Industrial Engineering,1 to 2,Problem solving,"Communication, Teaching and Presentation Skills",2022-03-16 18:57:00,2022-03-16 21:22:00
+190,190,BS Chemical Engineering ,Master of Science in Chemical Engineering,BS Electronics Engineering,1 to 2,Problem solving,Teaching and Presentation Skills,2023-03-26 19:19:00,2023-03-26 20:59:00
+191,191,BS Civil Engineering,Master of Science in Civil Engineering,BS Electronics Engineering,1 to 2,Problem solving,Teaching and Presentation Skills,2018-04-08 12:00:00,2018-04-08 17:02:00
+192,192,BS Civil Engineering,Master of Science in Civil Engineering,BS Electronics Engineering,1 to 2,Problem solving,Teaching and Presentation Skills,2019-04-19 13:49:00,2019-04-19 16:31:00
+193,193,BS Civil Engineering,Master of Science in Civil Engineering,BS Chemical Engineering,1 to 2,Problem solving,Teaching and Presentation Skills,2019-04-26 19:59:00,2019-04-26 21:00:00
+194,194,BS Civil Engineering,Master of Science in Civil Engineering,BS Chemical Engineering,1 to 2,Problem solving,Teaching and Presentation Skills,2020-05-04 21:56:00,2020-05-05 12:15:00
+195,195,BS Civil Engineering,Master of Science in Civil Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2020-05-10 13:15:00,2020-05-10 16:41:00
+196,196,BS Civil Engineering,Master of Science in Civil Engineering,BS Computer Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2021-05-11 14:00:00,2021-05-11 17:31:00
+197,197,BS Civil Engineering,Master of Science in Civil Engineering,BS Computer Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2021-05-19 15:31:00,2021-05-19 18:35:00
+198,198,BS Civil Engineering,Master of Science in Civil Engineering,BS Computer Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2022-05-20 21:08:00,2022-05-21 09:44:00
+199,199,BS Civil Engineering,Master of Science in Civil Engineering,BS Computer Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2022-06-07 22:18:00,2022-06-07 09:07:00
+200,200,BS Civil Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2023-06-09 17:42:00,2023-06-09 20:01:00
+201,201,BS Computer Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2018-06-09 21:59:00,2018-06-10 08:43:00
+202,202,BS Computer Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2019-06-17 22:02:00,2019-06-18 08:22:00
+203,203,BS Computer Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2019-06-21 22:17:00,2019-06-22 10:41:00
+204,204,BS Computer Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2020-06-24 14:40:00,2020-06-24 18:28:00
+205,205,BS Computer Engineering,Master of Science in Civil Engineering,BS Industrial Engineering,1 to 2,W/ Industry Experience,"Active Listening, Ethical Conduct and Leadership",2020-06-25 18:52:00,2020-06-25 20:59:00
+206,206,BS Computer Engineering,Master of Science in Civil Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Active Listening, Ethical Conduct and Leadership",2021-06-25 23:49:00,2021-06-26 09:00:00
+207,207,BS Computer Engineering,Master of Science in Civil Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Active Listening, Ethical Conduct and Leadership",2021-06-29 22:14:00,2021-06-30 11:08:00
+208,208,BS Computer Engineering,Master of Science in Civil Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Active Listening, Ethical Conduct and Leadership",2022-07-01 18:19:00,2022-07-01 20:48:00
+209,209,BS Computer Engineering,Master of Science in Civil Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Active Listening, Ethical Conduct and Leadership",2022-07-02 16:58:00,2022-07-02 20:59:00
+210,210,BS Computer Engineering,Master of Science in Civil Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Teaching, Presentation, and Communication Skills",2023-07-14 23:35:00,2023-07-15 07:27:00
+211,211,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Civil Engineering,1 to 2,Computer Science skills,"Teaching, Presentation, and Communication Skills",2018-07-22 18:57:00,2018-07-22 20:21:00
+212,212,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Computer Science skills,"Teaching, Presentation, and Communication Skills",2019-07-23 21:13:00,2019-07-23 23:01:00
+213,213,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Computer Science skills,"Teaching, Presentation, and Communication Skills",2019-07-26 22:09:00,2019-07-27 11:47:00
+214,214,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Teaching, Presentation, and Communication Skills",2020-07-27 22:36:00,2020-07-28 05:06:00
+215,215,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Teaching, Presentation, and Communication Skills",2020-08-04 18:54:00,2020-08-04 21:29:00
+216,216,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Teaching, Presentation, and Communication Skills",2021-08-10 21:50:00,2021-08-11 07:24:00
+217,217,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Teaching, Presentation, and Communication Skills",2021-08-12 21:21:00,2021-08-13 14:11:00
+218,218,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Empathy, Mentoring, and Advising",2022-08-12 21:41:00,2022-08-13 12:41:00
+219,219,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,Communication Skills,"Empathy, Mentoring, and Advising",2022-09-03 18:48:00,2022-09-04 08:59:00
+220,220,BS Electrical Engineering ,Master of Science in Electrical Engineering,BS Electronics Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2023-09-09 18:22:00,2023-09-09 19:09:00
+221,221,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2018-09-16 20:27:00,2018-09-16 22:35:00
+222,222,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2019-09-17 19:58:00,2019-09-17 21:09:00
+223,223,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2019-09-17 16:01:00,2019-09-17 19:21:00
+224,224,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Empathy, Mentoring, and Advising",2020-09-21 23:14:00,2020-09-22 05:04:00
+225,225,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2020-10-26 22:20:00,2020-10-27 12:20:00
+226,226,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2021-10-26 18:51:00,2021-10-26 20:14:00
+227,227,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,W/ Industry Experience,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2021-11-08 22:19:00,2021-11-09 23:08:00
+228,228,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,Leadership skills,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2022-11-11 16:09:00,2022-11-11 18:12:00
+229,229,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,Leadership skills,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2022-11-18 20:06:00,2022-11-18 23:29:00
+230,230,BS Electronics Engineering ,Master of Science in Electronics Engineering,BS Electrical Engineering,1 to 2,Leadership skills,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2023-11-18 21:34:00,2023-11-19 07:15:00
+231,231,BS Mining Engineering,Master of Science in Mining Engineering,BS Mechanical Engineering,1 to 2,Leadership skills,"Conflict Avoidance, Public Speaking, Teaching and Presentation Skills",2018-11-24 16:15:00,2018-11-24 19:21:00
+232,232,BS Mining Engineering,Master of Science in Mining Engineering,BS Mechanical Engineering,1 to 2,Leadership skills,"Tolerance, Willingess to be patient with slow students",2019-12-08 12:18:00,2019-12-08 16:04:00
+233,233,BS Mining Engineering,Master of Science in Mining Engineering,BS Mechanical Engineering,1 to 2,Leadership skills,"Tolerance, Willingess to be patient with slow students",2019-12-29 16:16:00,2019-12-29 18:29:00
+234,234,BS Mining Engineering,Master of Science in Mining Engineering,BS Mechanical Engineering,1 to 2,Leadership skills,"Tolerance, Willingess to be patient with slow students",2020-01-05 19:35:00,2020-01-05 19:35:00
+235,235,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,Leadership skills,"Tolerance, Willingess to be patient with slow students",2020-01-06 17:22:00,2020-01-06 19:51:00
+236,236,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Tolerance, Willingess to be patient with slow students",2021-01-06 19:56:00,2021-01-06 21:20:00
+237,237,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Tolerance, Willingess to be patient with slow students",2021-01-07 20:01:00,2021-01-07 22:33:00
+238,238,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Tolerance, Willingess to be patient with slow students",2022-01-10 16:57:00,2022-01-10 18:00:00
+239,239,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Tolerance, Willingess to be patient with slow students",2022-01-12 19:36:00,2022-01-12 22:23:00
+240,240,BS Mining Engineering,Master of Science in Mining Engineering,BS Chemical Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2023-01-19 21:00:00,2023-01-19 23:42:00
+241,241,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Civil Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2018-01-20 13:18:00,2018-01-20 16:21:00
+242,242,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Civil Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2019-01-26 21:30:00,2019-01-27 08:38:00
+243,243,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Civil Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2019-02-07 12:12:00,2019-02-07 13:45:00
+244,244,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Civil Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2020-02-08 13:06:00,2020-02-08 17:21:00
+245,245,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Electronics Engineering,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Innovation",2020-02-15 17:44:00,2020-02-15 18:59:00
+246,246,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Electrical Engineering,1 to 2,Attention to detail,"Feedback Handling, Student Engagement, and Innovation",2021-02-28 17:45:00,2021-02-28 19:27:00
+247,247,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Mechanical Engineering,1 to 2,Attention to detail,"Feedback Handling, Student Engagement, and Innovation",2021-03-14 16:09:00,2021-03-14 18:20:00
+248,248,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Mechanical Engineering,1 to 2,Attention to detail,"Feedback Handling, Student Engagement, and Innovation",2022-03-22 20:26:00,2022-03-22 22:23:00
+249,249,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Mechanical Engineering,1 to 2,Attention to detail,N/A,2022-03-24 22:08:00,2022-03-25 10:19:00
+250,250,BS Industrial Engineering ,Master of Science in Industrial Engineering,BS Computer Engineering,1 to 2,Attention to detail,N/A,2023-03-25 12:34:00,2023-03-25 15:36:00
+251,251,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Computer Engineering,1 to 2,N/A,Leadership and Cultural Competency,2018-03-28 20:53:00,2018-03-28 22:49:00
+252,252,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Computer Engineering,1 to 2,N/A,Leadership and Cultural Competency,2019-04-08 22:22:00,2019-04-09 09:08:00
+253,253,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Industrial Engineering,1 to 2,N/A,Leadership and Cultural Competency,2019-04-19 18:51:00,2019-04-19 20:27:00
+254,254,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Industrial Engineering,1 to 2,Mechanical Skills,N/A,2020-04-21 15:16:00,2020-04-21 19:58:00
+255,255,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Industrial Engineering,1 to 2,Mechanical Skills,N/A,2020-04-22 21:53:00,2020-04-23 05:00:00
+256,256,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Industrial Engineering,1 to 2,Mechanical Skills,N/A,2021-05-05 13:33:00,2021-05-05 14:10:00
+257,257,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Industrial Engineering,1 to 2,Mechanical Skills,N/A,2021-05-12 12:21:00,2021-05-12 17:37:00
+258,258,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Electronics Engineering,1 to 2,Mechanical Skills,"Adaptability, Innovation, and Communication",2022-05-18 15:22:00,2022-05-18 19:31:00
+259,259,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Computer Engineering,1 to 2,Mechanical Skills,"Adaptability, Innovation, and Communication",2022-05-18 21:37:00,2022-05-19 11:17:00
+260,260,BS Mechanical Engineering,Master of Science in Mechanical Engineering,BS Computer Engineering,1 to 2,Mechanical Skills,"Adaptability, Innovation, and Communication",2023-06-14 21:19:00,2023-06-15 12:45:00
+261,261,BA Law,Master of Laws,BA Political Science,1 to 2,Research & Project skills,"Adaptability, Innovation, and Communication",2018-07-07 20:09:00,2018-07-07 23:59:00
+262,262,BA Law,Master of Laws,BA Political Science,1 to 2,Research & Project skills,"Adaptability, Innovation, and Communication",2019-07-11 15:30:00,2019-07-11 21:59:00
+263,263,BA Law,Master of Laws,BA Political Science,1 to 2,Research & Project skills,"Adaptability, Innovation, and Communication",2019-08-08 13:52:00,2019-08-08 20:24:00
+264,264,BA Law,Master of Laws,BA Political Science,1 to 2,Research & Project skills,"Adaptability, Innovation, and Communication",2020-08-12 18:50:00,2020-08-12 21:12:00
+265,265,BA Law,Master of Laws,BA Political Science,1 to 2,Research & Project skills,"Feedback Handling, Student Engagement, and Communication",2020-08-19 23:05:00,2020-08-20 09:09:00
+266,266,BA Law,Master of Laws,BA Sociology,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2021-08-29 21:14:00,2021-08-30 19:10:00
+267,267,BA Law,Master of Laws,BA Sociology,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2021-09-13 12:37:00,2021-09-13 15:44:00
+268,268,BA Law,Master of Laws,BA Sociology,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2022-09-22 22:17:00,2022-09-23 12:01:00
+269,269,BA Law,Master of Laws,BA Sociology,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2022-09-22 13:41:00,2022-09-22 17:21:00
+270,270,BA Law,Master of Laws,BA Sociology,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2023-10-04 15:32:00,2023-10-05 08:00:00
+271,271,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2018-10-05 14:36:00,2018-10-05 19:51:00
+272,272,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2019-10-12 13:16:00,2019-10-12 18:31:00
+273,273,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2019-10-13 15:54:00,2019-10-13 18:21:00
+274,274,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Collaboration, Teamwork, Mentoring, and Advising",2020-10-17 18:09:00,2020-10-18 08:12:00
+275,275,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Collaboration, Teamwork, Mentoring, and Advising",2020-10-17 19:33:00,2020-10-18 09:30:00
+276,276,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,W/ Industry Experience,"Collaboration, Teamwork, Mentoring, and Advising",2021-11-02 14:16:00,2021-11-02 16:01:00
+277,277,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,Medication management,"Collaboration, Teamwork, Mentoring, and Advising",2021-11-17 16:07:00,2021-11-17 19:57:00
+278,278,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,Medication management,"Collaboration, Teamwork, Mentoring, and Advising",2022-11-29 13:15:00,2022-11-29 14:59:00
+279,279,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,Medication management,"Collaboration, Teamwork, Mentoring, and Advising",2022-12-08 20:38:00,2022-12-09 08:01:00
+280,280,BS Nursing,Master of Arts in Nursing,BS Pharmacy,1 to 2,Communication Skills,"Collaboration, Teamwork, Mentoring, and Advising",2023-12-28 14:12:00,2023-12-28 17:14:00
+281,281,BS Pharmacy,Masters in Pharmacy,BS Nursing,1 to 2,Communication Skills,"Feedback Handling, Student Engagement, and Communication",2018-01-23 21:22:00,2018-01-24 07:45:00
+282,282,BS Pharmacy,Masters in Pharmacy,BS Nursing,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2019-01-25 18:10:00,2019-01-25 20:02:00
+283,283,BS Pharmacy,Masters in Pharmacy,BS Nursing,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2019-01-26 17:17:00,2019-01-26 22:07:00
+284,284,BS Pharmacy,Masters in Pharmacy,BS Nursing,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2020-02-02 19:38:00,2020-02-02 21:11:00
+285,285,BS Pharmacy,Masters in Pharmacy,BS Nursing,1 to 2,W/ Industry Experience,"Feedback Handling, Student Engagement, and Communication",2020-02-03 14:54:00,2020-02-03 17:16:00
