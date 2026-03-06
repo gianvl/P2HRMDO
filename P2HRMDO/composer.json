@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "fieg/markov": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.8",
         "laravel/sanctum": "^3.2",
@@ -29,9 +28,7 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "classmap": [
-			"vendor/fieg/markov/src/Markov/MarkovChain.php"
-		]
+        "classmap": []
     },
     "autoload-dev": {
         "psr-4": {

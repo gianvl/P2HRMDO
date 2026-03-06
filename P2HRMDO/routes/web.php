@@ -256,7 +256,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('/requesting/forecast', ForecastingController::class);
         Route::get('/forecast/save/{forecast_num_id}', [App\Http\Controllers\ForecastingController::class, 'show']);
         Route::post('/forecast/save/{forecast_num_id}', [App\Http\Controllers\ForecastingController::class, 'getDepartments'] );
-        Route::get('departments/{college}', 'ForecastingController@getDepartments')->name('departments');
+        Route::get('departments/{college}', [ForecastingController::class, 'getDepartments'])->name('departments');
 
         /*SEND FORECAST TO APPROVAL*/
         Route::post('/forecasting/send-for-approval/{fs1}', [ForecastingController::class, 'sendForApproval'])->name('forecasting.send-for-approval');
@@ -264,8 +264,8 @@ Route::group(['middleware' => 'auth'], function(){
         /*USER PROFILE*/
         Route::resource('/requesting/profile', ProfileController::class);
 
-        /*MARKOV FORECAST NA PAGE*/
-        Route::get('/requesting/markovforecast', [ForecastingDataController::class, 'viewMarkovRequesting'])->name('requesting.markov');
+        /*ARIMA FORECAST PAGE*/
+        Route::get('/requesting/arimaforecast', [ForecastingDataController::class, 'viewArimaRequesting'])->name('requesting.arima');
 
     });
 
@@ -303,8 +303,8 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/approval/profile', [ProfileController::class, 'showApprovalProfile'])->name('showApprovalProfile');
         Route::put('/approval/profile/update{id}', [ProfileController::class, 'updateApprovalProfile'])->name('updateApprovalProfile');
 
-        /*MARKOV FORECAST NA PAGE*/
-        Route::get('/approval/markovforecast', [ForecastingDataController::class, 'viewMarkovApproval'])->name('approval.markov');
+        /*ARIMA FORECAST PAGE*/
+        Route::get('/approval/arimaforecast', [ForecastingDataController::class, 'viewArimaApproval'])->name('approval.arima');
     });
 
 });

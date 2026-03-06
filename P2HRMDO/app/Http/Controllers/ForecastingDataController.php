@@ -11,7 +11,7 @@ use App\Models\{
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Fieg\Markov\MarkovChain;
+use Illuminate\Support\Facades\Process;
 
 class ForecastingDataController extends Controller
 {
@@ -76,7 +76,7 @@ class ForecastingDataController extends Controller
         //
     }
 
-    public function viewMarkovRequesting()
+    public function viewArimaRequesting()
     {
         $loggedInUser = Auth::user();
 
@@ -86,7 +86,7 @@ class ForecastingDataController extends Controller
         return view('requesting.markovforecast', compact('loggedInUser', 'collegeList'));
     }
 
-    public function viewMarkovApproval()
+    public function viewArimaApproval()
     {
         $loggedInUser = Auth::user();
 
@@ -98,6 +98,7 @@ class ForecastingDataController extends Controller
 
     public function forecastingData(string $college, string $department, string $ay, string $sem)
     {
+        // Current AY data
         $ayList = [$ay];
         $manpower = Manpower::where('college', $college)
             ->where('department', $department)
@@ -129,181 +130,74 @@ class ForecastingDataController extends Controller
             ->with('forecastSection8s')
             ->get();
 
-        ////MANPOWER REQUIRED////
-        $chart1Sentences = [];
-        foreach ($manpower as $mp) {
-            $chart1Sentences[] = "manpower estimate " . $mp->num_emp_required ?? 0;
-        }
-        foreach ($forecastSection1 as $fs1) {
-            $chart1Sentences[] = "forecastSection4s estimate " . $fs1->forecast_num_id . " " . $fs1->forecastSection4s[0]->numaddfacmember ?? 0;
-        }
-        $chain = new MarkovChain();
-
-        foreach ($chart1Sentences as $sentence) {
-            $tokens = explode(" ", $sentence);
-            $chain->train($tokens);
-        }
-
-        $chart1Result = $chain->query("estimate");
-
-        $markov = [
-            "chart1" => $chart1Result,
-        ];
-
-        // MARKOV CHART 1 NEW COMPUTATION
-        $ayListMarkov = [$ay];
-        $ayArrMarkov = explode("-", $ay);
-        $startYrMarkov = intval($ayArrMarkov[0]);
-        $endYrMarkov = intval($ayArrMarkov[1]);
+        // 5-year historical data for ARIMA
+        $ayListArima = [$ay];
+        $ayArr = explode("-", $ay);
+        $startYr = intval($ayArr[0]);
+        $endYr = intval($ayArr[1]);
         for ($yrCtr = 0; $yrCtr < 4; $yrCtr++) {
-            $startYrMarkov = $startYrMarkov - 1;
-            $endYrMarkov = $endYrMarkov - 1;
-            $ayListMarkov[] = "{$startYrMarkov}-{$endYrMarkov}";
+            $startYr--;
+            $endYr--;
+            $ayListArima[] = "{$startYr}-{$endYr}";
         }
 
-        $manpowerMarkov = Manpower::where('college', $college)
+        $manpowerArima = Manpower::where('college', $college)
             ->where('department', $department)
-            ->whereIn('ay', $ayListMarkov)
+            ->whereIn('ay', $ayListArima)
             ->where('semester', $sem)
             ->get();
 
-        $employeeIdsMarkov = Employee::where('college', $college)
+        $forecastSection1Arima = ForecastSection1::where('college', $college)
             ->where('department', $department)
-            ->get()
-            ->pluck("id");
-
-        $evalpageMarkov = EvalPage::whereIn('employee_id', $employeeIdsMarkov)
-            ->whereIn('ay', $ayListMarkov)
+            ->whereIn('ay', $ayListArima)
             ->where('semester', $sem)
-            ->get();
-
-        $forecastSection1Markov = ForecastSection1::where('college', $college)
-            ->where('department', $department)
-            ->whereIn('ay', $ayListMarkov)
-            ->where('semester', $sem)
-            ->with('forecastSection2s')
-            ->with('forecastSection3s')
             ->with('forecastSection4s')
-            ->with('forecastSection5s')
-            ->with('forecastSection6s')
-            ->with('forecastSection7s')
-            ->with('forecastSection8s')
             ->get();
-        
-        $numaddfacmember = [];
+
+        // Aggregate manpower required per academic year
         $numemprequired = [];
-        $totalcount = [];
-        foreach ($forecastSection1Markov as $fmarkov) {
+        $numaddfacmember = [];
 
-            foreach ($fmarkov->forecastSection4s as $forecastSection4s) {
-                if (isset($numaddfacmember[$fmarkov->ay])) {
-                    $numaddfacmember[$fmarkov->ay] += $forecastSection4s->numaddfacmember;
-                } else {
-                    $numaddfacmember[$fmarkov->ay] = $forecastSection4s->numaddfacmember;
-                }
-            }
-
+        foreach ($manpowerArima as $m) {
+            $numemprequired[$m->ay] = ($numemprequired[$m->ay] ?? 0) + $m->num_emp_required;
         }
-        
 
-        foreach ($manpowerMarkov as $mmarkov) {
-            if (isset($numemprequired[$mmarkov->ay])) {
-                $numemprequired[$mmarkov->ay] += $mmarkov->num_emp_required;
-            } else {
-                $numemprequired[$mmarkov->ay] = $mmarkov->num_emp_required;
+        foreach ($forecastSection1Arima as $f) {
+            foreach ($f->forecastSection4s as $fs4) {
+                $numaddfacmember[$f->ay] = ($numaddfacmember[$f->ay] ?? 0) + $fs4->numaddfacmember;
             }
         }
 
-        foreach ($evalpageMarkov as $eMarkov) {
-            if (isset($totalcount[$eMarkov->ay])) {
-                if ($eMarkov->overallstatus == "Subject for deliberation") {
-                    $totalcount[$eMarkov->ay] += 1;
-                } else {
-                    $overallstatus = $eMarkov->overallstatus;
-                    $overallstatus = floatval(str_replace("%", "", $overallstatus));
-                    if ($overallstatus < 50) {
-                        $totalcount[$eMarkov->ay] += 1;
-                    }
-                }
-            } else {
-                if ($eMarkov->overallstatus == "Subject for deliberation") {
-                    $totalcount[$eMarkov->ay] = 1;
-                } else {
-                    $overallstatus = $eMarkov->overallstatus;
-                    $overallstatus = floatval(str_replace("%", "", $overallstatus));
-                    if ($overallstatus < 50) {
-                        $totalcount[$eMarkov->ay] = 1;
-                    }
-                }
+        // Build time series sorted chronologically
+        ksort($numemprequired);
+        $series = array_values($numemprequired);
+
+        // Run ARIMA forecast via Node.js script
+        $arimaForecast = 0;
+        if (count($series) >= 2) {
+            $input = json_encode(['series' => $series, 'steps' => 1]);
+            $scriptPath = base_path('scripts/arima_forecast.js');
+            $nodePath = trim(shell_exec('which node') ?? 'node');
+            $result = Process::run([$nodePath, $scriptPath, $input]);
+
+            if ($result->successful()) {
+                $arimaResult = json_decode($result->output(), true);
+                $arimaForecast = $arimaResult['forecast'] ?? 0;
             }
+        } elseif (count($series) === 1) {
+            $arimaForecast = $series[0];
         }
-
-        $sentences = [];
-        foreach ($numaddfacmember as $key => $value) {
-            $sentences[] = ($totalcount[$key] ?? null) . " " . ($value ?? null) . " " . ($numemprequired[$key] ?? null);
-        }
-
-        $finalMarkovchain = new MarkovChain();
-        foreach ($sentences as $sentence) {
-            $tokens = explode(" ", $sentence);
-            $finalMarkovchain->train($tokens);
-        }
-        $finalMarkovchain = $finalMarkovchain->getTransitionMatrix();
-
-        $relativeValues = [
-            "forecasted" => 0,
-            "requested" => 0
-        ];
-
-        foreach ($forecastSection1 as $fs) {
-            foreach ($fs->forecastSection4s as $forecastSection4s) {
-                $relativeValues["forecasted"] += $forecastSection4s->numaddfacmember;
-            }
-        }
-
-        foreach ($manpower as $mp) {
-            $relativeValues["requested"] += $mp->num_emp_required;
-        }
-
-        $selectedMarkovKeys = [];
-        foreach ($finalMarkovchain as $key => $value) {
-            foreach ($value as $k => $v) {
-                if (
-                    $k == $relativeValues["forecasted"] ||
-                    $k == $relativeValues["requested"]
-                ) {
-                    $selectedMarkovKeys[] = $key;
-                }
-            }
-        }
-
-        $selectedMarkovKeys = array_values(array_unique($selectedMarkovKeys));
-    
-
-        $finalMarkovValueChart1 = round(array_sum($selectedMarkovKeys) / count($selectedMarkovKeys));
 
         return [
             "manpower" => $manpower,
             "evalpage" => $evalpage,
             "forecastSection1" => $forecastSection1,
-            "markov" => $markov,
             "ayList" => $ayList,
-            "ayListMarkov" => $ayListMarkov,
-            "markov5years" => [
-                "manpowerMarkov" => $manpowerMarkov,
-                "evalpageMarkov" => $evalpageMarkov,
-                "forecastSection1Markov" => $forecastSection1Markov,
-                "total" => [
-                    "numaddfacmember" => $numaddfacmember,
-                    "numemprequired" => $numemprequired,
-                    "totalcount" => $totalcount,
-                    "sentences" => $sentences,
-                    "finalMarkovchain" => $finalMarkovchain,
-                    "relativeValues" => $relativeValues,
-                    "selectedMarkovKeys" => $selectedMarkovKeys,
-                    "finalMarkovValueChart1" => $finalMarkovValueChart1
-                ]
-            ]
+            "ayListArima" => $ayListArima,
+            "arima" => [
+                "forecast" => $arimaForecast,
+                "historicalData" => $numemprequired,
+            ],
         ];
     }
 }

@@ -320,7 +320,7 @@ h2{
 	color:#e26d5c; */
 }
 
-.forecastdata-markovmodel{
+.forecastdata-arimamodel{
 	font-family: 'Segoe UI';
 	font-size: 15px;
 	text-align: justify;
@@ -465,7 +465,7 @@ h2{
 	<div class="forecastdata-grid-container shadow">
 		<div class="forecastdata-grid-con-title">
 			<div class="forecastdata-text-title">
-				Manpower Forecasting using Markov Model    
+				Manpower Forecasting using ARIMA Model    
 			</div>
 		</div>
 	</div>
@@ -541,7 +541,7 @@ h2{
 	<div class="grid-con-forecastdata-one shadow">
 		<div>
 			<canvas id="manpowerRequiredChartContainer"></canvas>
-			<span class="forecastdata-markovmodel"> </span>
+			<span class="forecastdata-arimamodel"> </span>
 		</div>
 		<div>
 			<canvas id="manpowerRequiredChartContainer2"></canvas>
@@ -551,38 +551,35 @@ h2{
 	// '#37718E',
 	// '#F3B391' --}}
 	<div class="grid-con-forecastdata-two">
-		<h5> How the Markov Model Works: </h5>
-		<h2> A Markov Model for manpower forecasting is a statistical approach that utilizes a stochastic 
-			process known as a Markov chain to anticipate future workforce requirements. This prediction is 
-			based on historical data and a predefined set of states and transition probabilities.
+		<h5> How the ARIMA Model Works: </h5>
+		<h2> ARIMA (AutoRegressive Integrated Moving Average) is a statistical model for time-series forecasting.
+			It analyzes historical data patterns to predict future workforce requirements by combining three components:
+			autoregression (AR), differencing (I), and moving average (MA).
 			<br><br>
 		</h2>
-		<h2>To address the requirements for forecasting in the HRMDO (Human Resource Management and Development Office), we consider the following variables: <br> </h2>
+		<h2>To forecast manpower needs for the HRMDO (Human Resource Management and Development Office), the ARIMA model uses the following historical data collected over 5 academic years: <br> </h2>
 		<h2> - <span style="color: rgb(12, 133, 28)"> "Number of Additional Faculty"</span> as derived from the Forecasting Form.<br> </h2>
 		<h2>- <span style="color: #37718E"> "Manpower Required"</span> as obtained from the Manpower Requisition Form.<br></h2>
-		<h2>- The <span style="color: #db5f5f"> "Overall Status"</span> of Faculty Members, as determined on the Evaluation Page.<br></h2>
 		<br>
-		<h2>Using Markov Model we evaluate these variables and used them to create a transition matrix: <br></h2>
-		<h2 ><span style="color: #db5f5f"> "Overall Status"</span> and <span style="color: #37718E"> "Manpower Required"</span></h2>
-		<h2 ><span style="color: rgb(12, 133, 28)"> "Number of Additional Faculty"</span> and <span style="color: #37718E"> "Manpower Required"</span></h2>
-		<h2 > <span style="background-color: #F3B391"> Markov Forecast</span> = <span style="background-color: #f1a8a8"> "Overall Status"</span> | <span style="background-color: #9ed8a6"> "Number of Additional Faculty"</span> | <span style="background-color: #9acee7"> "Manpower Required"</span></h2>
-		
+		<h2>The ARIMA model applies the following steps: <br></h2>
+		<h2>1. <b>Differencing (I)</b> - The historical manpower data is differenced to achieve stationarity.<br></h2>
+		<h2>2. <b>Autoregression (AR)</b> - A regression model is fitted on the differenced data using past values to predict future values.<br></h2>
+		<h2>3. <b>Forecasting</b> - The model predicts the next period's manpower requirement based on the learned patterns.<br></h2>
+		<br>
+		<h2> <span style="background-color: #F3B391"> ARIMA Forecast</span> = f(<span style="background-color: #9acee7"> Historical "Manpower Required" </span>)</h2>
 	</div>
 	<br>
 
 	
 	<script>
 
-	function generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, finalMarkovValueChart1) {
-		// Get the explanation div
-		var explanationDiv = document.querySelector('.forecastdata-markovmodel');
+	function generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, arimaForecastValue) {
+		var explanationDiv = document.querySelector('.forecastdata-arimamodel');
 
-		// Generate the explanation text with HTML markup for bold text
-		var explanationText = "The chart shows that the possible <b> Manpower Required </b> for the <b><i>next semester</i></b> is: <b>" + finalMarkovValueChart1 + "</b>";
-		explanationText += " based on the Over-all Status of the Faculty and the 'Number of Additional Faculty' from Forecasting which is: <b>" + chart1ForecastedManpower + "</b>";
+		var explanationText = "The chart shows that the possible <b> Manpower Required </b> for the <b><i>next semester</i></b> is: <b>" + arimaForecastValue + "</b>";
+		explanationText += " based on the ARIMA time-series analysis of historical data. The 'Number of Additional Faculty' from Forecasting is: <b>" + chart1ForecastedManpower + "</b>";
 		explanationText += " and 'Manpower Required' from Manpower Requisition Form: <b>" + chart1RequestedManpower + " .</b>";
 
-		// Update the explanation in the HTML using innerHTML
 		explanationDiv.innerHTML = explanationText;
 	}
 
@@ -622,10 +619,10 @@ h2{
 
 			if (selectedSemester === "2nd Semester") {
 				// Display the next academic year followed by "1st Semester"
-				headingElement.textContent = "Markov Forecast for A.Y. (" + nextAcademicYear + ") - 1st Semester";
+				headingElement.textContent = "ARIMA Forecast for A.Y. (" + nextAcademicYear + ") - 1st Semester";
 			} else if (selectedSemester === "1st Semester") {
 				// Display the selected academic year followed by "2nd Semester"
-				headingElement.textContent = "Markov Forecast for A.Y. (" + selectedYear + ") - 2nd Semester";
+				headingElement.textContent = "ARIMA Forecast for A.Y. (" + selectedYear + ") - 2nd Semester";
 			}
 			}
 		}
@@ -645,18 +642,14 @@ h2{
 	var selectElementSem = document.getElementById('sem');
 	var displayElementAy = document.getElementById('manpowerDataAY');
 	var displayElementSem = document.getElementById('manpowerDataSem');
-	var aySemesterHeading = document.getElementById('aySemesterHeading2');
-
-
 	function updateTextContent() {
 		var selectedValueAy = selectElementAy.value;
 		var selectedValueSem = selectElementSem.value;
-		
+
 		var textContent = "The charts display data for A.Y. " + selectedValueAy + " - " + selectedValueSem;
 
 		displayElementAy.textContent = textContent;
 		displayElementSem.textContent = selectedValueSem;
-		aySemesterHeading.textContent = textContent;
 	}	
 </script>
 
@@ -687,14 +680,8 @@ h2{
 					success: function(response) {
 						console.log(response);
 
-						function getBaseLog(x, y) {
-							return Math.log(y) / Math.log(x);
-						}
-
-						//START MARKOV
 						var chart1RequestedManpower = 0;
 						var chart1ForecastedManpower = 0;
-						var chart1Markov = 0;
 						response.manpower.map(data => {
 							chart1RequestedManpower += data.num_emp_required
 						});
@@ -703,26 +690,8 @@ h2{
 								chart1ForecastedManpower += data.numaddfacmember
 							});
 						});
-						for (const [key, value] of Object.entries(response.markov.chart1)) {
-							let convertedKey = parseInt(key);
-							if (convertedKey > 0) {
-								console.log(value, convertedKey);
-								let blog = getBaseLog(value, convertedKey)
-								console.log(blog);
-								if (blog !== Infinity) {
-									chart1Markov += Math.abs(blog);
-								} else {
-									chart1Markov += Math.abs(value);
-								}
-							} else {
-								console.log(value, key);
-								chart1Markov += Math.abs(value);
-							}
-						}
-						chart1Markov = Math.round(chart1Markov);
 
-						chart1Markov = (chart1Markov ? chart1Markov : 0)
-						var finalMarkovValueChart1 = response.markov5years.total.finalMarkovValueChart1;
+						var arimaForecastValue = response.arima.forecast;
 
 						var manpowerRequiredChart = document.getElementById('manpowerRequiredChartContainer');
 						chart1 = new Chart(manpowerRequiredChart, {
@@ -758,9 +727,9 @@ h2{
 										borderWidth: 1
 									},
 									{
-										label: '# of Markov Forecast Manpower (5 Years Data)',
+										label: '# of ARIMA Forecast Manpower (5 Years Data)',
 										data: [
-											response.markov5years.total.finalMarkovValueChart1
+											arimaForecastValue
 										],
 										backgroundColor: [
 											'#F3B391',
@@ -811,13 +780,13 @@ h2{
 								labels: [
 									'# of Forecasted Manpower', 
 									'# of Requested Manpower',
-									'# of Markov Forecast Manpower (5 Years Data)'
+									'# of ARIMA Forecast Manpower (5 Years Data)'
 								],
 								datasets: [{
 									data: [
 										chart1ForecastedManpower,
 										chart1RequestedManpower,
-										response.markov5years.total.finalMarkovValueChart1
+										arimaForecastValue
 									],
 									backgroundColor: [
 										'#7CA982',
@@ -861,7 +830,7 @@ h2{
 								aspectRatio: 5,
 							}
 						});
-						generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, finalMarkovValueChart1);
+						generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, arimaForecastValue);
 						// document.getElementById("sem").addEventListener("change", updateHeading);
 						// document.getElementById("ay").addEventListener("change", updateHeading);
 						updateHeading();

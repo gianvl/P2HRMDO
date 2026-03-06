@@ -99,7 +99,7 @@
             <a class="btn btn-mf-form shadow-none" href="{{ route('forecast.index') }}">Manpower Forecast History</a>
         </div>
         <div class="grid-con-mf-system" href="">
-            <a href="{{ route('requesting.markov') }}">
+            <a href="{{ route('requesting.arima') }}">
                 <button type="button" class="btn btn-mf-system shadow-none">Manpower Forecast System</button>
             </a>
         </div>

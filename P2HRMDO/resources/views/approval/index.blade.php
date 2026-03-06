@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="grid-con-mf-data" href="">
-                <a href="{{ route('approval.markov') }}">
+                <a href="{{ route('approval.arima') }}">
                     <button type="button" class="btn btn-mf-data shadow-none">Manpower Forecast System</button>
                 </a>
             </div>
