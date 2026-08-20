@@ -920,3 +920,62 @@ Grepping for a *rendered string* found two of three copies. Grepping for the
 *structure* — `function updateHeading` — would have found all three. Copy-paste
 divergence defeats string search precisely because the copies drift in the
 strings.
+
+---
+
+## 16. One copy of the forecast section, under the right name
+
+**Problem**
+The same 344 lines — the two charts, the model explanation, and the script that
+fetches the data and draws them — existed three times, in the requesting,
+approval and processing pages. Every fix in this session had to be applied by
+hand to each copy, and #15 above is what that eventually costs: one copy silently
+kept a bug the other two had fixed.
+
+The two role pages were also still named `markovforecast.blade.php`, after the
+`fieg/markov` package that was removed when ARIMA was introduced.
+
+**Fix**
+Extracted to `resources/views/partials/arima-forecast.blade.php`, included from
+all three pages, and renamed the two role views to `arimaforecast.blade.php`.
+
+The extraction was deliberately sequenced **after** #15: with all three copies
+byte-identical first, this commit could be a pure refactor rather than a refactor
+carrying behaviour changes inside it. The two are separately reviewable and
+separately revertable.
+
+The partial carries a header comment recording what it needs from the including
+page — the `#college`, `#department`, `#ay` and `#sem` inputs and the
+`#ForecastBtn` — since an `@include` makes that dependency easy to miss.
+
+**Files**
+- `resources/views/partials/arima-forecast.blade.php` (new)
+- `resources/views/requesting/arimaforecast.blade.php` (renamed)
+- `resources/views/approval/arimaforecast.blade.php` (renamed)
+- `resources/views/processing/forecastingdata/fdata.blade.php`
+- `app/Http/Controllers/ForecastingDataController.php`
+
+**Verification**
+Inlining the partial back into each view reproduces the previous file **byte for
+byte** — 26242, 25146 and 26436 bytes respectively — so nothing that renders
+changed. All four templates compile, all four view names resolve through
+Laravel's finder, no reference to "markov" remains in application code, and the
+suite is green at 34 tests.
+
+```
+before   880 + 861 + 959                       = 2700 lines
+after    537 + 518 + 603 + 355 (partial)       = 2013 lines
+```
+
+**Still there: three jQuery versions on these pages**
+Not touched, and worth a decision of its own. Each of these pages loads jQuery
+**3.6.0** in `<head>`, then **3.2.1 slim** — the slim build has no `$.ajax` —
+and then **1.4.2 over plain `http://`**. The last one wins, so the forecast's
+`$.ajax` currently runs on a jQuery from 2010.
+
+On an HTTPS deployment the browser blocks that `http://` script as mixed content.
+`$` then stays as 3.2.1 slim, `$.ajax` is undefined, and the Forecast button
+stops working entirely. It works on an HTTP localhost, which is exactly why this
+would not be noticed until deployment. Removing the two redundant loads should
+fix it, but that changes which jQuery every script on the page runs against, so
+it wants a browser to verify rather than a guess.
