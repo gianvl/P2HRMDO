@@ -661,3 +661,63 @@ $ ./vendor/bin/phpunit
 ............................                                      28 / 28 (100%)
 OK (28 tests, 47 assertions)
 ```
+
+---
+
+## 12. The five-year history is now plotted
+
+**Problem**
+`arima.historicalData` had been returned by the controller since the original
+integration and read by no view (open item #7). The page showed the forecast as a
+single bar next to two current-year figures, with no sight of the trend it came
+from — a reader had no way to judge whether the number was plausible.
+
+The second chart was a **pie** of those same three values: "Forecasted Manpower",
+"Requested Manpower" and the ARIMA forecast. A pie states that its slices are
+parts of one whole. These are three independent estimates *of the same quantity*,
+so the shape asserted a relationship that does not exist, and the slice sizes
+meant nothing.
+
+**Fix**
+Replaced the pie with a line chart of the five academic years the model was
+fitted on, followed by the forecast year:
+
+- **Manpower Required (recorded)** — the actual figures, solid.
+- **ARIMA Forecast** — dashed, starting at the last recorded year so the
+  projected segment joins the history rather than floating unattached.
+
+`spanGaps: false` means an academic year with no requisition **breaks the line**
+rather than being drawn through. This is the useful part: the contiguity rule
+from fix #10 is now visible. A department missing 2022-2023 shows a broken line,
+and it is obvious at a glance why the forecast used only the two years after the
+break.
+
+The bar chart is untouched — it still answers "how do this year's three figures
+compare", which is a different question from "where is this heading".
+
+`nextAcademicYear()` was extracted while adding the forecast year label, and
+`updateHeading()` now uses it instead of repeating the same arithmetic inline.
+
+**Files**
+- `resources/views/requesting/markovforecast.blade.php`
+- `resources/views/approval/markovforecast.blade.php`
+- `resources/views/processing/forecastingdata/fdata.blade.php`
+
+**Verification**
+Every inline `<script>` in all three views parses (`node --check`), all three
+templates compile through Blade, and the suite is still green at 28 tests. The
+data preparation was run against four histories:
+
+| history | line drawn | forecast segment |
+|---|---|---|
+| all five years | `[4,5,6,7,8]` | `8 → 9` |
+| gap at 2022-2023 | `[4,5,null,7,8]` — line breaks | `8 → 8` |
+| selected year missing | `[4,5,6,7,null]` | nothing drawn |
+| no history at all | nothing drawn | nothing drawn |
+
+The last two draw no forecast at all, matching the "forecast unavailable" caption
+from fix #3 rather than contradicting it.
+
+**Note**
+If the pie chart was a requirement, it can come back in a third canvas — but the
+data would still not be parts of a whole.

@@ -640,6 +640,12 @@ h2{
 	
 	<script>
 
+	function nextAcademicYear(ay) {
+		var startYear = parseInt(ay.split("-")[0]);
+
+		return (startYear + 1) + "-" + (startYear + 2);
+	}
+
 	function generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, arimaForecastValue) {
 		var explanationDiv = document.querySelector('.forecastdata-arimamodel');
 
@@ -853,35 +859,55 @@ h2{
 
 						var manpowerRequiredChart2 = document.getElementById('manpowerRequiredChartContainer2');
 
+						// The five academic years the model was fitted on, followed by
+						// the year it forecasts. A year with no requisition stays null,
+						// so a gap in the history is visible rather than drawn through.
+						var historyYears = response.ayListArima;
+						var historyValues = historyYears.map(function (year) {
+							var recorded = response.arima.historicalData[year];
+
+							return recorded === undefined ? null : recorded;
+						});
+						var forecastYear = nextAcademicYear(historyYears[historyYears.length - 1]);
+
+						// The forecast line starts at the last recorded year so the
+						// projected segment joins onto the history instead of floating.
+						var forecastValues = historyYears.map(function () { return null; });
+						forecastValues[forecastValues.length - 1] = historyValues[historyValues.length - 1];
+						forecastValues.push(arimaForecastValue);
+
 						chart2 = new Chart(manpowerRequiredChart2, {
-							type: 'pie',
+							type: 'line',
 							data: {
-								labels: [
-									'# of Forecasted Manpower', 
-									'# of Requested Manpower',
-									'# of Forecast Manpower'
-								],
-								datasets: [{
-									data: [
-										chart1ForecastedManpower,
-										chart1RequestedManpower,
-										arimaForecastValue
-									],
-									backgroundColor: [
-										'#7CA982',
-										'#37718E',
-										'#F3B391'
-									],
-									borderColor: [
-										'#285238',
-										'#5BC3EB',
-										'#A63A50'
-									],
-									borderWidth: 1
-								}]
+								labels: historyYears.concat([forecastYear]),
+								datasets: [
+									{
+										label: 'Manpower Required (recorded)',
+										data: historyValues.concat([null]),
+										backgroundColor: '#37718E',
+										borderColor: '#37718E',
+										borderWidth: 2,
+										spanGaps: false,
+										tension: 0
+									},
+									{
+										label: 'ARIMA Forecast',
+										data: forecastValues,
+										backgroundColor: '#F3B391',
+										borderColor: '#A63A50',
+										borderWidth: 2,
+										borderDash: [6, 4],
+										tension: 0
+									}
+								]
 							},
 							options: {
 								responsive: true,
+								scales: {
+									y: {
+										beginAtZero: true
+									}
+								},
 								plugins: {
 									legend: {
 										position: 'top',
@@ -893,10 +919,10 @@ h2{
 												weight: 400
 											}
 										},
-										
 									},
 									title: {
 										display: true,
+										text: 'Manpower Required by Academic Year',
 										color: 'black',
 										font: {
 											size: 18,
