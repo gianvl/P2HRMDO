@@ -1317,3 +1317,50 @@ role-aware navigation — is untouched. The navbars are 72% identical to one
 another and the sidebars come in 9 near-duplicate variants, so that duplication
 is still there, and styling will keep drifting until it is addressed. It is a
 larger, riskier job than this one and deserves its own effort.
+
+---
+
+## 22. Deployment steps in the README
+
+**Problem**
+The README covered local setup but said nothing about deploying. Everything this
+session established about how the system fails on a real server lived only in
+`changes.md` entries, or in my head.
+
+The gap mattered because `.env` is gitignored: nothing about the environment
+travels with the repository, so anything a developer configured locally has to be
+done again on the server, from memory.
+
+**Fix**
+A `## Deployment` section covering dependencies, environment, database, storage,
+permissions, production caching, and web server configuration.
+
+Three parts of it exist because this session hit them for real:
+
+- **`NODE_BINARY` gets its own subsection.** Node is a *runtime* dependency of
+  the web server, and version managers (fnm, nvm, asdf) put it on an interactive
+  shell's `PATH` only — which Apache, php-fpm and XAMPP never see. The section
+  quotes the exact log line (`exec: node: not found`, exit 127), gives the
+  `which node` / `where node` commands, and warns specifically against using a
+  version manager's per-session shim path, since that is what `which node`
+  reports and it disappears when the shell closes. This is precisely what
+  happened here.
+
+- **A warning that `db:seed` destroys data**, since 15 of the 19 seeders call
+  `truncate()`. Added to the local Setup section too, which previously
+  recommended the command with no caveat at all.
+
+- **A five-minute post-deploy check**: log in, run a forecast, and if it says
+  unavailable read the log *before* anything else — a line means the plumbing,
+  silence means the data. Then save an evaluation (a 419 means CSRF is not
+  reaching the endpoint) and open a modal (which exercises jQuery and Bootstrap
+  loading exactly once). Each of these corresponds to a failure this session
+  actually found.
+
+`storage:link` was also added to local setup; it had never been run here, which
+is why every profile photograph rendered as alt text.
+
+**Verification**
+Every command named was checked against `php artisan list`; `npm run build`
+against `package.json`; the referenced test file and fallback image against the
+filesystem; and the "15 of 19" count against the seeders themselves.

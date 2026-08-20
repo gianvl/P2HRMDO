@@ -34,7 +34,12 @@ php artisan key:generate
 # point .env at your database, then:
 php artisan migrate
 php artisan db:seed         # roles, users, employees and sample forecast data
+php artisan storage:link    # so uploaded images resolve
 ```
+
+`db:seed` is destructive: 15 of the 19 seeders `truncate()` the tables they fill.
+It is meant for a fresh database. See [Deployment](#deployment) before running it
+anywhere that holds real records.
 
 Run it:
 
@@ -42,6 +47,135 @@ Run it:
 php artisan serve           # http://127.0.0.1:8000
 npm run dev                 # asset watcher, in a second terminal
 ```
+
+## Deployment
+
+`.env` is not in the repository, so **nothing below is inherited from a
+developer machine** — each item has to be done on the server itself. The two
+that are most often missed are `NODE_BINARY` and `storage:link`; both fail
+quietly rather than loudly.
+
+### 1. Code and dependencies
+
+```bash
+composer install --no-dev --optimize-autoloader
+npm install          # required: the forecast script needs node_modules
+npm run build        # compiles assets into public/build
+```
+
+### 2. Environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Then edit `.env`:
+
+```ini
+APP_ENV=production
+APP_DEBUG=false          # leaving this true exposes stack traces publicly
+APP_URL=https://your-host
+
+DB_DATABASE=...
+DB_USERNAME=...
+DB_PASSWORD=...
+
+# The web server's PHP must be able to execute this. See below.
+NODE_BINARY=/usr/local/bin/node
+FORECAST_TIMEOUT=10
+```
+
+### 3. `NODE_BINARY` — read this one
+
+Every forecast runs `scripts/arima_forecast.js` as a subprocess, so **Node is a
+runtime dependency of the web server, not just a build tool**. The PHP process
+serving requests must be able to execute it.
+
+It usually cannot. Node installed through a version manager (fnm, nvm, asdf) is
+placed on the `PATH` of an *interactive shell* only, and Apache, php-fpm and
+XAMPP do not get that `PATH`. The failure looks like this in the log:
+
+```
+local.WARNING: ARIMA forecast script failed.
+{"exit_code":127,"error":"sh: line 0: exec: node: not found"}
+```
+
+Find the real path and put it in `.env`:
+
+```bash
+which node          # Linux / macOS  -> /usr/local/bin/node
+where node          # Windows        -> C:\Program Files\nodejs\node.exe
+```
+
+Do not use a version manager's shim path. `fnm` reports something like
+`~/.local/state/fnm_multishells/17280_1699.../bin/node`, which is created per
+shell session and disappears. Use the real installation path — for fnm that is
+`~/.local/share/fnm/node-versions/vNN/installation/bin/node`.
+
+### 4. Database
+
+```bash
+php artisan migrate --force
+```
+
+> **Do not run `php artisan db:seed` on a database that holds real records.**
+> 15 of the 19 seeders call `truncate()` on the tables they populate, so seeding
+> destroys existing data. Seed only when first setting up an empty database.
+
+### 5. Storage
+
+```bash
+php artisan storage:link
+```
+
+Profile photographs are read from `storage/app/public/images/`, and the `users`
+table stores filenames like `profile.man2.png`. Without the symlink — or without
+the files — every avatar falls back to the default `images/profilepic.png`,
+which is a graceful failure but still a missing photograph.
+
+### 6. Permissions
+
+```bash
+chmod -R ug+rwx storage bootstrap/cache
+```
+
+### 7. Cache for production
+
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+Re-run all three after any change to `.env`, routes or views — cached config
+ignores later `.env` edits, which is a common source of "I changed it and
+nothing happened". `php artisan optimize:clear` undoes all of it.
+
+### 8. Web server
+
+Point the document root at **`public/`**, never at the project root. Anything
+else exposes `.env`, `storage/` and the whole source tree over HTTP.
+
+Serve over HTTPS. The application previously loaded a script over plain `http://`
+which browsers block on an HTTPS page; that is fixed, and a test now enforces it
+(`tests/Feature/ViewScriptTagsTest.php`).
+
+### After deploying: a five-minute check
+
+1. **Log in.** Confirm you reach the dashboard for your role.
+2. **Run a forecast** with a college and department that has five academic years
+   of requisitions. A number should appear, not "unavailable".
+3. If it says unavailable, check the log before anything else:
+   ```bash
+   tail -f storage/logs/laravel.log | grep ARIMA
+   ```
+   A line means the plumbing — almost always `NODE_BINARY`. Silence means the
+   data genuinely does not support a forecast, which is a correct answer.
+4. **Save an evaluation.** A `419` in the browser's network tab means the CSRF
+   token is not reaching `/api/evaluation/post`.
+5. **Open a manpower requisition form** and confirm a modal opens — that
+   exercises jQuery and Bootstrap being loaded exactly once.
 
 ## Roles
 
