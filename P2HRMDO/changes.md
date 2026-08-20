@@ -254,3 +254,33 @@ stdout, so any such run is unparseable. Post-fix that degrades to a logged
 `null`; pre-fix it would have been a silent `0`.
 
 **Not yet fixed — awaiting a decision on whether that branch should exist.**
+
+---
+
+## 5. Series of 10–19 points had no working code path
+
+**Problem** (finding A above)
+The script routed `series.length >= 10` to the arima package, but the package
+refuses to fit fewer than 20 observations. Anything from 10 to 19 points was too
+long for the hand-rolled implementation and too short for the library, so it
+failed outright.
+
+**Fix**
+Named the real limit `MIN_LIBRARY_SERIES_LENGTH = 20` and branched on that. The
+constant carries a comment explaining that it is the package's constraint, not an
+arbitrary tuning choice — the previous bare `10` gave no hint of where it came
+from or that it was wrong.
+
+**Files**
+- `scripts/arima_forecast.js`
+
+**Verification** — ramp `10, 11, 12, …`, so the correct answer is always the next
+integer in the ramp:
+
+```
+n=5   {"forecast":15,...}   # ramp ends 14 -> 15   correct
+n=15  {"forecast":25,...}   # ramp ends 24 -> 25   correct   (previously: error)
+n=19  {"forecast":29,...}   # ramp ends 28 -> 29   correct   (previously: error)
+n=20  {"forecast":21,...}   # ramp ends 29 -> 30   WRONG, see next fix
+n=24  {"forecast":25,...}   # ramp ends 33 -> 34   WRONG, see next fix
+```

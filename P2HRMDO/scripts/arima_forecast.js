@@ -1,5 +1,12 @@
 /**
- * ARIMA(1,1,0) implementation for small datasets (< 10 data points).
+ * Minimum series length the arima package will fit. Anything shorter is
+ * rejected outright with "Series too short", so it goes to the hand-rolled
+ * implementation below instead.
+ */
+const MIN_LIBRARY_SERIES_LENGTH = 20;
+
+/**
+ * ARIMA(1,1,0) implementation for series too short for the arima package.
  * Uses first-order differencing + AR(1) via least squares regression.
  */
 function arimaSmallDataset(series) {
@@ -53,8 +60,7 @@ try {
         throw new Error('input.series must be a non-empty array');
     }
 
-    if (series.length < 10) {
-        // Use manual ARIMA(1,1,0) for small datasets
+    if (series.length < MIN_LIBRARY_SERIES_LENGTH) {
         const forecast = Math.max(0, Math.round(arimaSmallDataset(series)));
         console.log(JSON.stringify({ forecast, model: 'ARIMA(1,1,0)' }));
     } else {
