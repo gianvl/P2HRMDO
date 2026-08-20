@@ -60,3 +60,60 @@ path in `.env`, e.g. `NODE_BINARY=/usr/local/bin/node`.
 - `config/forecasting.php` (new)
 - `app/Http/Controllers/ForecastingDataController.php`
 - `.env.example`
+
+---
+
+## 3. A failed forecast was reported as a forecast of 0 (blocking)
+
+**Problem**
+Failure and success shared the same output channel end to end:
+
+- `scripts/arima_forecast.js` caught every exception and printed
+  `{"forecast": 0, "model": "error"}` on **stdout** with exit code 0, so a crash
+  looked exactly like a successful run.
+- The controller had no `else` on `if ($result->successful())` — a non-zero exit
+  left `$arimaForecast` at its initialised value of `0`, with nothing logged.
+
+Since 0 is a legitimate forecast ("this department needs no additional staff"),
+nobody — user or developer — could tell a broken Node install from a genuinely
+flat department. Issue #1 above went unnoticed for exactly this reason.
+
+**Fix**
+Three layers, one rule: *an unavailable forecast must never look like a number.*
+
+1. **Script** — errors now go to `stderr` with `process.exit(1)`. An empty or
+   non-array `series` is rejected as invalid input rather than answered with 0.
+2. **Controller** — extracted `arimaForecast(array $series): ?int`, which returns
+   `null` on any failure and writes a `Log::warning` carrying the exit code and
+   `stderr`. Malformed script output is treated as a failure too. The API now
+   returns `arima.forecast === null` when no forecast could be produced.
+3. **Views** — `generateChartExplanation()` gained a guard clause that renders
+   "ARIMA forecast is unavailable" instead of the string "null". Chart.js draws
+   no bar for a null data point, which is the correct visual.
+
+Extracting the private method was not cosmetic: the early-return style is what
+lets each failure path log its own cause and bail, instead of falling through to
+a shared default.
+
+**Files**
+- `scripts/arima_forecast.js`
+- `app/Http/Controllers/ForecastingDataController.php`
+- `resources/views/requesting/markovforecast.blade.php`
+- `resources/views/approval/markovforecast.blade.php`
+- `resources/views/processing/forecastingdata/fdata.blade.php`
+
+**Verification**
+```
+$ node scripts/arima_forecast.js '{"series":[10,12,11,14,15]}'
+{"forecast":16,"model":"ARIMA(1,1,0)"}                       # exit 0
+
+$ node scripts/arima_forecast.js '{"series":[]}'
+input.series must be a non-empty array                       # exit 1, stderr
+
+$ node scripts/arima_forecast.js 'not json'
+Unexpected token 'o', "not json" is not valid JSON           # exit 1, stderr
+```
+
+**Note**
+The same three-line explanation function exists verbatim in all three views, so
+this guard had to be pasted three times — see the duplication item in the review.

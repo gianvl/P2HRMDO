@@ -49,9 +49,8 @@ try {
     const series = input.series;
     const steps = input.steps || 1;
 
-    if (!series || series.length === 0) {
-        console.log(JSON.stringify({ forecast: 0, model: 'none' }));
-        process.exit(0);
+    if (!Array.isArray(series) || series.length === 0) {
+        throw new Error('input.series must be a non-empty array');
     }
 
     if (series.length < 10) {
@@ -69,5 +68,8 @@ try {
         console.log(JSON.stringify({ forecast, model: 'ARIMA(auto)' }));
     }
 } catch (e) {
-    console.log(JSON.stringify({ forecast: 0, model: 'error', error: e.message }));
+    // Fail loudly. A forecast of 0 is a legitimate result, so errors must not be
+    // reported through the same channel as a successful run.
+    console.error(e.message);
+    process.exit(1);
 }

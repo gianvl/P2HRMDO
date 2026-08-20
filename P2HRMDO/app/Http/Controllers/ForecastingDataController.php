@@ -11,6 +11,7 @@ use App\Models\{
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 
 class ForecastingDataController extends Controller
@@ -172,20 +173,7 @@ class ForecastingDataController extends Controller
         ksort($numemprequired);
         $series = array_values($numemprequired);
 
-        // Run ARIMA forecast via Node.js script
-        $arimaForecast = 0;
-        if (count($series) >= 2) {
-            $input = json_encode(['series' => $series, 'steps' => 1]);
-            $scriptPath = base_path('scripts/arima_forecast.js');
-            $result = Process::run([config('forecasting.node_binary'), $scriptPath, $input]);
-
-            if ($result->successful()) {
-                $arimaResult = json_decode($result->output(), true);
-                $arimaForecast = $arimaResult['forecast'] ?? 0;
-            }
-        } elseif (count($series) === 1) {
-            $arimaForecast = $series[0];
-        }
+        $arimaForecast = $this->arimaForecast($series);
 
         return [
             "manpower" => $manpower,
@@ -198,5 +186,45 @@ class ForecastingDataController extends Controller
                 "historicalData" => $numemprequired,
             ],
         ];
+    }
+
+    /**
+     * Forecast the next period's manpower requirement from a historical series.
+     *
+     * Returns null when no forecast can be produced, so that an unavailable
+     * forecast is never mistaken for a genuine forecast of zero.
+     */
+    private function arimaForecast(array $series): ?int
+    {
+        if (count($series) < 2) {
+            return isset($series[0]) ? (int) $series[0] : null;
+        }
+
+        $result = Process::run([
+            config('forecasting.node_binary'),
+            base_path('scripts/arima_forecast.js'),
+            json_encode(['series' => $series, 'steps' => 1]),
+        ]);
+
+        if (! $result->successful()) {
+            Log::warning('ARIMA forecast script failed.', [
+                'exit_code' => $result->exitCode(),
+                'error' => $result->errorOutput(),
+            ]);
+
+            return null;
+        }
+
+        $forecast = json_decode($result->output(), true)['forecast'] ?? null;
+
+        if (! is_numeric($forecast)) {
+            Log::warning('ARIMA forecast script returned unusable output.', [
+                'output' => $result->output(),
+            ]);
+
+            return null;
+        }
+
+        return (int) $forecast;
     }
 }

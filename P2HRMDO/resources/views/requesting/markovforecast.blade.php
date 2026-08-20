@@ -576,6 +576,11 @@ h2{
 	function generateChartExplanation(chart1ForecastedManpower, chart1RequestedManpower, arimaForecastValue) {
 		var explanationDiv = document.querySelector('.forecastdata-arimamodel');
 
+		if (arimaForecastValue === null) {
+			explanationDiv.innerHTML = "The <b>ARIMA forecast is unavailable</b> for this selection. There may not be enough historical data, or the forecast could not be computed.";
+			return;
+		}
+
 		var explanationText = "The chart shows that the possible <b> Manpower Required </b> for the <b><i>next semester</i></b> is: <b>" + arimaForecastValue + "</b>";
 		explanationText += " based on the ARIMA time-series analysis of historical data. The 'Number of Additional Faculty' from Forecasting is: <b>" + chart1ForecastedManpower + "</b>";
 		explanationText += " and 'Manpower Required' from Manpower Requisition Form: <b>" + chart1RequestedManpower + " .</b>";
