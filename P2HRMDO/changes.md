@@ -396,3 +396,59 @@ controller, via reflection:
 `php -l` clean. The remaining open items are #5–#13 in the table above, of which
 the correctness ones (gap-collapsing series, dead queries, and the on-screen copy
 that overstates the model's inputs) are the ones worth doing next.
+
+---
+
+## 8. The page overstated what the model actually uses
+
+**Problem**
+The on-screen explanation claimed the forecast was built from two historical
+series:
+
+> To forecast manpower needs for the HRMDO, the ARIMA model uses the following
+> historical data collected over 5 academic years:
+> - "Number of Additional Faculty" as derived from the Forecasting Form.
+> - "Manpower Required" as obtained from the Manpower Requisition Form.
+
+Only the second is true. The controller fits on `num_emp_required` alone. The
+block even contradicted itself four lines later, where the formula correctly read
+`ARIMA Forecast = f(Historical "Manpower Required")`.
+
+The controller carried the matching dead weight: `$forecastSection1Arima` ran a
+five-year eager-loaded query and `$numaddfacmember` aggregated it, on every
+request, and neither was ever read or returned. The claim and the unused query
+are the same defect seen from two ends — leftovers from the Markov
+implementation, which genuinely did consume both series.
+
+A third inaccuracy sat in the same block: the model was described as "combining
+three components: autoregression (AR), differencing (I), and moving average
+(MA)". ARIMA(1,1,0) has `q = 0` — there is no MA component.
+
+**Fix**
+Aligned the copy with the code rather than the other way round.
+
+- Controller: deleted the unused query and aggregation.
+- Views: the input list now names one series. "Number of Additional Faculty" is
+  still described, correctly, as a comparison figure charted beside the forecast
+  and explicitly *not* an input.
+- Views: the description now says ARIMA(1,1,0) — differencing plus a first-order
+  autoregression — and states that MA is unused.
+- Views: `generateChartExplanation()` presented all three numbers in one
+  sentence, which read as though all three fed the model. It now separates the
+  forecast from the two current-year figures shown for comparison.
+
+Feeding "Number of Additional Faculty" in as a second input was the other way to
+resolve this, but that means an exogenous regressor (ARIMAX) fitted on five
+observations — indefensible at that sample size, and a modelling change rather
+than a documentation fix.
+
+**Files**
+- `app/Http/Controllers/ForecastingDataController.php`
+- `resources/views/requesting/markovforecast.blade.php`
+- `resources/views/approval/markovforecast.blade.php`
+- `resources/views/processing/forecastingdata/fdata.blade.php`
+
+**Verification**
+`php -l` clean; the forecast probe returns identical values to before, confirming
+the removed query fed nothing. `$forecastSection1` (current academic year) is
+untouched and still populates the "Forecasted Manpower" bar.

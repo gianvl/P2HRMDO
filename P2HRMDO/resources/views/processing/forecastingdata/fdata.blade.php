@@ -619,13 +619,14 @@ h2{
 	<div class="grid-con-forecastdata-two">
 		<h5> How the ARIMA Model Works: </h5>
 		<h2> ARIMA (AutoRegressive Integrated Moving Average) is a statistical model for time-series forecasting.
-			It analyzes historical data patterns to predict future workforce requirements by combining three components:
-			autoregression (AR), differencing (I), and moving average (MA).
+			It analyzes historical data patterns to predict future workforce requirements. This system uses
+			<b>ARIMA(1,1,0)</b>: one order of differencing (I) followed by a first-order autoregression (AR).
+			The moving average (MA) component is not used.
 			<br><br>
 		</h2>
-		<h2>To forecast manpower needs for the HRMDO (Human Resource Management and Development Office), using the latest 5 years data, the ARIMA model uses the following historical data: <br> </h2>
-		<h2> - <span style="color: rgb(12, 133, 28)"> "Number of Additional Faculty"</span> as derived from the Forecasting Form.<br> </h2>
+		<h2>To forecast manpower needs for the HRMDO (Human Resource Management and Development Office), the ARIMA model is fitted on a single historical series, collected over the latest 5 academic years: <br> </h2>
 		<h2>- <span style="color: #37718E"> "Manpower Required"</span> as obtained from the Manpower Requisition Form.<br></h2>
+		<h2>The <span style="color: rgb(12, 133, 28)"> "Number of Additional Faculty"</span> from the Forecasting Form is charted beside the forecast for comparison. It is not an input to the model.<br> </h2>
 		<br>
 		<h2>The ARIMA model applies the following steps: <br></h2>
 		<h2>1. <b>Differencing (I)</b> - The historical manpower data is differenced to achieve stationarity.<br></h2>
@@ -647,9 +648,10 @@ h2{
 			return;
 		}
 
-		var explanationText = "The chart shows that the possible <b> Manpower Required </b> for the <b><i>next semester</i></b> is: <b>" + arimaForecastValue + "</b>";
-		explanationText += " based on the ARIMA time-series analysis of historical data. The 'Number of Additional Faculty' from Forecasting is: <b>" + chart1ForecastedManpower + "</b>";
-		explanationText += " and 'Manpower Required' from Manpower Requisition Form: <b>" + chart1RequestedManpower + " .</b>";
+		var explanationText = "The chart shows that the possible <b> Manpower Required </b> is: <b>" + arimaForecastValue + "</b>";
+		explanationText += ", forecast by ARIMA(1,1,0) from the last 5 academic years of <b>'Manpower Required'</b> figures.";
+		explanationText += " Shown beside it for comparison, for the selected academic year: 'Number of Additional Faculty' from Forecasting is <b>" + chart1ForecastedManpower + "</b>";
+		explanationText += " and 'Manpower Required' from the Manpower Requisition Form is <b>" + chart1RequestedManpower + "</b>.";
 
 		explanationDiv.innerHTML = explanationText;
 	}

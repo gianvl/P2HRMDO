@@ -149,25 +149,12 @@ class ForecastingDataController extends Controller
             ->where('semester', $sem)
             ->get();
 
-        $forecastSection1Arima = ForecastSection1::where('college', $college)
-            ->where('department', $department)
-            ->whereIn('ay', $ayListArima)
-            ->where('semester', $sem)
-            ->with('forecastSection4s')
-            ->get();
-
-        // Aggregate manpower required per academic year
+        // Aggregate manpower required per academic year. This is the only
+        // series the model is fitted on.
         $numemprequired = [];
-        $numaddfacmember = [];
 
         foreach ($manpowerArima as $m) {
             $numemprequired[$m->ay] = ($numemprequired[$m->ay] ?? 0) + $m->num_emp_required;
-        }
-
-        foreach ($forecastSection1Arima as $f) {
-            foreach ($f->forecastSection4s as $fs4) {
-                $numaddfacmember[$f->ay] = ($numaddfacmember[$f->ay] ?? 0) + $fs4->numaddfacmember;
-            }
         }
 
         // Build time series sorted chronologically
