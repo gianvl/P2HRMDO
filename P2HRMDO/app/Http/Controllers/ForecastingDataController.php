@@ -132,16 +132,8 @@ class ForecastingDataController extends Controller
             ->with('forecastSection8s')
             ->get();
 
-        // 5-year historical data for ARIMA
-        $ayListArima = [$ay];
-        $ayArr = explode("-", $ay);
-        $startYr = intval($ayArr[0]);
-        $endYr = intval($ayArr[1]);
-        for ($yrCtr = 0; $yrCtr < 4; $yrCtr++) {
-            $startYr--;
-            $endYr--;
-            $ayListArima[] = "{$startYr}-{$endYr}";
-        }
+        // 5-year historical window for ARIMA, oldest academic year first.
+        $ayListArima = $this->academicYearWindow($ay, 5);
 
         $manpowerArima = Manpower::where('college', $college)
             ->where('department', $department)
@@ -157,9 +149,9 @@ class ForecastingDataController extends Controller
             $numemprequired[$m->ay] = ($numemprequired[$m->ay] ?? 0) + $m->num_emp_required;
         }
 
-        // Build time series sorted chronologically
         ksort($numemprequired);
-        $series = array_values($numemprequired);
+
+        $series = $this->contiguousSeries($numemprequired, $ayListArima);
 
         $arimaForecast = $this->arimaForecast($series);
 
@@ -174,6 +166,51 @@ class ForecastingDataController extends Controller
                 "historicalData" => $numemprequired,
             ],
         ];
+    }
+
+    /**
+     * The $count academic years ending at $ay, oldest first.
+     *
+     * "2024-2025" with a count of 3 gives
+     * ["2022-2023", "2023-2024", "2024-2025"].
+     */
+    private function academicYearWindow(string $ay, int $count): array
+    {
+        [$startYr, $endYr] = array_map('intval', explode('-', $ay));
+
+        $years = [];
+        for ($offset = $count - 1; $offset >= 0; $offset--) {
+            $years[] = ($startYr - $offset) . '-' . ($endYr - $offset);
+        }
+
+        return $years;
+    }
+
+    /**
+     * The unbroken run of academic years ending at the most recent year of
+     * $window, as a plain list of totals.
+     *
+     * An academic year with no requisition is absent from $totals rather than
+     * present as zero, and the model reads consecutive list entries as
+     * consecutive periods. Closing a gap up would difference across the missing
+     * years as though they were adjacent, and filling it with zero would invent
+     * a requisition for nil that nobody submitted -- both distort the trend.
+     * Using only the run leading up to the selected year avoids both, and keeps
+     * the one-step forecast landing on the academic year the page names.
+     */
+    private function contiguousSeries(array $totals, array $window): array
+    {
+        $series = [];
+
+        foreach (array_reverse($window) as $ay) {
+            if (! array_key_exists($ay, $totals)) {
+                break;
+            }
+
+            array_unshift($series, $totals[$ay]);
+        }
+
+        return $series;
     }
 
     /**

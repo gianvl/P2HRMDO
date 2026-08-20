@@ -517,3 +517,77 @@ selected: 2019-2020 1st Semester  ->  ARIMA Forecast for A.Y. (2020-2021) - 1st 
 ```
 
 Each now names the period the fitted series actually continues.
+
+---
+
+## 10. Gaps in the year series were silently closed up
+
+**Problem**
+The series was built by aggregating into a map keyed by academic year and then
+flattening it:
+
+```php
+ksort($numemprequired);
+$series = array_values($numemprequired);
+```
+
+A year in which a department filed no requisition is simply **absent** from that
+map — not present as zero. `array_values()` then closes the hole, and the model
+reads consecutive list entries as consecutive periods. So a department with data
+for 2020-21, 2021-22, 2023-24 and 2024-25 produced the series `[4, 5, 7, 8]`, in
+which 2021-22 and 2023-24 are differenced as though they were adjacent years. The
+jump across the missing year is counted as one year's growth, inflating the
+trend:
+
+```
+collapsed [4,5,7,8] -> forecast 10
+```
+
+**Fix**
+Two small private methods, each with one job:
+
+- `academicYearWindow($ay, $count)` builds the five-year window explicitly,
+  oldest first. It replaces an inline decrementing loop, and gives the series
+  code a definitive list of which years *should* be present — you cannot detect a
+  missing year without knowing which years to expect.
+- `contiguousSeries($totals, $window)` walks back from the most recent year and
+  stops at the first gap.
+
+The three ways to handle a hole are to close it, to fill it, or to stop at it.
+Closing it is what the bug did. Filling it with zero invents a requisition for
+nil that nobody submitted, which drags the forecast down and is a worse lie than
+the gap. Stopping at it uses only genuinely adjacent observations.
+
+Anchoring the run to the selected academic year matters for a second reason: a
+one-step-ahead forecast only lands on the year the heading names if the series
+actually ends at the selected year. A run ending earlier would predict a year
+already in the past while the page labelled it as next year's — reintroducing fix
+#9 by a different route.
+
+**Behaviour change worth knowing:** where history is patchy the forecast is now
+based on fewer points, and if the *selected* year has no requisition at all the
+forecast is unavailable rather than wrong. The views already render that state
+properly (fix #3).
+
+**Files**
+- `app/Http/Controllers/ForecastingDataController.php`
+
+**Verification** — window `2020-2021 … 2024-2025`, via the real methods:
+
+| case | series before | series now | forecast |
+|---|---|---|---|
+| all five present | `[4,5,6,7,8]` | `[4,5,6,7,8]` | `9` |
+| hole in the middle | `[4,5,7,8]` → `10` | `[7,8]` | `8` |
+| oldest two missing | `[6,7,8]` | `[6,7,8]` | `9` |
+| selected year missing | `[4,5,6,7]` → wrong period | `[]` | `null` |
+| only the selected year | `[8]` | `[8]` | `8` |
+| nothing at all | `[]` | `[]` | `null` |
+
+The middle row is the bug: a series spanning a missing year forecast 10, where
+the two genuinely adjacent observations give 8.
+
+**Still open**
+`steps` is fixed at 1, so there is no way to forecast further ahead than the next
+academic year. If HRMDO ever needs a forecast for a year whose predecessor has no
+data, that is the feature to build — multi-step forecasting from the last
+complete run — rather than relaxing the contiguity rule.
