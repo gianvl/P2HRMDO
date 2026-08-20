@@ -1249,3 +1249,71 @@ templates compile; suite green at 38 tests.
 Consolidating the 6,194 lines of inline CSS, and migrating to Bootstrap 5. Both
 are real improvements and both are large; neither belongs immediately before a
 defence.
+
+---
+
+## 21. A shared UI layer: focus, motion, and table legibility
+
+**Approach**
+The application is 23 standalone HTML documents plus 16 views extending a
+layout, with 6,194 lines of inline style between them. Restyling that by editing
+markup would mean touching 58 files and would drift apart again within a month.
+
+So this layer is **CSS only and deliberately low-specificity**: it styles the
+elements and Bootstrap classes already in the markup, applies to every page at
+once, and loses to any view that already styles something. Nothing here changes
+layout, and no view's markup was edited.
+
+`public/css/ui.css`, loaded after `tokens.css` and before each view's own
+`<style>`.
+
+**Keyboard focus was invisible — the real defect here**
+
+45 elements carry Bootstrap's `.shadow-none`, which removes the focus shadow.
+There were **zero** `outline: none` rules, so nothing was deliberately
+suppressing the fallback — it simply had nothing to fall back to on those
+elements. A keyboard user had no way to tell where they were on the page.
+
+`:focus-visible` now draws a 2px `--app-blue` outline. It triggers on keyboard
+navigation only, so a mouse user sees no change at all. This is the change in
+this session I would defend hardest: it is the difference between the system
+being operable without a mouse and not.
+
+**Motion**
+
+Transitions on background, border, colour, shadow and transform for links,
+buttons, nav items, inputs and table rows — 0.15s, enough to read as responsive
+rather than animated. Buttons lift 1px on hover and settle on press (transform,
+so no layout is disturbed). Smooth scrolling.
+
+All of it sits behind `prefers-reduced-motion: reduce`, which collapses every
+animation and transition in the application to 0.01ms. Motion is a courtesy;
+anyone who has asked their system for less gets none.
+
+**Tables**
+
+Even rows take `--app-surface-alt`, and the row under the cursor lifts to a
+translucent blue. Cells that set their own background — the Unread / Processing /
+Completed status columns — keep it, because a `td` beats a `tr`. A `.numeric`
+class is available for right-aligned tabular figures where a table wants it.
+
+**Verification**
+In Chrome, on the processing dashboard (319 rows) and the faculty list:
+
+- Row hover confirmed against neighbouring rows, with the green "Completed"
+  status cell keeping its own colour underneath.
+- Striping confirmed computing to `rgb(247, 248, 250)` — subtle by design, since
+  every cell already has a border doing the separating.
+- Tabbed nine times to a real element and confirmed
+  `outlineColor: rgb(49, 94, 160)`, `outlineWidth: 2px`,
+  `matchesFocusVisible: true` — and zoomed in to see the ring.
+- Dashboard, faculty list and login checked for layout regressions: none.
+
+Suite green at 38 tests.
+
+**Not done, and worth knowing**
+The structural fix — collapsing 23 standalone documents into one layout with
+role-aware navigation — is untouched. The navbars are 72% identical to one
+another and the sidebars come in 9 near-duplicate variants, so that duplication
+is still there, and styling will keep drifting until it is addressed. It is a
+larger, riskier job than this one and deserves its own effort.

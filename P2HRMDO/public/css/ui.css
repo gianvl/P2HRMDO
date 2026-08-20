@@ -1,0 +1,113 @@
+/*
+ * Shared UI layer.
+ *
+ * Deliberately low-specificity and markup-free: it styles the elements and
+ * Bootstrap classes the application already uses, so it applies everywhere
+ * without editing 58 views, and any view that already styles something keeps
+ * winning. Nothing here changes layout.
+ *
+ * Loaded after tokens.css, before each view's own <style>.
+ */
+
+/* ---------------------------------------------------------------- motion -- */
+
+a,
+button,
+.btn,
+.nav-link,
+input,
+select,
+textarea,
+tbody tr {
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		color 0.15s ease,
+		box-shadow 0.15s ease,
+		transform 0.15s ease;
+}
+
+/* A press should feel like a press. Transform does not affect layout. */
+.btn:not(:disabled):hover { transform: translateY(-1px); }
+.btn:not(:disabled):active { transform: translateY(0); }
+
+html { scroll-behavior: smooth; }
+
+/*
+ * Everything above is a courtesy, not a requirement. Anyone who has asked
+ * their system to reduce motion gets none of it.
+ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ----------------------------------------------------------------- focus -- */
+
+/*
+ * 45 elements in this application carry Bootstrap's .shadow-none, which strips
+ * the focus shadow and leaves keyboard users with no indication of where they
+ * are. :focus-visible restores it for keyboard navigation only -- a mouse user
+ * sees no change.
+ */
+:focus-visible {
+	outline: 2px solid var(--app-blue);
+	outline-offset: 2px;
+	border-radius: 3px;
+}
+
+.btn:focus-visible {
+	outline-offset: 3px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var(--app-blue);
+	outline-offset: 1px;
+	border-color: var(--app-blue);
+}
+
+/* ---------------------------------------------------------------- tables -- */
+
+/*
+ * Row striping and a hover highlight make a wide table scannable: the eye can
+ * follow a row across without losing its place. Cells that set their own
+ * background -- the status columns -- keep it, since a td beats a tr.
+ */
+tbody tr:nth-child(even) {
+	background-color: var(--app-surface-alt);
+}
+
+tbody tr:hover {
+	background-color: rgba(49, 94, 160, 0.08);
+}
+
+/* Figures line up on their last digit when they are right-aligned. */
+td.numeric,
+th.numeric {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------ selection -- */
+
+::selection {
+	background-color: rgba(49, 94, 160, 0.18);
+}
+
+/* ---------------------------------------------------------------- states -- */
+
+.btn:disabled,
+button:disabled,
+input:disabled,
+select:disabled {
+	cursor: not-allowed;
+	opacity: 0.65;
+}
