@@ -1125,3 +1125,70 @@ already won every rule they both define, Bootstrap 5 may have been supplying
 rules Bootstrap 4 does not. No Bootstrap 5-only class appears in the markup,
 which is why the risk is low rather than zero. Worth a look at the navbar,
 modals, dropdowns and alert dismiss buttons before relying on it.
+
+---
+
+## 19. UI and UX of the forecast page
+
+Verified in a browser this time, not by reasoning.
+
+**Layout defects fixed**
+
+The four selectors were positioned by hand, including
+`margin-left: -200px` on the Semester label — which is why "Semester:" was
+drawn on top of the Academic Year dropdown. The Forecast button was
+`<button id="ForecastBtn" ...></i> Forecast</a>`: opened as a button, closed as
+an anchor, with a stray `</i>`. Each select repeated
+`style="width:170px; height:30px; border-color:#315EA0"` inline, and the two
+role pages had drifted to 150px against the processing page's 170px.
+
+Replaced with a five-column grid (`.arima-form`), labels above their controls,
+one stylesheet rule instead of repeated inline styles, and a real
+`<button type="button">`. Collapses to two columns under 1100px.
+
+**The form was a fourth copy**
+
+Identical in all three pages apart from that width drift, and it sat *outside*
+the partial extracted in #16 — so the de-duplication had missed it. Moved into
+`partials/arima-forecast.blade.php` along with `updateDepartments()`. The partial
+is now self-contained: an including page supplies only `$collegeList`.
+
+**Interaction**
+
+- Clicking Forecast with an incomplete selection raised a browser `alert()`. The
+  button is now disabled until all four selectors have a value, with a line of
+  text saying what is still needed — the state is visible *before* the click
+  rather than scolding after it.
+- The request runs a database query and a Node subprocess with no indication
+  anything was happening. It now disables the button, shows "Forecasting…", and
+  restores on completion.
+- A failed request only wrote to the console. It now says so on the page.
+
+**Charts**
+
+- Both y-axes drew fractional ticks — 0.2, 0.4, 0.6 of a person. Now
+  `ticks: { precision: 0 }`.
+- The bar chart's single category was labelled `''`, leaving a blank axis. It now
+  reads e.g. "2022-2023 — 1st Semester".
+- Before any forecast, an empty grey card occupied the chart area. It now reads
+  "The charts appear here once you run a forecast", and the charts are revealed
+  on the first result — revealed *before* Chart.js draws, since a hidden
+  container has zero size.
+
+**Broken profile images**
+
+The "Profile image" and "Avat" text in the sidebar and navbar were alt text from
+images returning 404: users have `image` values like `profile.man2.png`, resolved
+against `storage/images/`, but `php artisan storage:link` had never been run and
+`storage/app/public` is empty. Ran the link, and added an `onerror` fallback to
+the default `images/profilepic.png` on all **33** such tags across 22 views, so a
+missing file degrades to an avatar rather than raw alt text.
+
+**Verification**
+Driven in Chrome against the running app: the form renders as a clean grid with
+no overlap; the button is genuinely disabled (`disabled: false` and background
+`rgb(57, 85, 131)` once complete — checked in the DOM, since the screenshot made
+an enabled button look grey); a forecast for Customs Administration 2022-2023
+draws bars 6 / 5 / 4 with integer ticks and the labelled category; selecting
+2023-2024 still reports the forecast unavailable. All three role pages return
+200 with the shared form. Suite green at 38 tests.

@@ -37,7 +37,7 @@
                         {{ auth()->user()->unreadNotifications->count() }} <!-- Notification count -->
                     </span> --}}
                     <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
-                        {{ $loggedInUser->name }}<img src="{{ asset('storage/images/' . $loggedInUser->image) }}"  class="avatar" alt="Avatar" style="margin-left:10px; color:azure">
+                        {{ $loggedInUser->name }}<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';"  class="avatar" alt="Avatar" style="margin-left:10px; color:azure">
                     </a>
                     <div class="dropdown-menu">
                         <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i>Profile</a>

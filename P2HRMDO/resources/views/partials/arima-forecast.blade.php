@@ -6,16 +6,151 @@
     held three copies of it. They had drifted apart -- see changes.md #15 -- and
     every fix to the forecast had to be applied by hand three times.
 
-    Requires, on the including page: the #college, #department, #ay and #sem
-    inputs, and the #ForecastBtn that triggers the fetch.
+    Self-contained: the partial owns the four selectors and the Forecast button
+    as well as the charts, so an including page only needs $collegeList.
 --}}
+<style>
+	/* The four selectors and the Forecast button. Replaces a hand-positioned
+	   layout that used margin-left:-200px to pull the Semester label back over
+	   the Academic Year dropdown, which is why the two used to overlap. */
+	.arima-form {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(150px, 1fr)) auto;
+		gap: 14px 18px;
+		align-items: end;
+	}
+
+	.arima-field {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		min-width: 0;
+	}
+
+	.arima-field label {
+		margin: 0;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.arima-field select {
+		width: 100%;
+		height: 34px;
+		padding: 0 8px;
+		border: 1px solid #315EA0;
+		border-radius: 4px;
+		background-color: #fff;
+	}
+
+	.arima-form #ForecastBtn {
+		height: 34px;
+		min-width: 130px;
+		white-space: nowrap;
+	}
+
+	/* A disabled Forecast button says "not yet" before the click does. */
+	.arima-form #ForecastBtn:disabled {
+		background-color: #b4bed0;
+		border-color: #b4bed0;
+		cursor: not-allowed;
+	}
+
+	.arima-charts-empty {
+		padding: 48px 24px;
+		text-align: center;
+		color: #5d6b82;
+		background-color: #f7f8fa;
+		border-radius: 6px;
+	}
+
+	.arima-form-hint {
+		margin: 12px 0 0;
+		font-size: 0.9rem;
+		color: #5d6b82;
+	}
+
+	@media (max-width: 1100px) {
+		.arima-form { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+		.arima-form .arima-field--action { grid-column: 1 / -1; }
+	}
+</style>
+
+<div class="grid-con-input-eval-sec shadow">
+	<div class="arima-form">
+		<div class="arima-field">
+			<label for="college">College <span class="required">*</span></label>
+			<select id="college" name="college" onchange="updateDepartments()" required>
+				<option disabled selected value="" class="optiondisabled">Select College</option>
+				@foreach ($collegeList as $college)
+					<option value="{{ $college->college }}">{{ $college->college }}</option>
+				@endforeach
+			</select>
+		</div>
+
+		<div class="arima-field">
+			<label for="department">Department <span class="required">*</span></label>
+			<select id="department" name="department" required>
+				<option disabled selected value="" class="optiondisabled">Select Department</option>
+			</select>
+		</div>
+
+		<div class="arima-field">
+			<label for="ay">Academic Year <span class="required">*</span></label>
+			<select id="ay" name="ay" required>
+				<option disabled selected value="" class="optiondisabled">Select</option>
+			</select>
+		</div>
+
+		<div class="arima-field">
+			<label for="sem">Semester <span class="required">*</span></label>
+			<select id="sem" name="sem" required>
+				<option value="" disabled selected>Select</option>
+				<option value="1st Semester">1st Semester</option>
+				<option value="2nd Semester">2nd Semester</option>
+			</select>
+		</div>
+
+		<div class="arima-field arima-field--action">
+			<button type="button" id="ForecastBtn" class="btn btn-adduser shadow-none" disabled>Forecast</button>
+		</div>
+	</div>
+
+	<p class="arima-form-hint" id="arimaFormHint">Choose a college, department, academic year and semester to run a forecast.</p>
+</div>
+
+<script>
+		function updateDepartments() {
+			var collegeDropdown = document.getElementById("college");
+			var departmentDropdown = document.getElementById("department");
+			var selectedCollege = collegeDropdown.value;
+		
+			// Clear existing options
+			departmentDropdown.innerHTML = '<option disabled selected value="">Select Department</option>';
+		
+			$.ajax({
+				type: 'GET',
+				url: `/api/college/${selectedCollege}/department`,
+				success: function(response) {
+					console.log(response);
+					const departments = response;
+					departments.map(department => {
+						departmentDropdown.innerHTML += `<option value="${department.department}">${department.department}</option>`;
+					});
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		}
+	</script>
+
 	<div class="forecastdata-header">
 		<h1 class="manpowerData" id="manpowerDataAY"> <span id="manpowerDataSem"> </span></h1>
 
 		<h1 class="forecastdata-selectedaysem2" id="aySemesterHeading"></h1>
 	</div>
 
-	<div class="grid-con-forecastdata-one shadow">
+	<div class="grid-con-forecastdata-one shadow" id="arimaCharts" style="display: none;">
 		<div>
 			<canvas id="manpowerRequiredChartContainer"></canvas>
 			<span class="forecastdata-arimamodel"> </span>
@@ -23,6 +158,10 @@
 		<div>
 			<canvas id="manpowerRequiredChartContainer2"></canvas>
 		</div>
+	</div>
+
+	<div class="arima-charts-empty shadow" id="arimaChartsEmpty">
+		The charts appear here once you run a forecast.
 	</div>
 	{{-- // '#7CA982',
 	// '#37718E',
@@ -139,6 +278,26 @@
 		var chart1, 
 		chart2 = null;
 
+		var HINT_INCOMPLETE = "Choose a college, department, academic year and semester to run a forecast.";
+		var HINT_READY = "Ready \u2014 click Forecast to run the model.";
+
+		// The Forecast button stays disabled until all four selectors have a
+		// value, so an incomplete selection is visible before the click rather
+		// than answered with an alert afterwards.
+		function refreshForecastAvailability() {
+			var ready = ["#college", "#department", "#ay", "#sem"].every(function (selector) {
+				return $(selector).val();
+			});
+
+			$("#ForecastBtn").prop("disabled", !ready);
+			$("#arimaFormHint").text(ready ? HINT_READY : HINT_INCOMPLETE);
+
+			return ready;
+		}
+
+		$("#college, #department, #ay, #sem").on("change", refreshForecastAvailability);
+		refreshForecastAvailability();
+
 		$("#ForecastBtn").click(function() {
 			let selectedCollege = $("#college").val();
 			let selectedDepartment = $("#department").val();
@@ -148,18 +307,26 @@
 			if (chart1) { chart1.destroy() }
 			if (chart2) { chart2.destroy() }
 
-			if (
-				selectedCollege &&
-				selectedDepartment &&
-				selectedAY &&
-				selectedSem
-			) {
-				
+			if (!refreshForecastAvailability()) {
+				return;
+			}
+
+			// The request runs a database query and a Node subprocess, so say
+			// something is happening rather than leaving the page inert.
+			$("#ForecastBtn").prop("disabled", true).text("Forecasting\u2026");
+			$("#arimaFormHint").text("Computing the forecast\u2026");
+
+			{
 				$.ajax({
 					type: 'GET',
 					url: `/api/processing/forecastingdata/${selectedCollege}/${selectedDepartment}/${selectedAY}/${selectedSem}`,
 					success: function(response) {
 						console.log(response);
+
+						// Reveal before drawing: Chart.js sizes the canvas from
+						// its container, which is zero-sized while hidden.
+						$("#arimaChartsEmpty").hide();
+						$("#arimaCharts").show();
 
 						var chart1RequestedManpower = 0;
 						var chart1ForecastedManpower = 0;
@@ -178,7 +345,7 @@
 						chart1 = new Chart(manpowerRequiredChart, {
 							type: 'bar',
 							data: {
-								labels: [''],
+								labels: [selectedAY + ' \u2014 ' + selectedSem],
 								datasets: [ 
 									{
 										label: '# of Forecasted Manpower',
@@ -225,7 +392,9 @@
 							options: {
 								scales: {
 									y: {
-										beginAtZero: true
+										beginAtZero: true,
+										// A count of people has no fractional values.
+										ticks: { precision: 0 }
 									}
 								},
 								plugins: {
@@ -301,7 +470,9 @@
 								responsive: true,
 								scales: {
 									y: {
-										beginAtZero: true
+										beginAtZero: true,
+										// A count of people has no fractional values.
+										ticks: { precision: 0 }
 									}
 								},
 								plugins: {
@@ -342,10 +513,13 @@
 					},
 					error: function(err) {
 						console.log(err);
+						$("#arimaFormHint").text("The forecast could not be loaded. Please try again.");
+					},
+					complete: function() {
+						$("#ForecastBtn").text("Forecast");
+						refreshForecastAvailability();
 					}
 				});
-			} else {
-				alert("Please select required fields.");
 			}
 		});
 	});

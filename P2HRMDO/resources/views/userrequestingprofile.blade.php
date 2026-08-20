@@ -22,7 +22,7 @@
 								<input type="file" id="image" name="image" style="display: none;">
 								<div class="circle-container">
 									@if($loggedInUser->image)
-										<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" alt="Profile Image Saved" id="profile-image1">
+										<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" alt="Profile Image Saved" id="profile-image1">
 										@else
 											<img src="{{ asset('images/profilepic.png') }}" alt="Profile Image Default" id="profile-image1">
 										@endif

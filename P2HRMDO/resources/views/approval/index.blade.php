@@ -6,7 +6,7 @@
         <div class="grid-container-column">
             <div class="grid-con-mf-data" href="">
                 <div class="img-profile" >
-                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
+                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
                 </div>  
                 <div class="app-main-text-profile">
                     <p class="app-mainpage-text-jane-doe"><b>{{ $loggedInUser->name }}</b></p>

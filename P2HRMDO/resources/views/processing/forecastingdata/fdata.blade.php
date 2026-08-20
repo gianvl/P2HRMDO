@@ -427,7 +427,7 @@ h2{
 		</div>
 		<ul class="navbar-nav navbar-profile">
 			<div class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action" id="navname">{{ $loggedInUser->name }}<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" class="avatar" alt="Avatar" style="margin-left:10px;"> <b class="caret"></b></a>
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action" id="navname">{{ $loggedInUser->name }}<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" class="avatar" alt="Avatar" style="margin-left:10px;"> <b class="caret"></b></a>
 				<div class="dropdown-menu">
 					<a href="{{ route('showProcessingProfile') }}" class="dropdown-item"><i class="fa fa-user-o"></i>Profile</a>
 					<div class="dropdown-divider"></div>
@@ -484,7 +484,7 @@ h2{
 
 <div class="sidebar" id="sidebar">
 	<div class="profile_info">
-		<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" alt="Profile Image" class="profile_image" id="profile-image">
+		<img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" alt="Profile Image" class="profile_image" id="profile-image">
 		<h1>{{ $loggedInUser->name }}<br></h1>
 		<h3>{{ $loggedInUser->position }} of {{ $loggedInUser->department }}</h3>
 	</div>
@@ -532,68 +532,6 @@ h2{
 			</div>
 		</div>
 	</div>
-
-	<div class="grid-con-input-eval-sec shadow">
-		<div class="forecast-dropdown-container-left">
-			<label for="college" style="margin-top: 2px ;">College: <span class="required">*</span></label>
-				<select class="dropdown-college" id="college" name="college" onchange="updateDepartments()" required style="width: 170px; height: 30px; border-color: #315EA0;">
-					<option disabled selected value="" class="optiondisabled">Select College</option>
-					@foreach ($collegeList as $college)
-					<option value="{{ $college->college }}">{{ $college->college }}</option>
-					@endforeach
-				</select>
-				<label for="department" style="margin-top: 2px; margin-left: 10%;">Department: <span class="required">*</span></label>
-				<select class="dropdown-department" id="department" name="department" style="width: 170px; height: 30px; border-color: #315EA0;">
-					<option disabled selected value="" class="optiondisabled">Select Department</option>  
-				</select>
-		</div>
-		
-		<div class="forecast-dropdown-container">
-			<div>
-				<label for="ay" style="margin-top: 2px">Academic Year: <span class="required">*</span></label>
-				<select id="ay" name="ay" style="width: 175px; height: 30px; border-color: #315EA0;" required>
-					<option disabled selected value="" class="optiondisabled">Select</option>
-				</select>
-			</div>
-			<div>
-				<label for="sem" style="margin-top: 2px; margin-left: -200px;">Semester: <span class="required">*</span></label>
-				<select class="dropdown-sem" id="sem" name="sem" style="width: 165px; height: 30px; border-color: #315EA0;">
-					<option value="" disabled selected>Select</option>
-					<option value="1st Semester">1st Semester</option>
-					<option value="2nd Semester">2nd Semester</option>
-				</select>
-			</div>
-			<div class="container lofcontainer" style="margin-right: -15px;">
-				<button id="ForecastBtn" class="btn btn-adduser shadow-none lofaddfacbtn"></i> Forecast</a>
-			</div>
-		</div>
-	</div>
-
-	<script>
-		function updateDepartments() {
-			var collegeDropdown = document.getElementById("college");
-			var departmentDropdown = document.getElementById("department");
-			var selectedCollege = collegeDropdown.value;
-		
-			// Clear existing options
-			departmentDropdown.innerHTML = '<option disabled selected value="">Select Department</option>';
-		
-			$.ajax({
-				type: 'GET',
-				url: `/api/college/${selectedCollege}/department`,
-				success: function(response) {
-					console.log(response);
-					const departments = response;
-					departments.map(department => {
-						departmentDropdown.innerHTML += `<option value="${department.department}">${department.department}</option>`;
-					});
-				},
-				error: function(err) {
-					console.log(err);
-				}
-			});
-		}
-	</script>
 
 	@include('partials.arima-forecast')
 

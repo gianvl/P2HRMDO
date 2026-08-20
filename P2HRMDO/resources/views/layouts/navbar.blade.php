@@ -39,7 +39,7 @@
                 </span> --}}
 
                 <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action" id="navname"> {{ $loggedInUser->name }}
-                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" class="avatar" alt="Avatar" style="margin-left:10px; color:azure">
+                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" class="avatar" alt="Avatar" style="margin-left:10px; color:azure">
                 </a>
                 <div class="dropdown-menu">
                     @if ($loggedInUser->position == 'Chairperson' || $loggedInUser->position == 'Dean')

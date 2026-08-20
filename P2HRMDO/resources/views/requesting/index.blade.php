@@ -16,7 +16,7 @@
         <div class="req-mainpage-grid-container-dean">
             <div class="grid-con-profile shadow" href="">
                 <div class="req-mainpage-img-profile" >
-                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
+                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
                 </div>  
                 <div class="req-mainpage-text-align-profile">
                     <p class="req-mainpage-text-jane-doe"><b>{{ $loggedInUser->name }}</b></p>
@@ -47,7 +47,7 @@
         <div class="req-mainpage-grid-container">
             <div class="grid-con-profile shadow" href="">
                 <div class="req-mainpage-img-profile" >
-                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
+                    <img src="{{ asset('storage/images/' . $loggedInUser->image) }}" onerror="this.onerror=null; this.src='{{ asset('images/profilepic.png') }}';" class="rounded-circle" width="65px" height="65px" href="req_evalpage copy.html">
                 </div>  
                 <div class="req-mainpage-text-align-profile">
                     <p class="req-mainpage-text-jane-doe"><b>{{ $loggedInUser->name }}</b></p>
