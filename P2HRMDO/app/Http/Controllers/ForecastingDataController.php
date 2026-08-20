@@ -88,7 +88,7 @@ class ForecastingDataController extends Controller
         $collegeList = DB::table('employees')
         ->select(DB::raw('DISTINCT(`college`)'))
         ->get();
-        return view('requesting.markovforecast', compact('loggedInUser', 'collegeList'));
+        return view('requesting.arimaforecast', compact('loggedInUser', 'collegeList'));
     }
 
     public function viewArimaApproval()
@@ -98,7 +98,7 @@ class ForecastingDataController extends Controller
         $collegeList = DB::table('employees')
         ->select(DB::raw('DISTINCT(`college`)'))
         ->get();
-        return view('approval.markovforecast', compact('loggedInUser', 'collegeList'));
+        return view('approval.arimaforecast', compact('loggedInUser', 'collegeList'));
     }
 
     public function forecastingData(string $college, string $department, string $ay, string $sem)
