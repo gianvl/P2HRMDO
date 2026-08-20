@@ -29,7 +29,7 @@
     margin-bottom: 10px;
     font-size: 14px;
     opacity: 0.8;
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
 }
 
 .circle-container {
@@ -57,13 +57,13 @@
 }
 
 h1{
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 23px;
     line-height: 10px;
 }
 
 h3 {
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 15px;
     text-align: center;
     line-height: 20px;

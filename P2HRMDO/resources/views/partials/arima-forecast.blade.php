@@ -55,6 +55,27 @@
 		cursor: not-allowed;
 	}
 
+	/*
+	 * The explanation block marks its prose up as <h2>, and the page's global
+	 * h2 rule sets line-height:20px on 20px text -- a ratio of 1.0. The old
+	 * serif face, with its smaller x-height, disguised how tight that was.
+	 * Scoped here rather than changing h2 across the application.
+	 */
+	.grid-con-forecastdata-two h2 {
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.65;
+		text-align: left;
+		margin-bottom: var(--app-space-2);
+	}
+
+	.grid-con-forecastdata-two h5 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-bottom: var(--app-space-4);
+		text-align: left;
+	}
+
 	.arima-charts-empty {
 		padding: 48px 24px;
 		text-align: center;

@@ -1192,3 +1192,60 @@ an enabled button look grey); a forecast for Customs Administration 2022-2023
 draws bars 6 / 5 / 4 with integer ticks and the labelled category; selecting
 2023-2024 still reports the forecast unavailable. All three role pages return
 200 with the shared form. Suite green at 38 tests.
+
+---
+
+## 20. Design tokens, and a typeface from this decade
+
+**Problem**
+The application was set entirely in **Times New Roman** — 204 declarations
+across 26 files. Nothing dates an interface faster, and it was applied
+per-selector (`h1`, `h2`, `.body`, `.navbar-text`, …) rather than inherited, so
+there was no single place to change it.
+
+Underneath that: **6,194 lines of inline `<style>` across 29 views**, plus 3,726
+lines in 12 stylesheets that the forecast pages did not load at all. No shared
+layer existed, so every value that should be decided once was decided 29 times.
+
+**Fix**
+Added `public/css/tokens.css` — a small stylesheet of custom properties for
+typography, colour, radius, shadow and spacing — linked first in `<head>` on all
+23 views that have one, and on `layouts/app.blade.php` for the six that inherit.
+Being first means a view's own rules still win; the tokens set defaults, they do
+not seize control.
+
+Then replaced all 204 `font-family: 'Times New Roman'` declarations with
+`font-family: var(--app-font)`. **The whole application's typeface is now a
+one-line edit.**
+
+The stack is a system one — `-apple-system, BlinkMacSystemFont, 'Segoe UI',
+Roboto, …`. No network request, so it cannot fail on a defence-day connection,
+and no flash of unstyled text.
+
+The palette was left alone. `#395583` / `#315EA0` is coherent; it is named in the
+tokens (`--app-navy`, `--app-blue`) rather than changed.
+
+**What the new face exposed**
+The explanation block marks its prose up as `<h2>`, and the page's global rule
+sets `line-height: 20px` on `font-size: 20px` — a ratio of **1.0**. Times New
+Roman's small x-height disguised how tight that was; a sans face does not. Fixed
+with a rule scoped to `.grid-con-forecastdata-two`, so `h2` elsewhere in the
+application is untouched: 1rem, line-height 1.65, left-aligned rather than
+justified.
+
+**Files**
+- `public/css/tokens.css` (new)
+- 26 files with font declarations, 23 views linked to the tokens
+- `resources/views/partials/arima-forecast.blade.php`
+
+**Verification**
+Checked in Chrome, not assumed. On the forecast page the token resolves, and a
+sweep of every heading, paragraph, label, button and select found **zero**
+elements still rendering a serif. Spot-checked the processing dashboard (stat
+cards, tabs, data table) and the login screen for layout regressions — none. All
+templates compile; suite green at 38 tests.
+
+**Deliberately not done**
+Consolidating the 6,194 lines of inline CSS, and migrating to Bootstrap 5. Both
+are real improvements and both are large; neither belongs immediately before a
+defence.

@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
 }
 
 .grid-con-first{

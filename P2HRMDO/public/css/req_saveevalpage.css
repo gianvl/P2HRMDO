@@ -9,7 +9,7 @@
     }
 
     body {
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
     }
 
     .navbar-header{
@@ -34,13 +34,13 @@
         top: 100%;
         right: auto;
         z-index: 1000;
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
     }
 
     .navbar-text{
         color: white;
         font-size: 15px;
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -178,24 +178,24 @@
     }
 
     h1 {  /* College Name Font*/
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
         font-size: 25px;
         line-height: 13px;
     }
 
     h2 { /*Department Name Font*/
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
         font-size: 18px;
         line-height: 13px;
     }
     h3 { /*Prof details*/
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
         font-size: 14px;
         line-height: 13px;
     }
 
     h4{
-        font-family: 'Times New Roman';
+        font-family: var(--app-font);
         font-size: 20px;
         line-height: 25px;
     }

@@ -1,0 +1,64 @@
+/*
+ * Design tokens.
+ *
+ * Every page in this application carried its own <style> block -- 6,194 lines
+ * across 29 views -- so there was no single place to change how the system
+ * looks. Values that should be decided once now live here as custom
+ * properties, and the view stylesheets reference them.
+ *
+ * Loaded first, in <head>, so a view can still override any of it locally.
+ */
+
+:root {
+	/*
+	 * A system stack: renders immediately with no network request, and cannot
+	 * fail on a defence-day connection. Replaces 'Times New Roman', which was
+	 * declared 204 times across the views.
+	 */
+	--app-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+	--app-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+	/* The existing palette, named. These are the colours already in use. */
+	--app-navy: #395583;
+	--app-navy-dark: #2c4468;
+	--app-blue: #315ea0;
+	--app-sidebar: #dde5f2;
+
+	/* Pure black on white is harsher than it needs to be. */
+	--app-text: #1f2733;
+	--app-text-muted: #5d6b82;
+	--app-border: #d7deea;
+	--app-surface: #ffffff;
+	--app-surface-alt: #f7f8fa;
+
+	/* Chart series, unchanged -- the views already agree on these three. */
+	--app-chart-forecasted: #7ca982;
+	--app-chart-requested: #37718e;
+	--app-chart-arima: #f3b391;
+
+	--app-radius: 6px;
+	--app-radius-lg: 10px;
+	--app-shadow: 0 1px 2px rgba(31, 39, 51, 0.06), 0 2px 8px rgba(31, 39, 51, 0.06);
+	--app-shadow-lg: 0 2px 4px rgba(31, 39, 51, 0.06), 0 8px 24px rgba(31, 39, 51, 0.08);
+
+	--app-space-1: 4px;
+	--app-space-2: 8px;
+	--app-space-3: 12px;
+	--app-space-4: 16px;
+	--app-space-5: 24px;
+	--app-space-6: 32px;
+}
+
+/*
+ * Times New Roman was declared on individual selectors rather than inherited,
+ * so anything the views did not name explicitly fell back to the browser
+ * default serif. Setting it here means new markup gets the right face for free.
+ */
+body {
+	font-family: var(--app-font);
+	color: var(--app-text);
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

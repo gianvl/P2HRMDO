@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="{{url('/images/ADULOGO.png')}}">  
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
 
 <style>
 .body{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .navbar-header{
@@ -48,14 +49,14 @@
 	top: 100%;
 	right: auto;
 	left: 30px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	z-index: 100;
 }
 
 .navbar-text{
 	color: white;
 	font-size: 15px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	position: absolute;
 	top: 50%;
 	position:fixed;
@@ -64,7 +65,7 @@
 	left: 50%;
 }
 .dashboardoptions{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 18px;
 }
 
@@ -87,13 +88,13 @@
 
 .user-action{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
 .user-action:hover{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
@@ -192,13 +193,13 @@
 }
 
 h1{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 23px;
 	line-height: 10px;
 }
 
 h3 {
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 15px;
 	text-align: center;
 	line-height: 20px;
@@ -449,7 +450,7 @@ h3 {
 
 <style>
 	.search-container, .lofsearch {
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 18px;
 		padding: 3px;
 		width: 320px; /* Adjust the margin as needed */
@@ -459,7 +460,7 @@ h3 {
 	}
 
 	.lofsearch::placeholder{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 18px;
 		padding-left: 3px;
 		align-items: center;
@@ -477,12 +478,12 @@ h3 {
 		margin-left: 20px;
 		font-size: 35px; 
 		font-weight: 700; 
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 	}
 
 	.dropdown-college-lof, .dropdown-dept-lof{
 		width: 400px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 20px;
 		padding: 5px;
 		border-radius: 5px;
@@ -526,7 +527,7 @@ h3 {
 	.lofaddfacbtn{
 		margin-top: -50px;
 		margin-right: -75px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 17px;
 		font-weight: 600;
 		width: 320px;
@@ -543,13 +544,13 @@ h3 {
 	}
 
 	.lofheadertxt{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-weight: 700;
 		font-size: 18px;
 	}
 
 	.lofcontenttxt{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-weight: 500;
 		font-size: 18px;
 	}

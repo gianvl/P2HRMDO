@@ -2,6 +2,7 @@
 <html lang="en">
 
 	<head>
+	<link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="{{url('/images/ADULOGO.png')}}">  
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +18,7 @@
 
   	<style>
 	.body{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 	}
 
 	.navbar-header{
@@ -46,14 +47,14 @@
 		top: 100%;
 		right: auto;
 		left: 30px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		z-index: 100;
 	}
 
 	.navbar-text{
 		color: white;
 		font-size: 15px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		position: absolute;
 		top: 50%;
 		position:fixed;
@@ -81,13 +82,13 @@
 	
 	.user-action{
 		color: #ffffff;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 16px;
 	}
 
 	.user-action:hover{
 		color: #ffffff;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 16px;
 	}
 
@@ -158,7 +159,7 @@
         background-color: #395583;
         height: 50px;
         border-radius: 10px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		
     }
 
@@ -168,7 +169,7 @@
         font-size: x-large;
         margin-top: 7.5px;
         margin-left: 15px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 
     }
 
@@ -183,7 +184,7 @@
 		height: fit-content;
 		width: 100%;
 		padding: 20px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 	}
 
 	.content {
@@ -191,7 +192,7 @@
 		margin-top: 30px;
 		padding: 20px;
 		margin-left: 250px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		background: url(background.png) no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -235,13 +236,13 @@
 	}
 
 	h1{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 23px;
 		line-height: 10px;
 	}
 
 	h3 {
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 15px;
 		text-align: center;
 		line-height: 20px;
@@ -272,7 +273,7 @@
     }
 
 	.dashboardoptions{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 18px;
 	}
     .forecast-dropdown-container {
@@ -312,7 +313,7 @@
 
 	.lofaddfacbtn{
 		margin-top: -5px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 17px;
 		font-weight: 600;
 		width: 320px;
@@ -562,7 +563,7 @@
 					border-collapse: collapse;
 					text-align:center;
 					padding: 0%;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 				td, th {
@@ -594,7 +595,7 @@
 				}
 
 				.aytblhead{
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-weight: 700;
 					font-size: px;
 				}
@@ -847,7 +848,7 @@
 					border: 1px solid #000000;
 					border-collapse: collapse;
 					text-align:center;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 
@@ -859,12 +860,12 @@
 					border: 1px solid #000000;
 					border-collapse: collapse;
 					text-align:center;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 
 				h4 {
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 28px;
 					font-weight: 700;
 					margin-top: 15px;
@@ -875,7 +876,7 @@
 				}
 
 				.tblHeader{
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-weight: 600;
 					background-color: #DDE6F5;
 					background-color: #395583;
@@ -895,7 +896,7 @@
 					border: 1px solid #000000;
 					border-collapse: collapse;
 					text-align:center;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 				.mrdatafs1{
@@ -906,7 +907,7 @@
 					border: 1px solid #000000;
 					border-collapse: collapse;
 					text-align:center;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 
@@ -916,7 +917,7 @@
 					border: 1px solid #000000;
 					border-collapse: collapse;
 					text-align:center;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 			</style>

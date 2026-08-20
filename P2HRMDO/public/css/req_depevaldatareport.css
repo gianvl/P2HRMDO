@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
 }
 
 .dropdown {
@@ -348,14 +348,14 @@ td.evalpage-empstatus{
 }
 
 .h3-dept { /*Prof details*/
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 25px;
     font-weight: 600;
     margin-left: 30px;
 }
 
 .h6-dept { /*Prof details*/
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 25px;
     font-weight: 600;
     margin-left: auto;
@@ -363,7 +363,7 @@ td.evalpage-empstatus{
 }
 
 .h4-dept{
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 28px;
     font-weight: 700;
     line-height: 12px;

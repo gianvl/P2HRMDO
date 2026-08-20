@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="{{url('/images/ADULOGO.png')}}">  
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +18,7 @@
 
 <style>
 .body{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .navbar-header{
@@ -46,7 +47,7 @@
 	top: 100%;
 	right: auto;
 	left: 30px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	z-index: 100;
 }
 
@@ -60,20 +61,20 @@
 
 .user-action{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
 .user-action:hover{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
 .navbar-text{
 	color: white;
 	font-size: 15px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	position: absolute;
 	top: 50%;
 	position:fixed;
@@ -162,7 +163,7 @@
 	height: fit-content;
 	width: 100%;
 	padding: 20px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .forecast-dropdown-container {
@@ -215,12 +216,12 @@
 	font-size: x-large;
 	margin-top: 7.5px;
 	margin-left: 15px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .lofaddfacbtn{
 	margin-top: -5px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 17px;
 	font-weight: 600;
 	width: 320px;
@@ -314,26 +315,26 @@
 }
 
 h1{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 23px;
 	line-height: 10px;
 }
 
 h5{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 25px;
 	line-height: 40px;
 }
 
 h3 {
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 15px;
 	text-align: center;
 	line-height: 20px;
 }
 
 h2{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 20px;
 	line-height: 20px;
 	text-align: justify;
@@ -350,7 +351,7 @@ h2{
 }
 
 .dashboardoptions{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 18px;
 }
 
@@ -397,7 +398,7 @@ h2{
     width: 99.5%; 
     margin-bottom: 10px;
     border-radius: 10px;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .mrform-print {

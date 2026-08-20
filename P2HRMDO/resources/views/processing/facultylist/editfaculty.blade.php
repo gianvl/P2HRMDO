@@ -2,6 +2,7 @@
 <html lang="en">
 
 	<head>
+	<link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="{{url('/images/ADULOGO.png')}}">  
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
 
   	<style>
 	.body{
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 	}
 
 	.navbar-header{
@@ -44,7 +45,7 @@
 		top: 100%;
 		right: auto;
 		left: 30px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		z-index: 100;
 	}
 
@@ -63,20 +64,20 @@
 
 	.user-action{
 		color: #ffffff;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 16px;
 	}
 
 	.user-action:hover{
 		color: #ffffff;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 16px;
 	}
 
 	.navbar-text{
 		color: white;
 		font-size: 15px;
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		position: absolute;
 		top: 50%;
 		position:fixed;
@@ -214,13 +215,13 @@
 	}
 
 	h1{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 23px;
 	line-height: 10px;
 	}
 
 	h3 {
-		font-family: 'Times New Roman';
+		font-family: var(--app-font);
 		font-size: 15px;
 		line-height: 20px;
 		text-align: center;
@@ -238,7 +239,7 @@
     }
 
 	.dashboardoptions{
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 			font-size: 18px;
 }
 

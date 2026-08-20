@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="{{url('/images/ADULOGO.png')}}">  
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
 </head>
 <style>
 .body{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 }
 
 .navbar-header{
@@ -44,14 +45,14 @@
 	top: 100%;
 	right: auto;
 	left: 30px;
-	font-family:'Times New Roman';
+	font-family: var(--app-font);
 	z-index: 100;
 }
 
 .navbar-text{
 	color: white;
 	font-size: 15px;
-	font-family:'Times New Roman';
+	font-family: var(--app-font);
 	position: absolute;
 	top: 50%;
 	position:fixed;
@@ -79,13 +80,13 @@
 
 .user-action{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
 .user-action:hover{
 	color: #ffffff;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 16px;
 }
 
@@ -195,13 +196,13 @@
 }
 
 h1{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 23px;
 	line-height: 10px;
 }
 
 h3 {
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 15px;
 	line-height: 20px;
 	text-align: center;
@@ -220,7 +221,7 @@ h3 {
 }
 
 .dashboardoptions{
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 18px;
 }
 
@@ -278,7 +279,7 @@ label.custom-btn.btn.btn-outline-primary:active, label.custom-btn.btn.btn-outlin
 td.table-processing-header-title{
 	background-color: #E4EBF7;
 	font-weight: 550;
-	font-family: 'Times New Roman';
+	font-family: var(--app-font);
 	font-size: 18PX;
 }
 
@@ -397,7 +398,7 @@ td.table-processing-header-title{
 
 		.indexanalyticsstatus{
 			color: black;
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 			font-size: 25px;
 		}
 
@@ -405,7 +406,7 @@ td.table-processing-header-title{
 			border-radius: 4px 0 0 4px; 
 			font-size: 18px!important;
 			font-weight: 500;
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 
 		}
 
@@ -421,7 +422,7 @@ td.table-processing-header-title{
 			height: fit-content;
 			width: 100%;
 			padding: 10px;
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 		}
 		.processing-dropdown-container {
 			display: flex;
@@ -430,7 +431,7 @@ td.table-processing-header-title{
 			gap: 15px;
 			font-weight: 500;
 			white-space: nowrap;
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 			font-size: 18px;
 			font-weight: 300;
 			align-content: center;
@@ -440,7 +441,7 @@ td.table-processing-header-title{
 
 		.indexsetbtn{
 			margin-top: -5px;
-			font-family: 'Times New Roman';
+			font-family: var(--app-font);
 			font-size: 17px;
 			font-weight: 600;
 			width: auto;
@@ -582,11 +583,11 @@ td.table-processing-header-title{
 			<style>
 				.procindexsearch{
 					width: 350px;
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 					font-size: 18px;
 				}
 				.procindexsearch::placeholder{
-					font-family: 'Times New Roman';
+					font-family: var(--app-font);
 				}
 			</style>
 

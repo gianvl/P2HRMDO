@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
 }
 
  /*GRID FOR COLUMN*/  /*GRID FOR GOBACK AND DROPDOWN*/
@@ -190,18 +190,18 @@ td.text-status-red{
 }
 
 h1 {  /* College Name Font*/
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 25px;
     line-height: 13px;
 }
 
 h2 { /*Department Name Font*/
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 18px;
     line-height: 13px;
 }
 h3 { /*Prof details*/
-    font-family: 'Times New Roman';
+    font-family: var(--app-font);
     font-size: 14px;
     line-height: 13px;
 }
