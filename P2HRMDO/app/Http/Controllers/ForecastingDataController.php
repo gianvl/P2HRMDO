@@ -177,8 +177,7 @@ class ForecastingDataController extends Controller
         if (count($series) >= 2) {
             $input = json_encode(['series' => $series, 'steps' => 1]);
             $scriptPath = base_path('scripts/arima_forecast.js');
-            $nodePath = trim(shell_exec('which node') ?? 'node');
-            $result = Process::run([$nodePath, $scriptPath, $input]);
+            $result = Process::run([config('forecasting.node_binary'), $scriptPath, $input]);
 
             if ($result->successful()) {
                 $arimaResult = json_decode($result->output(), true);

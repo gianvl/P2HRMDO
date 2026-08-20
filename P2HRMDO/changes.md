@@ -32,3 +32,31 @@ on it at all.
 $ node scripts/arima_forecast.js '{"series":[10,12,11,14,15],"steps":1}'
 {"forecast":16,"model":"ARIMA(1,1,0)"}   # exit 0  (was: MODULE_NOT_FOUND, exit 1)
 ```
+
+---
+
+## 2. `shell_exec('which node')` on every request (blocking)
+
+**Problem**
+The controller resolved the Node binary at request time with
+`trim(shell_exec('which node') ?? 'node')`. Three failure modes:
+
+1. `shell_exec` is disabled by default in many hardened / shared-hosting PHP
+   configurations (`disable_functions`), which makes the call return `null`.
+2. `which` does not exist on Windows, so XAMPP deployments resolve nothing.
+3. It spawns an extra shell process on every single API call, purely to look up
+   a value that never changes between requests.
+
+**Fix**
+Introduced `config/forecasting.php` with a `node_binary` setting, read from the
+`NODE_BINARY` env var and defaulting to `node` (resolved via PATH). The path is
+now deployment configuration, not a runtime shell lookup, and it is cached along
+with the rest of the config by `php artisan config:cache`.
+
+Deployments where the web server's PATH does not include Node set an absolute
+path in `.env`, e.g. `NODE_BINARY=/usr/local/bin/node`.
+
+**Files**
+- `config/forecasting.php` (new)
+- `app/Http/Controllers/ForecastingDataController.php`
+- `.env.example`
