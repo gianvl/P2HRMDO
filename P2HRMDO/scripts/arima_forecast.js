@@ -51,6 +51,27 @@ function arimaSmallDataset(series) {
     return series[series.length - 1] + nextDiff;
 }
 
+/**
+ * Run fn with stdout redirected to stderr.
+ *
+ * The arima package's WASM build prints solver diagnostics ("non-stationary AR
+ * part") straight to stdout, ahead of our result. Since stdout is this script's
+ * result channel, that output would corrupt the JSON. The diagnostics are worth
+ * keeping, so send them to stderr rather than discarding them; verbose:false
+ * does not suppress them, as they come from the C library rather than the JS
+ * wrapper.
+ */
+function withCleanStdout(fn) {
+    const stdoutWrite = process.stdout.write;
+    process.stdout.write = process.stderr.write.bind(process.stderr);
+
+    try {
+        return fn();
+    } finally {
+        process.stdout.write = stdoutWrite;
+    }
+}
+
 try {
     const input = JSON.parse(process.argv[2]);
     const series = input.series;
@@ -73,8 +94,11 @@ try {
         // while an explicit (1,1,0) is exact. It is also the same model
         // arimaSmallDataset() implements by hand, so both paths agree.
         const arima = new ARIMA({ p: 1, d: 1, q: 0, verbose: false });
-        arima.train(series);
-        const [predicted] = arima.predict(steps);
+        const [predicted] = withCleanStdout(() => {
+            arima.train(series);
+
+            return arima.predict(steps);
+        });
         const forecast = Math.max(0, Math.round(predicted[0]));
         console.log(JSON.stringify({ forecast, model: 'ARIMA(1,1,0) via arima' }));
     }

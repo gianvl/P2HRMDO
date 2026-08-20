@@ -324,3 +324,75 @@ n=20  ends 29  {"forecast":30,"model":"ARIMA(1,1,0) via arima"}
 n=24  ends 33  {"forecast":34,"model":"ARIMA(1,1,0) via arima"}   # was 25
 n=30  ends 39  {"forecast":40,"model":"ARIMA(1,1,0) via arima"}
 ```
+
+---
+
+## 7. WASM solver diagnostics corrupted the JSON result
+
+**Problem** (finding C above)
+The arima package's WASM build prints solver diagnostics straight to **stdout**,
+ahead of the result:
+
+```
+non-stationary AR part
+
+non-stationary AR part
+
+non-stationary AR part
+{"forecast":14,"model":"ARIMA(auto)"}
+```
+
+stdout is this script's result channel, so the controller's
+`json_decode($result->output(), true)` sees that whole blob and fails. Post-fix-3
+that degrades to a logged `null`; before it, a silent `0`. `verbose: false` does
+not help — the text comes from the C library via Emscripten, not the JS wrapper.
+
+**Fix**
+Added `withCleanStdout(fn)`, which points `process.stdout.write` at stderr for
+the duration of the fit and restores it in a `finally`. The diagnostics are
+genuinely useful when a forecast looks wrong, so they are redirected rather than
+discarded — the controller already logs stderr on failure.
+
+Reaching into the package's Emscripten module to pass a `print` handler would
+also have worked, but that means depending on `arima/wasm/native-sync.js`
+internals, which are not part of its public API.
+
+**Files**
+- `scripts/arima_forecast.js`
+
+**Verification**
+Fix #6 removed the natural trigger — the diagnostics came from the auto search,
+and the explicit order does not emit them — so the guard is defensive. It was
+therefore tested against a known emitter: the real package in `auto` mode, using
+the shipped `withCleanStdout` extracted from the script itself rather than a
+copy.
+
+```
+stdout: {"forecast":14}                  <- pure, parses as JSON
+stderr: non-stationary AR part
+        non-stationary AR part
+        non-stationary AR part
+        restored: true                   <- process.stdout.write put back
+```
+
+---
+
+## Status after the branch fixes
+
+Every case now returns a forecast instead of failing. Through the real
+controller, via reflection:
+
+| case | n | before | after |
+|---|---|---|---|
+| empty | 0 | `null` | `null` |
+| single | 1 | `7` | `7` |
+| five-year (real shape) | 5 | `16` | `16` |
+| flat five-year | 5 | `3` | `3` |
+| twelve points | 12 | `null` (too short for the library) | `23` |
+| nineteen, ramp to 28 | 19 | `null` (too short for the library) | `29` |
+| twenty, ramp to 29 | 20 | `21` (auto misfit) | `30` |
+| twenty-four | 24 | `15` (auto misfit) | `20` |
+
+`php -l` clean. The remaining open items are #5–#13 in the table above, of which
+the correctness ones (gap-collapsing series, dead queries, and the on-screen copy
+that overstates the model's inputs) are the ones worth doing next.
