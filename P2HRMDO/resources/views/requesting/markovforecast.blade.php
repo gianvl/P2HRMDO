@@ -624,13 +624,11 @@ h2{
 			var startYear = parseInt(yearParts[0]);
 			var nextAcademicYear = (startYear + 1) + "-" + (startYear + 2);
 
-			if (selectedSemester === "2nd Semester") {
-				// Display the next academic year followed by "1st Semester"
-				headingElement.textContent = "ARIMA Forecast for A.Y. (" + nextAcademicYear + ") - 1st Semester";
-			} else if (selectedSemester === "1st Semester") {
-				// Display the selected academic year followed by "2nd Semester"
-				headingElement.textContent = "ARIMA Forecast for A.Y. (" + selectedYear + ") - 2nd Semester";
-			}
+			// The model is fitted on one semester's figures across five academic
+			// years, so the value it forecasts is that same semester in the next
+			// academic year -- not the semester immediately after the selected
+			// one. Select the other semester to forecast the other semester.
+			headingElement.textContent = "ARIMA Forecast for A.Y. (" + nextAcademicYear + ") - " + selectedSemester;
 			}
 		}
 	</script>

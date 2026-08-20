@@ -452,3 +452,68 @@ than a documentation fix.
 `php -l` clean; the forecast probe returns identical values to before, confirming
 the removed query fed nothing. `$forecastSection1` (current academic year) is
 untouched and still populates the "Forecasted Manpower" bar.
+
+---
+
+## 9. The heading named the wrong forecast period
+
+**Problem**
+The heading above the chart promised a forecast for the semester immediately
+following the selected one:
+
+```js
+if (selectedSemester === "2nd Semester") {
+    headingElement.textContent = "ARIMA Forecast for A.Y. (" + nextAcademicYear + ") - 1st Semester";
+} else if (selectedSemester === "1st Semester") {
+    headingElement.textContent = "ARIMA Forecast for A.Y. (" + selectedYear + ") - 2nd Semester";
+}
+```
+
+The model forecasts something else. The controller filters the five-year history
+to one semester (`->where('semester', $sem)`), so for A.Y. 2024-2025, 1st
+Semester the fitted series is:
+
+| A.Y. | Semester |
+|---|---|
+| 2020-2021 | 1st Sem |
+| 2021-2022 | 1st Sem |
+| 2022-2023 | 1st Sem |
+| 2023-2024 | 1st Sem |
+| 2024-2025 | 1st Sem |
+
+One step beyond a list of 1st Semesters is **1st Semester 2025-2026**. The
+heading called that number "A.Y. 2024-2025 - 2nd Semester" — wrong by one
+semester and one academic year. Anyone planning from that page would budget for
+the wrong term.
+
+**Fix**
+Corrected the heading, not the model. Filtering to a single semester is
+deliberate and sound: 1st and 2nd semester have systematically different staffing
+needs, so a 1st Semester figure belongs in a series of 1st Semester figures.
+
+The page also already covers both semesters — selecting 2nd Semester forecasts
+2nd Semester of the next academic year. Only the wording was wrong.
+
+Reshaping the series to forecast the immediately-following semester would mean
+interleaving both semesters into one series: ten alternating points over five
+years, where the 1st-vs-2nd-semester swing would dominate the trend and would
+need seasonal handling to avoid producing nonsense. That is real statistical risk
+to reach a number already available from the semester dropdown.
+
+The branch disappeared with the fix — both semesters now take the same path, so
+the heading is one line built from the selected semester.
+
+**Files**
+- `resources/views/requesting/markovforecast.blade.php`
+- `resources/views/approval/markovforecast.blade.php`
+
+(`fdata.blade.php` has no such heading and is unaffected.)
+
+**Verification**
+```
+selected: 2024-2025 1st Semester  ->  ARIMA Forecast for A.Y. (2025-2026) - 1st Semester
+selected: 2024-2025 2nd Semester  ->  ARIMA Forecast for A.Y. (2025-2026) - 2nd Semester
+selected: 2019-2020 1st Semester  ->  ARIMA Forecast for A.Y. (2020-2021) - 1st Semester
+```
+
+Each now names the period the fitted series actually continues.
