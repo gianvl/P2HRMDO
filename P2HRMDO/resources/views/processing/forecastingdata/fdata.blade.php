@@ -691,18 +691,12 @@ h2{
 			var selectedYear = document.getElementById("ay").value;
 			var headingElement = document.getElementById("aySemesterHeading");
 
-			var yearParts = selectedYear.split("-");
-			if (yearParts.length === 2) {
-			var startYear = parseInt(yearParts[0]);
-			var nextAcademicYear = (startYear + 1) + "-" + (startYear + 2);
-
-			if (selectedSemester === "2nd Semester") {
-				// Display the next academic year followed by "1st Semester"
-				headingElement.textContent = "Manpower Forecast for A.Y. (" + nextAcademicYear + ") - 1st Semester";
-			} else if (selectedSemester === "1st Semester") {
-				// Display the selected academic year followed by "2nd Semester"
-				headingElement.textContent = "Manpower Forecast for A.Y. (" + selectedYear + ") - 2nd Semester";
-			}
+			if (selectedYear.split("-").length === 2) {
+			// The model is fitted on one semester's figures across five academic
+			// years, so the value it forecasts is that same semester in the next
+			// academic year -- not the semester immediately after the selected
+			// one. Select the other semester to forecast the other semester.
+			headingElement.textContent = "ARIMA Forecast for A.Y. (" + nextAcademicYear(selectedYear) + ") - " + selectedSemester;
 			}
 		}
 	</script>
@@ -721,22 +715,15 @@ h2{
 	var selectElementSem = document.getElementById('sem');
 	var displayElementAy = document.getElementById('manpowerDataAY');
 	var displayElementSem = document.getElementById('manpowerDataSem');
-	var aySemesterHeading = document.getElementById('aySemesterHeading2');
-
-
 	function updateTextContent() {
 		var selectedValueAy = selectElementAy.value;
 		var selectedValueSem = selectElementSem.value;
-		
-		// var textContent = "The charts display data for A.Y. " + selectedValueAy + " - " + selectedValueSem;
+
+		var textContent = "The charts display data for A.Y. " + selectedValueAy + " - " + selectedValueSem;
 
 		displayElementAy.textContent = textContent;
 		displayElementSem.textContent = selectedValueSem;
-		aySemesterHeading.textContent = textContent;
-
-		updateHeading.destroy();
 	}	
-
 </script>
 
 <script>
@@ -813,7 +800,7 @@ h2{
 										borderWidth: 1
 									},
 									{
-										label: '# of Forecast Manpower',
+										label: '# of ARIMA Forecast Manpower (5 Years Data)',
 										data: [
 											arimaForecastValue
 										],
@@ -847,6 +834,7 @@ h2{
 									},
 									title: {
 										display: true,
+										text: 'Manpower Required (Bar Graph)',
 										color: 'black',
 										font: {
 											size: 18,
@@ -938,7 +926,6 @@ h2{
 						// document.getElementById("sem").addEventListener("change", updateHeading);
 						// document.getElementById("ay").addEventListener("change", updateHeading);
 						updateHeading();
-
 						// selectElementAy.addEventListener('change', updateTextContent);
 						// selectElementSem.addEventListener('change', updateTextContent);
 						updateTextContent();

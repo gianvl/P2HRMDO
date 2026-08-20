@@ -860,3 +860,63 @@ Vite's `^14.18.0 || >=16.0.0`.
 
 **Files**
 - `README.md`
+
+---
+
+## 15. The processing page had drifted, and fix #9 had missed it
+
+**Correction to fix #9.** That entry states `fdata.blade.php` "has no such heading
+and is unaffected". That was wrong. The search that reached it looked for
+`"ARIMA Forecast for A.Y."`, and the processing page says **"Manpower** Forecast
+for A.Y.", so it did not match. The HRMDO processing page carried the same
+wrong-period heading for six commits after fix #9 claimed to have corrected it.
+
+**Problem**
+Comparing the three copies of the forecast section for the extraction below
+showed `requesting/` and `approval/` byte-identical at 344 lines, while
+`processing/forecastingdata/fdata.blade.php` diverged by 33 lines. The divergence
+was entirely defects:
+
+1. **The wrong forecast period** — the pre-fix-#9 branch, naming the semester
+   after the selected one instead of the same semester a year later.
+2. **`updateTextContent()` broken three ways**, all in one short function:
+   - `var textContent = ...` is commented out, but `textContent` is then read on
+     the next three lines — a `ReferenceError` on every call.
+   - `document.getElementById('aySemesterHeading2')` returns `null`; the element
+     in the markup is `aySemesterHeading`. Assigning to `.textContent` on it
+     throws.
+   - `updateHeading.destroy()` — `updateHeading` is a plain function with no
+     `destroy` method. `TypeError`.
+
+   The function threw on its first statement, so the processing page's "The
+   charts display data for A.Y. ..." line never rendered at all.
+3. Cosmetic drift: a different forecast dataset label, and a missing bar chart
+   title.
+
+**Fix**
+Replaced the processing page's copy with the corrected one the other two share,
+making all three byte-identical (verified by hash) so the extraction that follows
+is a pure refactor rather than a refactor smuggling in behaviour changes.
+
+**Visible changes on the processing page** — all corrections, but they *are*
+visible:
+
+| | before | after |
+|---|---|---|
+| heading | "Manpower Forecast for A.Y. (2024-2025) - 2nd Semester" | "ARIMA Forecast for A.Y. (2025-2026) - 1st Semester" |
+| A.Y. caption | never appeared (threw) | renders |
+| forecast bar label | "# of Forecast Manpower" | "# of ARIMA Forecast Manpower (5 Years Data)" |
+| bar chart title | absent | "Manpower Required (Bar Graph)" |
+
+**Files**
+- `resources/views/processing/forecastingdata/fdata.blade.php`
+
+**Verification**
+All three sections hash identically; all three templates compile; suite green at
+34 tests.
+
+**The lesson for the search that missed it**
+Grepping for a *rendered string* found two of three copies. Grepping for the
+*structure* — `function updateHeading` — would have found all three. Copy-paste
+divergence defeats string search precisely because the copies drift in the
+strings.
