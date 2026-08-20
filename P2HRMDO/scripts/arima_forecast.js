@@ -67,11 +67,16 @@ try {
         // Required lazily: only this branch needs the package, so a missing
         // install cannot break the small-dataset path above.
         const ARIMA = require('arima');
-        const arima = new ARIMA({ auto: true, verbose: false });
+
+        // Explicit order rather than { auto: true }. Auto-fitting mispredicts
+        // badly -- on a 10..33 ramp it forecasts 25 where the answer is 34 --
+        // while an explicit (1,1,0) is exact. It is also the same model
+        // arimaSmallDataset() implements by hand, so both paths agree.
+        const arima = new ARIMA({ p: 1, d: 1, q: 0, verbose: false });
         arima.train(series);
         const [predicted] = arima.predict(steps);
         const forecast = Math.max(0, Math.round(predicted[0]));
-        console.log(JSON.stringify({ forecast, model: 'ARIMA(auto)' }));
+        console.log(JSON.stringify({ forecast, model: 'ARIMA(1,1,0) via arima' }));
     }
 } catch (e) {
     // Fail loudly. A forecast of 0 is a legitimate result, so errors must not be

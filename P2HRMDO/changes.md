@@ -284,3 +284,43 @@ n=19  {"forecast":29,...}   # ramp ends 28 -> 29   correct   (previously: error)
 n=20  {"forecast":21,...}   # ramp ends 29 -> 30   WRONG, see next fix
 n=24  {"forecast":25,...}   # ramp ends 33 -> 34   WRONG, see next fix
 ```
+
+---
+
+## 6. `auto: true` produced wrong forecasts
+
+**Problem** (finding B above)
+The package's auto-fitting is unreliable. On a perfect linear ramp, where the
+next value is unambiguous, it was off by nine:
+
+```
+series 10..33, correct next value is 34
+auto:true   -> 25, 26, 27
+p1 d1 q0    -> 34, 35, 36
+p2 d1 q1    -> 34, 35, 36
+p0 d1 q0    ->  0,  0,  0
+```
+
+**Fix**
+Specify the order explicitly: `{ p: 1, d: 1, q: 0 }`. Beyond being correct, this
+makes the script coherent — it is the same ARIMA(1,1,0) that
+`arimaSmallDataset()` implements by hand, so the two paths are now one model with
+two implementations, differing only because the library will not fit short
+series. Previously the script silently switched *models* at the threshold, which
+meant the forecast could jump for reasons that had nothing to do with the data.
+
+The `model` field now reports `ARIMA(1,1,0) via arima` so logs still show which
+implementation ran.
+
+**Files**
+- `scripts/arima_forecast.js`
+
+**Verification** — ramp, correct answer is always the next integer, and note the
+two implementations now agree across the n=19/n=20 boundary:
+
+```
+n=19  ends 28  {"forecast":29,"model":"ARIMA(1,1,0)"}
+n=20  ends 29  {"forecast":30,"model":"ARIMA(1,1,0) via arima"}
+n=24  ends 33  {"forecast":34,"model":"ARIMA(1,1,0) via arima"}   # was 25
+n=30  ends 39  {"forecast":40,"model":"ARIMA(1,1,0) via arima"}
+```
