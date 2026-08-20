@@ -481,40 +481,44 @@
             </div> 
 
             <div class="grid-con-input-eval-sec shadow">
-                <div class="forecast-dropdown-container-left">
-                    <label for="college" style="margin-top: 2px ;">College: <span class="required">*</span></label>
-                        <select class="dropdown-college" id="college" name="college" onchange="updateDepartments()" required style="width: 170px; height: 30px; border-color: #315EA0;">
-                            <option disabled selected value="" class="optiondisabled">Select College</option>
+                <div class="arima-form">
+					<div class="arima-field">
+						<label for="college">College <span class="required">*</span></label>
+						<select id="college" name="college" onchange="updateDepartments()" required>
+							<option disabled selected value="" class="optiondisabled">Select College</option>
 							@foreach ($collegeList as $college)
-							<option value="{{ $college->college }}">{{ $college->college }}</option>
+								<option value="{{ $college->college }}">{{ $college->college }}</option>
 							@endforeach
-                        </select>
-                        <label for="department" style="margin-top: 2px; margin-left: 10%;">Department: <span class="required">*</span></label>
-                        <select class="dropdown-department" id="department" name="department" style="width: 170px; height: 30px; border-color: #315EA0;">
-                            <option disabled selected value="" class="optiondisabled">Select Department</option>  
-                        </select>
-                </div>
-				
-                <div class="forecast-dropdown-container">
-					<div>
-						<label for="ay" style="margin-top: 2px">Academic Year: <span class="required">*</span></label>
-						<select id="ay" name="ay" style="width: 175px; height: 30px; border-color: #315EA0;" required>
+						</select>
+					</div>
+
+					<div class="arima-field">
+						<label for="department">Department <span class="required">*</span></label>
+						<select id="department" name="department" required>
+							<option disabled selected value="" class="optiondisabled">Select Department</option>
+						</select>
+					</div>
+
+					<div class="arima-field">
+						<label for="ay">Academic Year <span class="required">*</span></label>
+						<select id="ay" name="ay" required>
 							<option disabled selected value="" class="optiondisabled">Select</option>
 						</select>
 					</div>
-					<div>
-						<label for="sem" style="margin-top: 2px; margin-left: -200px;">Semester: <span class="required">*</span></label>
-						<select class="dropdown-sem" id="sem" name="sem" style="width: 165px; height: 30px; border-color: #315EA0;">
+
+					<div class="arima-field">
+						<label for="sem">Semester <span class="required">*</span></label>
+						<select id="sem" name="sem" required>
 							<option value="" disabled selected>Select</option>
 							<option value="1st Semester">1st Semester</option>
 							<option value="2nd Semester">2nd Semester</option>
 						</select>
 					</div>
-					<div class="container lofcontainer" style="margin-right: -15px;">
-						<button id="ForecastBtn" class="btn btn-adduser shadow-none lofaddfacbtn"></i> Forecast</a>
+
+					<div class="arima-field arima-field--action">
+						<button type="button" id="ForecastBtn" class="btn btn-adduser shadow-none">Forecast</button>
 					</div>
-                </div>
-            </div>
+				</div>
 
 			<style>
 
@@ -640,7 +644,7 @@
 							</tr>
 							<tr class="existingcolumn">
 								<td rowspan="3" style="background-color: #FFFFFF" id="currentAcademicYear"></td>
-								<td rowspan="3" style="background-color: #FFFFFF" >1st</td>
+								<td rowspan="3" style="background-color: #FFFFFF" id="currentSemester"></td>
 								<td >Existing</td>
 								<td id="1st-existing-fulltime-permanent"></td>
 								<td id="1st-existing-parttime-permanent"></td>
@@ -665,7 +669,7 @@
 
 							<tr class="existingcolumn">
 								<td rowspan="3" style="background-color: #FFFFFF" id="previousAcademicYear"></td>
-								<td rowspan="3" style="background-color: #FFFFFF">1st</td>
+								<td rowspan="3" style="background-color: #FFFFFF" id="previousSemester"></td>
 								<td>Existing</td>
 								<td id="2nd-existing-fulltime-permanent"></td>
 								<td id="2nd-existing-parttime-permanent"></td>
@@ -715,7 +719,7 @@
 							</tr>
 							<tr class="requisitioncolumn">
 								<td rowspan="2" style="background-color: #FFFFFF" id="currentAcademicYear2"></td>
-								<td rowspan="2" style="background-color: #FFFFFF">1st</td>
+								<td rowspan="2" style="background-color: #FFFFFF" id="currentSemester2"></td>
 								<td>Requisition</td>
 								<td id="1st-requested-rreplacement-transfer"></td>
 								<td id="1st-requested-rreplacement-resigned"></td>
@@ -733,7 +737,7 @@
 							</tr>
 							<tr class="requisitioncolumn">
 								<td rowspan="2" style="background-color: #FFFFFF" id="previousAcademicYear2"></td>
-								<td rowspan="2" style="background-color: #FFFFFF">1st</td>
+								<td rowspan="2" style="background-color: #FFFFFF" id="previousSemester2"></td>
 								<td>Requisition</td>
 								<td id="2nd-requested-rreplacement-transfer"></td>
 								<td id="2nd-requested-rreplacement-resigned"></td>
@@ -1928,6 +1932,27 @@
 			// Call the function to initially generate academic year options
 			generateAcademicYearOptions();
 		
+			/*
+			 * Each table shows one semester across two academic years -- the
+			 * selected year and the one before it. All four of these cells were
+			 * hardcoded to "1st", so every 2nd-semester forecast was displayed
+			 * under the wrong semester heading.
+			 */
+			var semesterElement = document.getElementById("sem");
+			var semesterLabels = ["currentSemester", "previousSemester", "currentSemester2", "previousSemester2"]
+				.map(function (id) { return document.getElementById(id); });
+
+			function updateSemesterLabels() {
+				var label = semesterElement.value.replace(" Semester", "");
+
+				semesterLabels.forEach(function (cell) {
+					if (cell) { cell.textContent = label; }
+				});
+			}
+
+			semesterElement.addEventListener("change", updateSemesterLabels);
+			updateSemesterLabels();
+
 			// Update the academic years when the dropdown changes
 			selectElement.addEventListener("change", function () {
 				var selectedAcademicYear = selectElement.value;

@@ -10,51 +10,6 @@
     as well as the charts, so an including page only needs $collegeList.
 --}}
 <style>
-	/* The four selectors and the Forecast button. Replaces a hand-positioned
-	   layout that used margin-left:-200px to pull the Semester label back over
-	   the Academic Year dropdown, which is why the two used to overlap. */
-	.arima-form {
-		display: grid;
-		grid-template-columns: repeat(4, minmax(150px, 1fr)) auto;
-		gap: 14px 18px;
-		align-items: end;
-	}
-
-	.arima-field {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		min-width: 0;
-	}
-
-	.arima-field label {
-		margin: 0;
-		font-weight: 500;
-		white-space: nowrap;
-	}
-
-	.arima-field select {
-		width: 100%;
-		height: 34px;
-		padding: 0 8px;
-		border: 1px solid #315EA0;
-		border-radius: 4px;
-		background-color: #fff;
-	}
-
-	.arima-form #ForecastBtn {
-		height: 34px;
-		min-width: 130px;
-		white-space: nowrap;
-	}
-
-	/* A disabled Forecast button says "not yet" before the click does. */
-	.arima-form #ForecastBtn:disabled {
-		background-color: #b4bed0;
-		border-color: #b4bed0;
-		cursor: not-allowed;
-	}
-
 	/*
 	 * The explanation block marks its prose up as <h2>, and the page's global
 	 * h2 rule sets line-height:20px on 20px text -- a ratio of 1.0. The old
@@ -84,16 +39,6 @@
 		border-radius: 6px;
 	}
 
-	.arima-form-hint {
-		margin: 12px 0 0;
-		font-size: 0.9rem;
-		color: #5d6b82;
-	}
-
-	@media (max-width: 1100px) {
-		.arima-form { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
-		.arima-form .arima-field--action { grid-column: 1 / -1; }
-	}
 </style>
 
 <div class="grid-con-input-eval-sec shadow">

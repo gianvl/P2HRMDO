@@ -1364,3 +1364,70 @@ is why every profile photograph rendered as alt text.
 Every command named was checked against `php artisan list`; `npm run build`
 against `package.json`; the referenced test file and fallback image against the
 filesystem; and the "15 of 19" count against the seeders themselves.
+
+---
+
+## 23. The forecasting-system page: mislabelled semesters and the same overlap
+
+Found by looking at the page, not the code.
+
+**Problem 1 — every 2nd-semester forecast was displayed under a "1st" heading**
+
+`processing/forecastingsystem` shows two tables, each with two blocks of rows.
+Both blocks carried a hardcoded `<td>1st</td>` for the semester, with no `id`, so
+nothing could ever change them.
+
+Tracing what actually fills those blocks:
+
+- cells prefixed `1st-` are filled from `response.semesterCurrentSchoolYr`
+- cells prefixed `2nd-` are filled from `response.semesterLastSchoolYr`
+
+So the prefixes mean **current academic year / previous academic year**, not 1st
+and 2nd semester — which the adjacent `currentAcademicYear` and
+`previousAcademicYear` cells confirm. `ForecastingSystemController` filters both
+by the semester the user selected.
+
+The two blocks therefore show **one semester across two academic years**. The
+labels were right by luck for 1st Semester and wrong for every 2nd-semester
+forecast — the same defect as #9, a label that does not reflect what the code did.
+
+Four cells now carry ids and track the semester dropdown. They start empty rather
+than asserting "1st" before a semester has been chosen.
+
+**Problem 2 — the same `margin-left: -200px`**
+
+This page holds its own copy of the filter form, so the layout fix from #19 never
+reached it: the Semester label was still pulled back over the Academic Year
+dropdown, exactly as it had been on the forecast pages.
+
+Rather than fix it twice, the form styling moved from the ARIMA partial into
+`public/css/ui.css`, where every page can use it, and this page's form was
+rebuilt with the same grid markup — including replacing its
+`<button ...></i> Forecast</a>` with a real button.
+
+The chart and explanation rules stayed in the partial, where they belong: only
+the genuinely shared form styling moved.
+
+**Checked and found correct**
+Line 211 computes the previous academic year as
+`intval(trim($ayArr[0])) - 1 . '-' . intval(trim($ayArr[1])) - 1`, which looks
+wrong because `.` and `-` had equal precedence before PHP 8.0. Ran it: on PHP 8
+it yields `"2021-2022"` correctly. It would have been broken on PHP 7, but
+`composer.json` requires `^8.1`.
+
+**Files**
+- `resources/views/processing/forecastingsystem/fsystem.blade.php`
+- `public/css/ui.css`
+- `resources/views/partials/arima-forecast.blade.php`
+
+**Verification**
+In Chrome: the four labels are empty on load, all read "2nd" after selecting 2nd
+Semester and "1st" after selecting 1st. The Semester label now starts at x=1079
+with the Academic Year select ending at x=1061 — no overlap, where previously
+they were drawn on top of each other. The forecast page still renders its form as
+a 5-column grid with the button correctly disabled and the explanation block at
+26.4px line-height, confirming the CSS move broke nothing. Suite green at 38.
+
+**Still there**
+Two more pages hold their own copy of this form. They will need the same
+treatment, and will keep needing it until the form becomes one partial.
