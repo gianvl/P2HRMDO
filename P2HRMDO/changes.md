@@ -165,3 +165,92 @@ suggested order):
 locally — they were reviewed by inspection. `composer install` and `npm install`
 have not been run either; `npm install` is required before the >= 10 data point
 branch can work at all.
+
+---
+
+## Verification (after installing the toolchain)
+
+`npm install`, `brew install php composer`, and `composer install` were run, so
+the fixes could be exercised against the real framework rather than reviewed by
+inspection. A local `.env` was created from `.env.example` with a generated app
+key (gitignored; no database is configured, and none is needed — the forecast
+path does not touch one).
+
+`ForecastingDataController::arimaForecast()` invoked directly via reflection:
+
+| case | n | result |
+|---|---|---|
+| empty | 0 | `null` |
+| single | 1 | `7` |
+| five-year (real shape) | 5 | `16` |
+| flat five-year | 5 | `3` |
+| twelve points | 12 | `null` — logged, see below |
+| twenty-four points | 24 | `15` |
+
+`php -l` is clean on both changed PHP files. The n=12 failure wrote exactly the
+diagnostic it was supposed to:
+
+```
+[2026-08-20 19:34:36] local.WARNING: ARIMA forecast script failed.
+{"exit_code":1,"error":"Series too short (12 values). Minimum length for these parameters is 20"}
+```
+
+That is fix #3 doing its job — before it, this case returned a silent `0`.
+
+---
+
+## New findings — the `>= 10` branch is broken (found by the above)
+
+Installing the package made the large-dataset branch reachable for the first
+time. It does not work. None of these are reachable with five academic years of
+data, so they are latent rather than live, but all three are real.
+
+### A. The threshold is 10; the library requires 20
+
+`scripts/arima_forecast.js` routes any series of 10 or more points to the npm
+package, which rejects anything shorter than 20 outright:
+
+```
+n=10 -> Series too short (10 values). Minimum length for these parameters is 20
+n=15 -> Series too short (15 values). Minimum length for these parameters is 20
+n=19 -> Series too short (19 values). Minimum length for these parameters is 20
+n=20 -> {"forecast":14,"model":"ARIMA(auto)"}
+```
+
+Series of 10–19 points have no working path at all: too long for the hand-rolled
+implementation, too short for the library.
+
+### B. `auto: true` returns wrong forecasts
+
+On a perfect linear ramp `10, 11, ... 33`, where the next value is unambiguously
+34, auto-fitting is off by nine:
+
+```
+auto:true   -> 25, 26, 27
+p1 d1 q0    -> 34, 35, 36     <- correct
+p2 d1 q1    -> 34, 35, 36
+p0 d1 q0    ->  0,  0,  0
+```
+
+Explicitly specifying ARIMA(1,1,0) — the same model the small-dataset path
+implements by hand — gives the right answer. The package's auto search does not.
+
+### C. The WASM build writes diagnostics to stdout
+
+Certain series make the native solver print to **stdout**, ahead of our JSON:
+
+```
+non-stationary AR part
+
+non-stationary AR part
+
+non-stationary AR part
+{"forecast":14,"model":"ARIMA(auto)"}
+```
+
+`verbose: false` does not suppress this — the text comes from the C library
+through Emscripten, not from the JS wrapper. The controller decodes the whole of
+stdout, so any such run is unparseable. Post-fix that degrades to a logged
+`null`; pre-fix it would have been a silent `0`.
+
+**Not yet fixed — awaiting a decision on whether that branch should exist.**
