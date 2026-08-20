@@ -803,3 +803,60 @@ that needs a running database and a logged-in browser session. The `_token`
 addition is the standard Laravel form-field approach and `VerifyCsrfToken` reads
 `_token` from the request body before falling back to headers, but saving an
 evaluation is worth clicking through once on a machine with the database up.
+
+---
+
+## 14. A README that describes this project
+
+**Problem**
+`README.md` was still Laravel's stock boilerplate — the framework's own marketing
+page, its sponsor list and its contribution guide. It said nothing about this
+application.
+
+Concretely, someone cloning the repository had no way to learn that:
+
+- `npm install` is required for the forecast to work at all;
+- **Node.js is a runtime dependency, not a build tool** — the web server's PHP
+  process shells out to it on every forecast;
+- `NODE_BINARY` exists for deployments where the server's `PATH` has no `node`,
+  which is the normal case under XAMPP, php-fpm and shared hosting;
+- "forecast unavailable" is a defined state with three specific causes, and every
+  one of them is written to the log.
+
+The `npm install` requirement appeared only inside a fix write-up in this file,
+and `NODE_BINARY` appeared in `.env.example` with no explanation. A deployment
+missing Node would show "unavailable" on every page with nothing pointing at why.
+
+**Fix**
+Replaced it with a project README covering setup, the roles, the forecasting
+subsystem, configuration, and the tests.
+
+The forecasting section is the substantial part, and states the things that are
+easy to get wrong or to quietly undo:
+
+- The forecast is for **the same semester in the next academic year**, not the
+  next semester — with the reasoning, since the distinction is not obvious and
+  the heading once got it wrong (fix #9).
+- Missing years break the series, with the worked example and why neither closing
+  nor zero-filling a gap is honest (fix #10).
+- ARIMA(1,1,0) with no MA term, two implementations, and the 20-point threshold
+  as the package's own limit rather than a tuning choice (fixes #5, #6).
+- Why the order is explicit rather than `auto`, with the ramp that shows auto
+  predicting 25 where the answer is 34 (fix #6).
+- `null` versus `0`, and the log line to grep for (fix #3).
+- The script's contract: stdout is JSON and nothing else (fixes #3, #7).
+
+It also states plainly that five academic years give three usable regression
+pairs, so the output is a trend-informed projection rather than a precise
+prediction. Better said in the README than discovered by a reader.
+
+**Verification**
+Every factual claim was checked against the code rather than from memory: the
+route group line number, the config keys, the payload keys, the threshold
+constant, the script's exit code and output, and the existence of every file
+named in the layout section. The stated Node floor was corrected from 18 to 16
+after checking that `arima` declares no `engines` and the real constraint is
+Vite's `^14.18.0 || >=16.0.0`.
+
+**Files**
+- `README.md`
