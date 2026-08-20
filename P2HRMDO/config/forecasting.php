@@ -16,4 +16,17 @@ return [
 
     'node_binary' => env('NODE_BINARY', 'node'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Forecast Timeout
+    |--------------------------------------------------------------------------
+    |
+    | Seconds to wait for the forecast script before abandoning the run. The
+    | script is called synchronously while a user waits on the page, so this is
+    | deliberately shorter than the framework's 60 second default.
+    |
+    */
+
+    'timeout' => (int) env('FORECAST_TIMEOUT', 10),
+
 ];

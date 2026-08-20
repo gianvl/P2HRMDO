@@ -117,3 +117,51 @@ Unexpected token 'o', "not json" is not valid JSON           # exit 1, stderr
 **Note**
 The same three-line explanation function exists verbatim in all three views, so
 this guard had to be pasted three times — see the duplication item in the review.
+
+---
+
+## 4. No timeout on the forecast subprocess (blocking)
+
+**Problem**
+`Process::run()` was called with no timeout. Laravel's default is 60 seconds, and
+the call is synchronous — a Node process that hangs (a pathological series in the
+`auto`-fitted branch, a stalled WASM load, a machine under load) holds the PHP
+worker for a full minute while the user stares at a spinner. Under php-fpm with a
+small worker pool, a handful of these exhausts the pool.
+
+**Fix**
+`Process::timeout(config('forecasting.timeout'))`, defaulting to 10 seconds and
+overridable via `FORECAST_TIMEOUT`. A timeout throws `ProcessTimedOutException`,
+which is caught and funnelled into the same "unavailable" path as any other
+failure: log the cause, return `null`. Ten seconds is generous — a five-point
+series returns in milliseconds — but bounded.
+
+**Files**
+- `config/forecasting.php`
+- `app/Http/Controllers/ForecastingDataController.php`
+- `.env.example`
+
+---
+
+## Status
+
+All four blocking issues are fixed. Not yet addressed (from the review, in
+suggested order):
+
+| # | Issue | Severity |
+|---|---|---|
+| 5 | Gaps in the year series are silently collapsed, so differencing runs over non-adjacent periods | correctness |
+| 6 | `$forecastSection1Arima` / `$numaddfacmember` are queried and aggregated but never used; the on-screen copy claims both inputs feed the model when only `num_emp_required` does | correctness / honesty |
+| 7 | `arima.historicalData` is returned but referenced by no view | dead payload |
+| 8 | The script accepts `steps` but the small-dataset path always forecasts one period | API consistency |
+| 9 | Two parameters fitted on three points; `phi` clamp permits the non-stationary boundary | statistical |
+| 10 | Forecasting logic lives in an HTTP controller; no tests anywhere | design |
+| 11 | The two `markovforecast.blade.php` views differ by ~47 of ~900 lines | duplication |
+| 12 | Files and routes still named "markov" after the package was removed | naming |
+| 13 | `routes/api.php:41` exposes manpower data with no auth middleware (pre-existing) | security |
+
+**Environment caveat**
+`php` is not installed on this machine, so the PHP changes were not run or linted
+locally — they were reviewed by inspection. `composer install` and `npm install`
+have not been run either; `npm install` is required before the >= 10 data point
+branch can work at all.

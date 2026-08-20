@@ -9,6 +9,7 @@ use App\Models\{
     Manpower
 };
 use Illuminate\Http\Request;
+use Illuminate\Process\Exceptions\ProcessTimedOutException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -200,11 +201,19 @@ class ForecastingDataController extends Controller
             return isset($series[0]) ? (int) $series[0] : null;
         }
 
-        $result = Process::run([
-            config('forecasting.node_binary'),
-            base_path('scripts/arima_forecast.js'),
-            json_encode(['series' => $series, 'steps' => 1]),
-        ]);
+        try {
+            $result = Process::timeout(config('forecasting.timeout'))->run([
+                config('forecasting.node_binary'),
+                base_path('scripts/arima_forecast.js'),
+                json_encode(['series' => $series, 'steps' => 1]),
+            ]);
+        } catch (ProcessTimedOutException $e) {
+            Log::warning('ARIMA forecast script timed out.', [
+                'timeout' => config('forecasting.timeout'),
+            ]);
+
+            return null;
+        }
 
         if (! $result->successful()) {
             Log::warning('ARIMA forecast script failed.', [
