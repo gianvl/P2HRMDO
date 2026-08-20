@@ -8,15 +8,18 @@ use App\Models\{
     ForecastSection1,
     Manpower
 };
+use App\Services\AcademicYearSeries;
+use App\Services\ArimaForecaster;
 use Illuminate\Http\Request;
-use Illuminate\Process\Exceptions\ProcessTimedOutException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Process;
 
 class ForecastingDataController extends Controller
 {
+    public function __construct(private readonly ArimaForecaster $forecaster)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -133,7 +136,7 @@ class ForecastingDataController extends Controller
             ->get();
 
         // 5-year historical window for ARIMA, oldest academic year first.
-        $ayListArima = $this->academicYearWindow($ay, 5);
+        $ayListArima = AcademicYearSeries::window($ay, 5);
 
         $manpowerArima = Manpower::where('college', $college)
             ->where('department', $department)
@@ -151,9 +154,9 @@ class ForecastingDataController extends Controller
 
         ksort($numemprequired);
 
-        $series = $this->contiguousSeries($numemprequired, $ayListArima);
+        $series = AcademicYearSeries::contiguous($numemprequired, $ayListArima);
 
-        $arimaForecast = $this->arimaForecast($series);
+        $arimaForecast = $this->forecaster->forecast($series);
 
         return [
             "manpower" => $manpower,
@@ -166,98 +169,5 @@ class ForecastingDataController extends Controller
                 "historicalData" => $numemprequired,
             ],
         ];
-    }
-
-    /**
-     * The $count academic years ending at $ay, oldest first.
-     *
-     * "2024-2025" with a count of 3 gives
-     * ["2022-2023", "2023-2024", "2024-2025"].
-     */
-    private function academicYearWindow(string $ay, int $count): array
-    {
-        [$startYr, $endYr] = array_map('intval', explode('-', $ay));
-
-        $years = [];
-        for ($offset = $count - 1; $offset >= 0; $offset--) {
-            $years[] = ($startYr - $offset) . '-' . ($endYr - $offset);
-        }
-
-        return $years;
-    }
-
-    /**
-     * The unbroken run of academic years ending at the most recent year of
-     * $window, as a plain list of totals.
-     *
-     * An academic year with no requisition is absent from $totals rather than
-     * present as zero, and the model reads consecutive list entries as
-     * consecutive periods. Closing a gap up would difference across the missing
-     * years as though they were adjacent, and filling it with zero would invent
-     * a requisition for nil that nobody submitted -- both distort the trend.
-     * Using only the run leading up to the selected year avoids both, and keeps
-     * the one-step forecast landing on the academic year the page names.
-     */
-    private function contiguousSeries(array $totals, array $window): array
-    {
-        $series = [];
-
-        foreach (array_reverse($window) as $ay) {
-            if (! array_key_exists($ay, $totals)) {
-                break;
-            }
-
-            array_unshift($series, $totals[$ay]);
-        }
-
-        return $series;
-    }
-
-    /**
-     * Forecast the next period's manpower requirement from a historical series.
-     *
-     * Returns null when no forecast can be produced, so that an unavailable
-     * forecast is never mistaken for a genuine forecast of zero.
-     */
-    private function arimaForecast(array $series): ?int
-    {
-        if (count($series) < 2) {
-            return isset($series[0]) ? (int) $series[0] : null;
-        }
-
-        try {
-            $result = Process::timeout(config('forecasting.timeout'))->run([
-                config('forecasting.node_binary'),
-                base_path('scripts/arima_forecast.js'),
-                json_encode(['series' => $series, 'steps' => 1]),
-            ]);
-        } catch (ProcessTimedOutException $e) {
-            Log::warning('ARIMA forecast script timed out.', [
-                'timeout' => config('forecasting.timeout'),
-            ]);
-
-            return null;
-        }
-
-        if (! $result->successful()) {
-            Log::warning('ARIMA forecast script failed.', [
-                'exit_code' => $result->exitCode(),
-                'error' => $result->errorOutput(),
-            ]);
-
-            return null;
-        }
-
-        $forecast = json_decode($result->output(), true)['forecast'] ?? null;
-
-        if (! is_numeric($forecast)) {
-            Log::warning('ARIMA forecast script returned unusable output.', [
-                'output' => $result->output(),
-            ]);
-
-            return null;
-        }
-
-        return (int) $forecast;
     }
 }
