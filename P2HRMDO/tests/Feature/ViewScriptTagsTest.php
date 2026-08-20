@@ -84,4 +84,44 @@ class ViewScriptTagsTest extends TestCase
 
         $this->assertSame([], $offenders, 'The slim build has no $.ajax.');
     }
+
+    /**
+     * Bootstrap 4 and 5 were loaded together on 23 pages. They are not
+     * compatible: 5 renamed every data attribute to data-bs-* and dropped the
+     * jQuery plugin API this application drives its modals with, so whichever
+     * ends up in control decides whether the markup works at all.
+     *
+     * Written as "one version, and it matches the markup" rather than
+     * "Bootstrap 4", so migrating the markup later changes what this test
+     * demands instead of failing it.
+     */
+    public function test_one_bootstrap_version_is_loaded_and_it_matches_the_markup(): void
+    {
+        $majors = [];
+        $bs4Markup = 0;
+        $bs5Markup = 0;
+
+        foreach ($this->views() as $contents) {
+            $bs4Markup += preg_match_all('/data-(?:toggle|dismiss|target|ride|parent)=/', $contents);
+            $bs5Markup += preg_match_all('/data-bs-[a-z]+=/', $contents);
+
+            preg_match_all('/<(?:script|link)[^>]*(?:src|href)="([^"]*bootstrap[^"]*)"/i', $contents, $matches);
+
+            foreach ($matches[1] as $url) {
+                if (preg_match('/bootstrap[@\/](\d)/', $url, $version)) {
+                    $majors[$version[1]] = true;
+                }
+            }
+        }
+
+        ksort($majors);
+
+        $this->assertCount(1, $majors, 'Loading two majors of Bootstrap together means neither is reliably in control. Found: ' . implode(', ', array_keys($majors)));
+
+        // PHP casts numeric array keys to integers.
+        $loaded = (string) array_key_first($majors);
+        $expected = $bs5Markup > $bs4Markup ? '5' : '4';
+
+        $this->assertSame($expected, $loaded, "The markup is Bootstrap {$expected} ({$bs4Markup} v4 attributes, {$bs5Markup} v5), but Bootstrap {$loaded} is loaded.");
+    }
 }

@@ -1054,3 +1054,74 @@ the MR form pages once.
 **Still there**
 These pages also load Bootstrap 4 and Bootstrap 5 together, plus CanvasJS
 alongside Chart.js. Same class of problem, not addressed here.
+
+---
+
+## 18. Bootstrap 4 and Bootstrap 5 loaded together on 23 pages
+
+**Problem**
+Nearly every page loaded both frameworks, in a tangle:
+
+```
+bootstrap@5 css, bootstrap@5 css, bootstrap@5 js, bootstrap/4 css, bootstrap/4 js, bootstrap@5 js
+```
+
+Bootstrap 5 is not a newer Bootstrap 4 — it is a different framework wearing the
+same name. It renamed every behavioural data attribute (`data-toggle` →
+`data-bs-toggle`), and it **removed the jQuery plugin API entirely**.
+
+**Which one this application actually needs is not the obvious answer.** The
+markup was measured across all 58 views:
+
+| | Bootstrap 4 | Bootstrap 5 |
+|---|---|---|
+| data attributes | **72** | **0** |
+| version-specific CSS classes | **100** | **0** |
+| direct JS API calls | `$('#confirm-logout').modal('show')` and friends | **0** |
+
+Not one `data-bs-*` attribute, not one Bootstrap 5-only class, not one
+`new bootstrap.Modal(...)`. The modals are driven through the jQuery plugin API,
+which exists **only** in Bootstrap 4. Bootstrap 5 was 45 stylesheets and 44
+scripts of dead weight whose only effect was to compete with the framework the
+markup is written for.
+
+**Fix**
+Removed every Bootstrap 5 asset; kept Bootstrap 4. Counter-intuitive, and the
+right way round: the markup is the requirement, and the loaded framework has to
+match it. Migrating to Bootstrap 5 instead would mean rewriting 72 attributes,
+100 classes and every modal call — a real project with real visual risk, not a
+cleanup.
+
+Checked afterwards that every page still has both the CSS and the JS its markup
+depends on, including the three forecast pages, which take their Bootstrap 4 CSS
+from the page and their JS from the shared partial, and `layouts/navbar.blade.php`,
+which uses Bootstrap 4 attributes and is included only by `layouts/app.blade.php`,
+which loads both.
+
+**23 files, 45 stylesheets and 44 scripts removed.**
+
+**A knock-on from #17 worth recording.** `$('#confirm-logout').modal('show')`
+works only if Bootstrap 4's JS registered `$.fn.modal` on the jQuery that is
+still in place when the call runs. In the old ordering — jQuery slim, then
+Bootstrap 4 JS, then jQuery 1.4.2 — the final jQuery load **replaced the object
+Bootstrap had just extended**, so `$.fn.modal` was gone by the time anything
+called it. Those modals were broken on all ten pages carrying the 1.4.2 load.
+Fixing jQuery fixed that; this change removes the remaining competitor.
+
+**Files**
+- 23 Blade views (see the commit)
+- `tests/Feature/ViewScriptTagsTest.php`
+
+**Verification**
+No view loads two Bootstrap majors, and the one loaded matches the dialect the
+markup uses. The test is written as "one version, and it matches the markup"
+rather than hard-coding 4, so migrating later changes what it demands instead of
+failing. All templates compile; suite green at 38 tests.
+
+**Not verified**
+No browser. This is a **visual** change across 23 views: Bootstrap 5's CSS is
+gone, and while Bootstrap 4's stylesheet already loaded last and therefore
+already won every rule they both define, Bootstrap 5 may have been supplying
+rules Bootstrap 4 does not. No Bootstrap 5-only class appears in the markup,
+which is why the risk is low rather than zero. Worth a look at the navbar,
+modals, dropdowns and alert dismiss buttons before relying on it.
