@@ -27,7 +27,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['cors'])->group(function () {
+/*
+ * These are the web application's own AJAX endpoints, not a public API: every
+ * caller is a Blade page behind the auth middleware. They are served from
+ * routes/api.php only for the "/api" URL prefix, which leaves them outside the
+ * "web" middleware group -- so without the group below they carried no session
+ * and no authentication, and returned any college's figures to anyone who knew
+ * the URL.
+ *
+ * "web" supplies the session the browser already holds, "auth" rejects guests,
+ * and CSRF verification (part of "web") covers the one POST route.
+ */
+Route::middleware(['web', 'auth', 'cors'])->group(function () {
     Route::get('/professor/{id}', [ProfessorController::class, 'professor'])->name('api.professor.professor');
     Route::get('/college/{college}/department', [CollegeController::class, 'departmentList'])->name('api.college.departmentList');
     Route::get('/college/{college}/department/{department}', [CollegeController::class, 'employeeList'])->name('api.college.employeeList');

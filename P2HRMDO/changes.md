@@ -721,3 +721,85 @@ from fix #3 rather than contradicting it.
 **Note**
 If the pie chart was a requirement, it can come back in a third canvas — but the
 data would still not be parts of a whole.
+
+---
+
+## 13. The /api endpoints were reachable without logging in
+
+**Problem**
+Every route in `routes/api.php` sat in a `['cors']`-only group:
+
+```php
+Route::middleware(['cors'])->group(function () {
+    Route::get('/processing/forecastingdata/{college}/{department}/{ay}/{semester}', ...);
+    Route::get('/evaluation/datareport/{employeeId}/{ayFrom}/{ayTo}', ...);
+    ...
+```
+
+No session, no authentication. Anyone who knew a URL could read any college's
+manpower requisitions, any department's evaluation reports, and any professor's
+record — no login, no cookie, a plain `curl` was enough. The `cors` middleware
+additionally returned `Access-Control-Allow-Origin: *` on every response.
+
+The cause is structural rather than an oversight in one line. These are the web
+application's **own AJAX endpoints** — all 27 call sites are Blade pages behind
+`auth` — but they live in `routes/api.php` purely for the `/api` URL prefix, and
+that file is bound to the `api` middleware group, which contains only throttling
+and route-model binding. Being in the "API" file quietly opted them out of the
+session and authentication every calling page already had.
+
+Pre-existing; not introduced by the ARIMA work.
+
+**Fix**
+Put the group behind the session and the auth guard:
+
+```php
+Route::middleware(['web', 'auth', 'cors'])->group(function () {
+```
+
+`web` supplies the session cookie the browser is already sending, so `auth` can
+see the logged-in user. Order matters — the session has to start before the guard
+looks for a user.
+
+**The one thing that could have broken.** `web` also brings CSRF verification.
+Seven of the eight routes are GETs, which CSRF ignores, but `/api/evaluation/post`
+is a POST and was sending no token — there is no `csrf-token` meta tag and no
+global `$.ajaxSetup` anywhere in the project, and `VerifyCsrfToken::$except` is
+empty. Left alone it would have started failing with a 419 and broken evaluation
+saving. Its payload now includes `_token`.
+
+The `Access-Control-Allow-Origin: *` header is left as it is. Once credentials
+are required it stops being exploitable — browsers refuse to send cookies to a
+wildcard origin — so it is untidy rather than dangerous, and removing it belongs
+to a separate change.
+
+**Files**
+- `routes/api.php`
+- `resources/views/requesting/evalpages/inputevalpage.blade.php`
+- `tests/Feature/ApiRoutesRequireAuthenticationTest.php` (new)
+
+**Verification**
+```
+✔ Every api route is behind authentication
+✔ Api routes start a session so auth can see the logged in user
+✔ A guest cannot read forecasting data
+✔ A guest cannot read department or professor data
+✔ A guest cannot post an evaluation
+✔ A logged in user is let through
+```
+
+The first test walks the live route table rather than a fixed list, so a new
+`/api` route added without authentication fails it. The last is the other half of
+the guarantee — locking guests out must not lock users out. It asserts "not
+rejected" rather than "200" so it holds with or without a database: with MySQL
+down the request still reaches the controller and fails there, which is itself
+proof it passed the auth middleware.
+
+Suite: 34 tests, 56 assertions, green.
+
+**Not verified**
+The authenticated POST to `/api/evaluation/post` was not exercised end to end —
+that needs a running database and a logged-in browser session. The `_token`
+addition is the standard Laravel form-field approach and `VerifyCsrfToken` reads
+`_token` from the request body before falling back to headers, but saving an
+evaluation is worth clicking through once on a machine with the database up.

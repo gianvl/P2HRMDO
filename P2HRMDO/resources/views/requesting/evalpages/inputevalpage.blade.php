@@ -402,6 +402,8 @@
                         if (response.count <= 0) {
 
                             var formData = {
+                                // Posting to /api now goes through CSRF verification.
+                                _token: '{{ csrf_token() }}',
                                 employee_id: $("#dropwdown-professor").val(),
                                 ay: $("#ay").val(),
                                 semester: $("#semesterInput").val(),
