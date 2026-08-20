@@ -1,5 +1,3 @@
-const ARIMA = require('arima');
-
 /**
  * ARIMA(1,1,0) implementation for small datasets (< 10 data points).
  * Uses first-order differencing + AR(1) via least squares regression.
@@ -61,7 +59,9 @@ try {
         const forecast = Math.max(0, Math.round(arimaSmallDataset(series)));
         console.log(JSON.stringify({ forecast, model: 'ARIMA(1,1,0)' }));
     } else {
-        // Use arima npm package with auto-fitting for larger datasets
+        // Required lazily: only this branch needs the package, so a missing
+        // install cannot break the small-dataset path above.
+        const ARIMA = require('arima');
         const arima = new ARIMA({ auto: true, verbose: false });
         arima.train(series);
         const [predicted] = arima.predict(steps);
