@@ -591,3 +591,73 @@ the two genuinely adjacent observations give 8.
 academic year. If HRMDO ever needs a forecast for a year whose predecessor has no
 data, that is the feature to build — multi-step forecasting from the last
 complete run — rather than relaxing the contiguity rule.
+
+---
+
+## 11. Forecasting logic extracted from the controller, and tested
+
+**Problem**
+Every fix in this session was verified by invoking private controller methods
+through `ReflectionMethod` from throwaway scripts. That worked, but the fact it
+was *necessary* is the smell: `arimaForecast()`, `academicYearWindow()` and
+`contiguousSeries()` are pure logic with no HTTP concerns, reachable only through
+a route. Nothing in the repository protected any of the ten fixes from
+regression, and the probe scripts are gone.
+
+**Fix — extraction**
+Split by responsibility rather than moving the block wholesale:
+
+- `App\Services\AcademicYearSeries` — pure functions over academic year strings:
+  `window()` and `contiguous()`. No knowledge of ARIMA, subprocesses or config,
+  so the gap-handling rules can be tested without any of that.
+- `App\Services\ArimaForecaster` — owns the subprocess, the timeout, the config
+  lookups and the logging. One public method, `forecast(array $series): ?int`.
+
+The controller takes `ArimaForecaster` by constructor injection and drops from
+265 to 173 lines. Behaviour is unchanged, confirmed by re-running the same probes
+against the extracted services before committing.
+
+**Fix — tests**
+28 tests, 47 assertions, all green.
+
+`tests/Unit/AcademicYearSeriesTest.php` (9 tests) — window construction
+including the both-halves decrement, and every gap case: no gaps, a hole in the
+middle, the selected year missing, only the selected year, nothing at all, and
+years outside the window. The hole-in-the-middle test names the bug it guards.
+
+`tests/Unit/ArimaForecasterTest.php` (10 tests) — uses `Process::fake()`, so the
+failure paths are testable without Node. Covers the arguments handed to the
+script, and separately that a failed run, unparseable output, missing `forecast`
+key, and a non-numeric forecast each yield `null` rather than a number. One test
+asserts the *reason* reaches the log, since silent failure was the original bug.
+
+`tests/Feature/ArimaForecastScriptTest.php` (8 tests) — runs the real script, so
+the model and the PHP/Node contract are covered too: known forecasts either side
+of the 20-point threshold, stdout parsing as JSON with nothing mixed in, and
+invalid input failing loudly with an empty stdout and a populated stderr. It
+skips cleanly when Node or `node_modules` is absent.
+
+The test that matters most: a steep decline forecasts `0` as an integer, proving
+a genuine zero is still distinguishable from the `null` that means "unavailable".
+
+**Also fixed**
+Laravel's stock `tests/Feature/ExampleTest.php` asserted that `/` returns 200. It
+returns 302 — `routes/web.php:36` redirects guests to the login screen — so the
+suite failed out of the box, which trains people to ignore red. It now asserts
+the redirect.
+
+**Files**
+- `app/Services/AcademicYearSeries.php` (new)
+- `app/Services/ArimaForecaster.php` (new)
+- `app/Http/Controllers/ForecastingDataController.php`
+- `tests/Unit/AcademicYearSeriesTest.php` (new)
+- `tests/Unit/ArimaForecasterTest.php` (new)
+- `tests/Feature/ArimaForecastScriptTest.php` (new)
+- `tests/Feature/ExampleTest.php`
+
+**Verification**
+```
+$ ./vendor/bin/phpunit
+............................                                      28 / 28 (100%)
+OK (28 tests, 47 assertions)
+```
