@@ -979,3 +979,78 @@ stops working entirely. It works on an HTTP localhost, which is exactly why this
 would not be noticed until deployment. Removing the two redundant loads should
 fix it, but that changes which jQuery every script on the page runs against, so
 it wants a browser to verify rather than a guess.
+
+---
+
+## 17. Three jQuery versions per page, one of them over plain http
+
+**Problem**
+Pages across the application loaded jQuery repeatedly, each load replacing the
+last. The forecast pages were typical:
+
+```
+<head>  jquery-3.6.0.min.js            full, https
+<body>  jquery-3.2.1.slim.min.js       slim  -- has no $.ajax
+<body>  jquery/1.4.2/jquery.min.js     over plain http://
+```
+
+The last load wins, so every `$.ajax` call in the application was running on a
+jQuery released in 2010.
+
+Worse, that last one is `http://`. On an HTTPS deployment the browser blocks it
+as mixed content, `$` is left as the **slim** build, `$.ajax` is undefined, and
+every AJAX feature on the page — including the Forecast button — silently stops
+working. It behaves perfectly on an HTTP localhost, which is exactly why this
+would first appear in production.
+
+A survey of all 58 Blade views found:
+
+- **10** views loading jQuery 1.4.2 over plain http — and those were the *only*
+  mixed-content assets in the entire project.
+- **18** views loading the slim build on top of a full one.
+- **`processing/processmrform.blade.php` broken outright, today.** It loads
+  3.6.0 then slim, uses `$.ajax`, and has no 1.4.2 to accidentally rescue it —
+  so its AJAX is undefined on http and https alike.
+- **`partials/arima-forecast.blade.php`** loading slim and 1.4.2 while having no
+  jQuery of its own: its only effect was to overwrite the jQuery its including
+  page had already loaded correctly.
+
+**Fix**
+One jQuery per page. For any view loading more than one, the first is kept — the
+full 3.6.0 in `<head>` in every case — and the rest removed. The partial keeps
+none, since all three of its including pages load 3.6.0 in `<head>`; that was the
+whole problem.
+
+Views that load only the slim build and use no AJAX (`login`, `forgot`,
+`auth/reset`) were left alone: one coherent version, no conflict, and Bootstrap 4
+ships slim in its own documentation.
+
+`layouts/app.blade.php` went from `3.6.0 -> slim -> 1.4.2 -> 3.6.0` to a single
+`3.6.0`. It happened to end on a full build, so it worked — by luck of ordering
+rather than by design. Six views that load no jQuery of their own
+(`inputevalpage`, `deptevalpage`, `saveevalpage`, `searchevaldatareport`,
+`userapprovalprofile`, `userrequestingprofile`) inherit from it, so they were
+depending on that luck.
+
+**17 files changed, 29 redundant jQuery loads removed.**
+
+**Files**
+- 17 Blade views (see the commit)
+- `tests/Feature/ViewScriptTagsTest.php` (new)
+
+**Verification**
+No view now loads more than one jQuery, no view references any `http://` asset,
+and no view that calls `$.ajax` ends on the slim build. Three tests enforce all
+of that against the view tree, so a re-pasted script block fails the suite rather
+than reaching a deployment. All templates compile; suite green at 37 tests.
+
+**Not verified**
+No browser was involved. The reasoning is solid — every changed page keeps a full
+jQuery loaded in `<head>`, ahead of any inline script that uses `$` — but this
+touched 17 files across the application, several of which are outside the
+forecasting work. Worth clicking through the faculty list, user management and
+the MR form pages once.
+
+**Still there**
+These pages also load Bootstrap 4 and Bootstrap 5 together, plus CanvasJS
+alongside Chart.js. Same class of problem, not addressed here.
